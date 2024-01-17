@@ -1,0 +1,73 @@
+<head>
+  <title>{% if page.title or page.temp_title %} {{page.temp_title | default: page.title}} | {% endif %} {{site.title}}</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="og:title" content="{{page.temp_title | default: page.title}}">
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{page.url | absolute_url }}">
+  {% assign description= page.content | strip_html | markdownify | strip_html | strip_newlines | truncate: 210 -%}
+  {%- if page.temp_blurb or page.blurb -%}
+    {%- assign description=page.temp_blurb | default: page.blurb | strip_html | markdownify | strip_html -%}
+  {% endif %}
+  <meta name="og:description" content="{{description}}">
+  {% assign image=page.sign -%}
+  {%- unless image -%}
+    {% assign image=page.image -%}
+  {%- endunless -%}
+  {%- unless image %}
+    {%- assign image=page.cover -%}
+  {%- endunless -%}
+  {%- unless image -%}
+    {%- assign image=page.logo -%}
+  {%- endunless -%}
+  {%- unless image -%}
+    {%- if page.youtube %}
+      {%- assign image = "https://i3.ytimg.com/vi/" | append: page.youtube | append: "/hqdefault.jpg" -%}
+    {% endif %}
+  {%- endunless -%}
+  {%- if image %}
+    <meta name="og:image" content="{{image | absolute_url }}">
+    <meta name="og:image:url" content="{{image | absolute_url }}">
+  {% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@{{site.twitter}}">
+  <meta name="twitter:creator" content="{% if page.twitter %}@{{page.twitter}}{% else %}@{{site.twitter}}{% endif %}">
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "{{site.title}}",
+      "alternateName" : "{{site.short_title}}",
+      "url" : "{{site.url}}"
+    }
+  </script>
+
+  {%- if page.image %}
+    <link rel="preload" href="{{ page.image | absolute_url }}" as="image"><!-- load the most prominent image first -->
+  {% endif -%}
+  <link rel="apple-touch-icon" sizes="57x57" href="{{site.url}}{{site.baseurl}}/img/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="{{site.url}}{{site.baseurl}}/img/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{site.url}}{{site.baseurl}}/img/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{site.url}}{{site.baseurl}}/img/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{site.url}}{{site.baseurl}}/img/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{site.url}}{{site.baseurl}}/img/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="{{site.url}}{{site.baseurl}}/img/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{site.url}}{{site.baseurl}}/img/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{site.url}}{{site.baseurl}}/img/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="{{site.url}}{{site.baseurl}}/img/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{site.url}}{{site.baseurl}}/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{site.url}}{{site.baseurl}}/img/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{site.url}}{{site.baseurl}}/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="{{site.url}}{{site.baseurl}}/manifest.json">
+  <link rel="shortcut icon" href="{{site.url}}{{site.baseurl}}/img/favicon/favicon.ico" type="image/x-icon" />
+  <meta name="msapplication-TileColor" content="#000">
+  <meta name="msapplication-TileImage" content="{{site.url}}{{site.baseurl}}/img/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#000">
+
+  <link href="{{site.url}}{{site.baseurl}}/css/main.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:700" rel="stylesheet" type="text/css">
+  {% for feed in site.feeds %}
+    <link rel="alternate" type="application/rss+xml" title="{{ feed.title }}" href="{{ feed.url | absolute_url }}" />
+  {% endfor %}
+</head>
