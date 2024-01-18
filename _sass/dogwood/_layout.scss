@@ -1439,6 +1439,17 @@ article {
   }
 }
 
+.status-bubble {
+  color: white;
+  background: $status-color;
+  border-radius: 20px;
+  position: absolute;
+  top: -10px;
+  font-weight: bold;
+  font-size: 0.75em;
+  padding: 0 $sp*0.5;
+}
+
 .app-sign {
   background-position: center;
   background-size: cover;
@@ -1447,15 +1458,8 @@ article {
   height: 140px;
 
   .status-bubble {
-    color: white;
-    background: $status-color;
-    border-radius: 20px;
-    position: absolute;
     top: -10px;
     right: -10px;
-    font-weight: bold;
-    font-size: 0.75em;
-    padding: 0 $sp*0.5;
   }
 }
 .status-symbol {
@@ -1511,6 +1515,28 @@ ul.org-members.level-1 li img{
     padding-bottom: $sp;
     padding-right: $sp*0.5;
     white-space: nowrap;
+  }
+}
+
+#notice-overlay {
+  position: fixed;
+  bottom: $sp*0.5;
+  right: $sp*0.5;
+  background: white;
+  border: 1px solid $grid-color;
+  border-radius: 4px;
+  padding: $sp*0.75 $sp*0.5;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.12);
+
+  display: flex;
+  flex-direction: row;
+
+  .logo {
+    width: 60px;
+    margin-right: $sp*0.5;
+  }
+  .status-bubble {
+    left: -10px;
   }
 }
 

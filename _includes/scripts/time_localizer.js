@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll('.time').forEach(function(el) {
     var targetTimeZone = el.getAttribute('totimezone') || undefined;
     var sourceTime = el.getAttribute('time') && parseInt(el.getAttribute('time') + '000');
@@ -35,28 +35,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var date = (sourceTime && new Date(sourceTime)) || new Date();
     el.textContent = date.toLocaleDateString(undefined, {day:'2-digit',timeZoneName: 'long' }).substring(4);
   });
-
-  var scheduleRowsToCheck = document.querySelectorAll('table.schedule tr[start][end]');
-
-  if (scheduleRowsToCheck.length > 0) {
-    setInterval(checkScheduleRows, 1000);
-    checkScheduleRows();
-  }
-
-  function checkScheduleRows() {
-    var now = new Date();
-    scheduleRowsToCheck.forEach(function(el) {
-      var start = new Date(parseInt(el.getAttribute('start') + '000'));
-      var end = new Date(parseInt(el.getAttribute('end') + '000'));
-      if (now >= start && now < end) {
-        if (!el.classList.contains('ongoing')) {
-          el.classList.add('ongoing');
-        }
-      } else if (el.classList.contains('ongoing')) {
-        el.classList.remove('ongoing');
-      }
-    });
-  }
 
   function parseTime(t) {
     var time = t.match( /(\d+)(?::(\d\d))?\s*([pP]|[aA]?)/ );

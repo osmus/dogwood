@@ -30,6 +30,34 @@
 <meta name="msapplication-TileColor" content="#000">
 <meta name="msapplication-TileImage" content="{{site.url}}{{site.baseurl}}/img/favicon/ms-icon-144x144.png">
 <meta name="theme-color" content="#000">
+<meta name="homepage" content="{{ site.url }}{{ site.baseurl }}">
+{% assign sessions = site.posts | where_exp: "item", "item.url contains '/events/'" %}
+{% assign future_sessions="" | split: ',' -%}
+{% assign curDate = site.time | date: '%s' | minus: 86400 %}
+{% for session in sessions %}
+    {% assign page_date = session.date | date: '%s' | minus: 0 %}
+    {% if page_date >= curDate %}
+        {% assign future_sessions = future_sessions | push: session %}
+    {% endif %}
+{% endfor %}
+{% assign next_session = future_sessions | reverse | first %}
+{% if next_session %}
+  {% assign starttime = next_session.date | date: '%s' %}
+  {% assign endtime = starttime | plus: 3600 %}
+  {% if next_session.event %}
+    {% assign last_in_series = future_sessions | where: 'event', next_session.event | last %}
+    {% assign endtime = last_in_series.date | date: '%s' | plus: 3600 %}
+    {% assign next_session = site.pages | find_exp: "item", "item.title==next_session.event or item.temp_title==next_session.event" %}
+  {% endif %}
+  <meta name="dogwood-next-event"
+    content="{{ next_session.temp_title | default: next_session.title }}"
+    tagline="{{next_session.tagline}}"
+    noticeclass="{{ next_session.title | slugify }}"
+    logo="{{ next_session.logo | absolute_url }}"
+    start="{{starttime}}"
+    end="{{endtime}}"
+    href="{{ next_session.url | absolute_url }}">
+{% endif %}
 
 <link href="{{site.url}}{{site.baseurl}}/assets/style.css" rel="stylesheet" />
 {% for feed in site.feeds %}
