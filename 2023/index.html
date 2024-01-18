@@ -50,6 +50,12 @@
 <meta name="msapplication-TileColor" content="#000">
 <meta name="msapplication-TileImage" content="https://osmus.github.io/dogwood/img/favicon/ms-icon-144x144.png">
 <meta name="theme-color" content="#000">
+<meta name="homepage" content="https://osmus.github.io/dogwood">
+
+
+
+
+
 
 <link href="https://osmus.github.io/dogwood/assets/style.css" rel="stylesheet" />
 
@@ -314,7 +320,7 @@ fetch("https://osmus.github.io/dogwood/assets/icons/fa-brands.svg")
         div.innerHTML = text;
         document.body.insertBefore(div, document.body.childNodes[0]);
     });
-  document.addEventListener("DOMContentLoaded", function(event) {
+  document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll('.time').forEach(function(el) {
     var targetTimeZone = el.getAttribute('totimezone') || undefined;
     var sourceTime = el.getAttribute('time') && parseInt(el.getAttribute('time') + '000');
@@ -352,28 +358,6 @@ fetch("https://osmus.github.io/dogwood/assets/icons/fa-brands.svg")
     el.textContent = date.toLocaleDateString(undefined, {day:'2-digit',timeZoneName: 'long' }).substring(4);
   });
 
-  var scheduleRowsToCheck = document.querySelectorAll('table.schedule tr[start][end]');
-
-  if (scheduleRowsToCheck.length > 0) {
-    setInterval(checkScheduleRows, 1000);
-    checkScheduleRows();
-  }
-
-  function checkScheduleRows() {
-    var now = new Date();
-    scheduleRowsToCheck.forEach(function(el) {
-      var start = new Date(parseInt(el.getAttribute('start') + '000'));
-      var end = new Date(parseInt(el.getAttribute('end') + '000'));
-      if (now >= start && now < end) {
-        if (!el.classList.contains('ongoing')) {
-          el.classList.add('ongoing');
-        }
-      } else if (el.classList.contains('ongoing')) {
-        el.classList.remove('ongoing');
-      }
-    });
-  }
-
   function parseTime(t) {
     var time = t.match( /(\d+)(?::(\d\d))?\s*([pP]|[aA]?)/ );
     var h = parseInt(time[1]);
@@ -396,22 +380,111 @@ fetch("https://osmus.github.io/dogwood/assets/icons/fa-brands.svg")
   }
 });
   // do smooth scroll when clicking an #anchor link instead of jumping
-document.addEventListener(`click`, e => {
+document.addEventListener('click', function(e) {
   const origin = e.target.closest(`a`);
   if (!origin || !origin.href) return;
   
   var parts = origin.href.match(/^([^#]*)#(.+)/);
-  var hash = parts[2];
-  if (parts[1] === (window.location.origin + location.pathname) && hash) {
+  if (parts && parts.length >=3 && parts[1] === (window.location.origin + location.pathname) && parts[2]) {
     
     // cancel jump
     e.preventDefault();
 
-    var elmntToView = document.getElementById(hash);
+    var elmntToView = document.getElementById(parts[2]);
     elmntToView.scrollIntoView({behavior: "smooth"}); 
   }
 });
 
+  document.addEventListener("DOMContentLoaded", function() {
+
+  var scheduleRowsToCheck = document.querySelectorAll('table.schedule tr[start][end]');
+
+  if (scheduleRowsToCheck.length > 0) {
+    setInterval(checkScheduleRows, 1000);
+    checkScheduleRows();
+  }
+
+  function checkScheduleRows() {
+    var now = new Date();
+    scheduleRowsToCheck.forEach(function(el) {
+      var start = new Date(parseInt(el.getAttribute('start') + '000'));
+      var end = new Date(parseInt(el.getAttribute('end') + '000'));
+      if (now >= start && now < end) {
+        if (!el.classList.contains('ongoing')) {
+          el.classList.add('ongoing');
+        }
+      } else if (el.classList.contains('ongoing')) {
+        el.classList.remove('ongoing');
+      }
+    });
+  }
+
+  var homepageUrl = document.querySelector('meta[name="homepage"]').getAttribute('content');
+  var nextEventEl = document.querySelector('meta[name="dogwood-next-event"]');
+  if (nextEventEl) createRealtimeMessage();
+
+  function createRealtimeMessage() {
+
+    var title = nextEventEl.getAttribute('content');
+
+    var noticeInfo = JSON.parse(localStorage.getItem('notice-info')) || null;
+    if (noticeInfo && noticeInfo.title !== title)  {
+      localStorage.removeItem('notice-info');
+      noticeInfo = null;
+    }
+
+    var end = new Date(parseInt(nextEventEl.getAttribute('end') + '000'));
+    var now = new Date();
+
+    // don't show something that's over
+    if (now > end) return;
+
+    var link = nextEventEl.getAttribute('href');
+
+    // don't show if we're already on the promoted part of the site
+    if (window.location.href.startsWith(link) || 
+      // or if we're on the homepage since content is already promoted there
+      window.location.href === homepageUrl + '/') return;
+
+    var start = new Date(parseInt(nextEventEl.getAttribute('start') + '000'));
+
+    if (now < start &&
+        noticeInfo &&
+        now.getTime() < noticeInfo.clicked + 172800000
+        ) {
+      // don't notify again if event hasn't started yet and it's been under two days since last notified
+      return;
+    }
+
+    var tagline = nextEventEl.getAttribute('tagline');
+    var logo = nextEventEl.getAttribute('logo');
+    
+    var notice = document.createElement('a');
+    notice.setAttribute('href', link);
+    notice.setAttribute('id', 'notice-overlay');
+    notice.classList.add(nextEventEl.getAttribute('noticeclass'));
+    var html = '';
+
+    if (logo) {
+      html += '<img class="logo" src="' + logo + '"/>';
+    }
+    html += '<div class="messages">';
+    var status = start > now ? 'Upcoming' : 'Happening Now';
+    html += '<div class="status-bubble">' + status + '</div>';
+    html += '<p><b>' + title + '</b><br/>' + tagline + '</p>'
+    html += '</a>';
+    
+    notice.innerHTML = html;
+    document.body.appendChild(notice);
+
+    notice.addEventListener('click', function() {
+      localStorage.setItem('notice-info', JSON.stringify({
+        title: title,
+        clicked: now.getTime()
+      }));
+    });
+  }
+});
 </script>
   <script type="text/javascript">
   // put your custom JS here
