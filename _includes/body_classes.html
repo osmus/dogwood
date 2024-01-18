@@ -1,0 +1,19 @@
+{%- if page.layout -%}
+  layout-{{page.layout}}
+{%- endif %}
+{% if page.image -%}
+  has-image
+{%- endif %}
+{% if page.cover -%}
+  has-cover
+{%- endif %}
+{% assign path_parts = page.url | remove_first: '/' | remove_last: '/' | split: '/' -%}
+{%- assign componenturl = '/' -%}
+{%- for part in path_parts -%}
+  {%- assign componenturl = componenturl | append: part | append: '/' -%}
+  {%- assign componentpage = site.documents | find: 'url', componenturl -%}
+  {%- if componentpage and componentpage.title %}
+    page-{{ componentpage.title | slugify }}
+  {% endif -%}
+{%- endfor %}
+ispage-{{ page.title | slugify }}

@@ -1,0 +1,47 @@
+<div class="topbar">
+  <div class="container">
+    <a href="{{site.url}}{{site.baseurl}}" class="site-wordmark">
+      <img class="logo" src="{{site.logo | absolute_url}}"/>
+      <span class='text'>{{ site.title }}</span>
+    </a>
+    <ul class='headernav'>
+        {%- for site_link in site.links -%}
+          {%- assign linked_page=site.pages | find: "url", site_link.link -%}
+          <li class="{{site_link.class}}">
+            <a class='button-label {{site_link.a_class}}' href="{{site_link.link | absolute_url}}">
+              {%- if site_link.label -%}
+                {{site_link.label}}
+              {%- elsif linked_page.short_title -%}
+                {{linked_page.short_title}}
+              {%- else -%}
+                {{linked_page.title}}
+              {%- endif -%}
+            </a>
+            {%- assign sublinks=linked_page.dropdown_links | default: linked_page.links -%}
+            {%- if sublinks -%}
+              <ul class='submenu'>
+                {%- for link in sublinks -%}
+                  {%- assign linked_subpage=site.pages | find: "url", link.link -%}
+                  {%- assign status=linked_subpage.status -%}
+                  <li class="{{link.class}}">
+                    <a class='button-label {{link.a_class}}' href="{{link.link | absolute_url}}" {% if status -%}title="{{status}}"{%- endif -%}>
+                      {%- if link.label -%}
+                        {{link.label}}
+                      {%- elsif linked_subpage.short_title -%}
+                        {{linked_subpage.short_title}}
+                      {%- else -%}
+                        {{linked_subpage.title}}
+                      {%- endif -%}
+                      {%- if status == 'Upcoming' or status == 'New' or status == 'Soon' -%}
+                        &nbsp;<span class="status-symbol">★</span>
+                      {%- endif -%}
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+    </ul>
+  </div>
+</div>

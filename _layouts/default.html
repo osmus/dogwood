@@ -1,0 +1,16 @@
+---
+---
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+<body class="{% include body_classes.html %}">
+  {% include_cached analytics.html %}
+  {% include_cached topbar.html %}
+  <div class="layout-body">
+    {{content}}
+  </div>
+  {% include_cached footer.html %}
+  {% include_cached scripts.html %}
+  {% include_cached custom-scripts.html %}
+</body>
+</html>

@@ -1,0 +1,62 @@
+<div class="footer dark">
+  <div class="container">
+    <div class="top">
+      <a href="{{site.url}}{{site.baseurl}}" class="site-wordmark">
+        <img class="logo" src="{{site.logo_mono | default: site.logo | absolute_url}}"/>
+        <span class="text">{{ site.title }}</span>
+      </a>
+      <ul class="icon-buttons">
+        <li>
+          <a href="{{'/slack' | absolute_url}}" title="Slack">
+            <svg class="iconsvg"><use xlink:href="#slack"></use></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://youtube.com/{{site.youtube_page}}" target="_blank" title="YouTube">
+            <svg class="iconsvg"><use xlink:href="#youtube"></use></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/{{site.instagram}}" target="_blank" title="Instagram">
+            <svg class="iconsvg"><use xlink:href="#instagram"></use></svg>
+          </li>
+        </a>
+        <li>
+          <a href="{{site.mastodon}}" target="_blank" title="Mastodon">
+            <svg class="iconsvg"><use xlink:href="#mastodon"></use></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/{{site.twitter}}" target="_blank" title="Twitter">
+            <svg class="iconsvg"><use xlink:href="#twitter"></use></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/{{site.facebook}}" target="_blank" title="Facebook">
+            <svg class="iconsvg"><use xlink:href="#facebook"></use></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/{{site.linkedin}}" target="_blank" title="LinkedIn">
+            <svg class="iconsvg"><use xlink:href="#linkedin"></use></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/{{site.github}}" target="_blank" title="GitHub">
+            <svg class="iconsvg"><use xlink:href="#github"></use></svg>
+          </a>
+        <li>
+          <a href="{{'/contact' | absolute_url}}" title="Email">
+            <svg class="iconsvg"><use xlink:href="#envelope"></use></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <br/>
+    {%- include sitemap.html -%}
+    <hr/>
+    <div class="smallprint">
+      <p>© {{site.time | date: "%Y"}} {{ site.copyright | default: site.title }}</p>
+    </div>
+  </div>
+</div>

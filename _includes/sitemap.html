@@ -1,0 +1,38 @@
+<div class="sitemap">
+  {%- assign site_links=site.footer_links | default: site.links -%}
+  {%- for site_link in site_links -%}
+    {%- assign linked_page=site.pages | find: "url", site_link.link -%}
+    <ul>
+      <li>
+        <a class='button-label' href="{{site_link.link | absolute_url}}">
+          {%- if site_link.label -%}
+            {{site_link.label}}
+          {%- elsif linked_page.short_title -%}
+            {{linked_page.short_title}}
+          {%- else -%}
+            {{linked_page.title}}
+          {%- endif -%}
+        </a>
+      </li>
+      {%- assign sublinks=linked_page.footer_links | default: linked_page.dropdown_links | default: linked_page.links -%}
+      {%- for link in sublinks -%}
+        {%- assign linked_subpage=site.pages | find: "url", link.link -%}
+        {%- assign status=linked_subpage.status -%}
+        <li>
+          <a class='button-label' href="{{link.link | absolute_url}}" {% if status -%}title="{{status}}"{%- endif -%}>
+            {%- if link.label -%}
+              {{link.label}}
+            {%- elsif linked_subpage.short_title -%}
+              {{linked_subpage.short_title}}
+            {%- else -%}
+              {{linked_subpage.title}}
+            {%- endif -%}
+            {%- if status == 'Upcoming' or status == 'New' or status == 'Soon' -%}
+              &nbsp;<span class="status-symbol">★</span>
+            {%- endif -%}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endfor -%}
+</div>
