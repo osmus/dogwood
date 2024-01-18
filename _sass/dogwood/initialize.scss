@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+$sans-serif-font: Helvetica, Arial, sans-serif;
+$serif-font: Georgia, serif;
+
+$background-color: white;
+$primary-color: #D99AB6;
+$primary-color-alt: #FFB9D8;
+$status-color: #930041;
+
+$grid-color: #dedede;
+/* the below should look the same as the above when on a white bg */
+/* $alpha-grid-color: rgba(0, 0, 0, 0.13); */
+$alpha-grid-color: rgba(128, 128, 128, 0.26);
+$text-color: #333;
+$dark-background-color: #333;
+$dark-grid-color: rgba(255, 255, 255, 0.13);
+
+$body-text-size: 18px;
+$sp: 24px;
+$container-width: 1100px;
+$container-padding: $sp*0.75;
+$content-width: calc($container-width - $container-padding * 2);
+$cover-image-height: $container-width * 0.5;
+$text-width: 700px;
+$img-width: 880px;
+
+$footer-min-height: 490px;
+
+$topbar-height: 54px;
+
+$avatar-width: calc($content-width * 0.2);
+
+$sections-width: 720px;
+
+$list-item-image-height: 180px;
+
+// Import pre-styling-overrides hook and style-partials.
+@import
+  "dogwood/custom-variables", // Hook to override predefined variables.
+  "dogwood/base",             // Defines element resets.
+  "dogwood/layout",           // Defines structure and style based on CSS selectors.
+  "dogwood/custom-styles"     // Hook to override existing styles.
+;
