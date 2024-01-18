@@ -1,0 +1,2 @@
+{%- assign eventPage = site.pages | find: "title", include.item.event -%}
+<span class="time" totimezone="{{ eventPage.timezone }}" time="{{ include.item.date | date: '%s' }}">{{ include.item.date | date: "%l:%M %p" }} EST</span>

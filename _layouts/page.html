@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<article>
+  <div class="content">
+    <div class="container">
+      {%- include breadcrumbs.html -%}
+      {%- include pagenav.html -%}
+    </div>
+    <div class="section">
+      {%- include cover.html -%}
+    </div>
+    <div class="container">
+      <div class='prose'>
+        {{content}}
+      </div>
+      {%- include posts_section.html tag=page.title max_posts=page.max_posts -%}
+    </div>
+  </div>
+  <div class="themed banner-footer"></div>
+</article>

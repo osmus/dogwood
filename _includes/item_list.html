@@ -1,0 +1,104 @@
+{% assign _items = include.items %}
+{% assign collection = include.collection | default: _items.first.collection %}
+{% assign category = _items.first.categories.first | slugify %}
+
+{%- assign show_image=true -%}
+{%- assign image_length = _items | map: "image" | join: "" | strip_html | strip | size -%}
+{%- assign logo_length = _items | map: "logo" | join: "" | strip_html | strip | size -%}
+{%- assign sign_length = _items | map: "sign" | join: "" | strip_html | strip | size -%}
+{%- assign youtube_length = _items | map: "youtube" | join: "" | strip_html | strip | size -%}
+{%- if image_length == 0 and logo_length == 0 and youtube_length == 0 and sign_length == 0 -%}
+    {%- assign show_image=false -%}
+{%- endif -%}
+
+<div class="item-list {{collection}}-list {{category}}-list {% if include.gallery %}gallery{% endif %} {% if include.scroll %}scroll{% endif %} {% if include.titles=='' %}no-titles{% endif %}">
+    {%- for item in _items -%}
+        {%- assign names=item.author | default: item.speaker -%}
+        {%- assign title=item.title -%}
+        {%- if include.titles -%}
+            {%- assign title=include.titles | slice: forloop.index0 -%}
+        {%- endif -%}
+        {%- if include.type=="simple" -%}
+            {% if include.ignore_name %}
+                {% if names==include.ignore_name %}
+                    {% assign names = nil %}
+                {% else %}
+                    {% assign exp = "item != '" | append: include.ignore_name | append: "'" %}
+                    {% assign names = names | where_exp: "item", exp %}
+                {% endif %}
+            {% endif %}
+            <div class="{{include.type}}-item-listing">
+                <p>
+                    <a class="title" href="{{item.url | absolute_url}}">{{title}} {% if item.youtube or item.podbean or item.video_src %}<svg class="iconsvg"><use xlink:href="#play-circle"></use></svg>{% endif %}</a>
+                    <span><span class='date cond-only'>{{item.date | date: site.date_format }}</span>
+                    {%-if names and names.size > 0 %}
+                        <span class="cond-only">&middot;</span><span class="no-cond">|</span>
+                        {% if include.ignore_name %}
+                            w/
+                        {% endif %}
+                        {%- include names_list.html names=names avatar=false -%}
+                    {%- endif -%}</span>
+                </p>
+                <p><span class='date no-cond'>{{item.date | date: site.date_format }}</span></p>
+            </div>
+        {% else %}
+            <div class="item-listing {% if include.contain_image %}contained-image{% endif %}">
+                {%- if show_image -%}
+                    <div class="listing-front">
+                        {%- assign imageurl = nil -%}
+                        {%- assign image_style_class = 'rect-image' -%}
+                        {%- if item.sign -%}
+                            {%- assign imageurl = item.sign -%}
+                            {%- assign image_style_class = 'app-sign' -%}
+                        {%- elsif item.logo -%}
+                            {%- assign imageurl = item.logo -%}
+                            {%- assign image_style_class = 'contained-image' -%}
+                        {%- elsif item.image -%}
+                            {%- assign imageurl = item.image -%}
+                        {%- elsif item.youtube -%}
+                            {%- assign imageurl = 'https://i3.ytimg.com/vi/' | append: item.youtube | append: '/hqdefault.jpg' -%}
+                        {%- endif -%}
+                        {%- if imageurl -%}
+                            <a href="{{item.url | absolute_url}}"><div class="thumbnail-image {{image_style_class}}" {% if include.titles=='' %}title="{{item.title}}"{% endif %} alt="{{item.title}}" role="img" style="background-image: url('{{imageurl | absolute_url}}');">
+                                {%- if item.youtube or item.podbean or item.video_src -%}
+                                    <svg class="iconsvg"><use xlink:href="#play"></use></svg>
+                                {%- endif -%}
+                                {%- if item.sign and item.status -%}
+                                    <div class="status-bubble">{{item.status}}</div>
+                                {%- endif -%}
+                            </div></a>
+                        {%- endif -%}
+                    </div>
+                {%- endif -%}
+                <div class="listing-body">
+                    {%- if title and title.size > 0 -%}
+                        <h3><a href="{{item.url | absolute_url}}">{{title}}</a></h3>
+                    {%- endif -%}
+                    {%- if include.subtitles -%}
+                        <p class="meta subtitle">{{include.subtitles | slice: forloop.index0 }}</p>
+                    {%- elsif item.collection=='posts' -%}
+                        {%- unless include.gallery -%}
+                            <p class="meta">
+                                <span class='date'>{{item.date | date: site.date_format }}</span>
+                                {% if names %}
+                                    &middot;
+                                    {% include names_list.html names=names %}
+                                {% endif %}
+                            </p>
+                        {%- endunless -%}
+                    {%- endif -%}
+                    {%- unless include.gallery -%}
+                        <p class="excerpt">
+                            {% if item.blurb %}
+                                {{ item.blurb | markdownify }}
+                            {% else %}
+                                {{ item.content | strip_html | markdownify | strip_html | truncatewords: 32 }}
+                            {% endif %}
+                        </p>
+                        {%- include register_button.html item=item -%}
+                    {%- endunless -%}
+                </div>
+            </div>  
+        {%- endif -%}
+    {%- endfor -%}
+</div>

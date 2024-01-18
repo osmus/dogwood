@@ -1,0 +1,8 @@
+{%- assign curDate = site.time | date: '%s' | minus: 86400 -%}
+{%- assign page_date = include.item.date | date: '%s' | minus: 0 -%}
+{%- assign event_is_past = true -%}
+{%- assign event_is_future = false -%}
+{%- if page_date > curDate -%}
+  {%- assign event_is_past = false -%}
+  {%- assign event_is_future = true -%}
+{%- endif -%}

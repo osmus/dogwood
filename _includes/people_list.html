@@ -1,0 +1,41 @@
+{% if include.at %}
+    {% include load_people at=include.at %}
+    {% assign _items = people %}
+    {% assign _roles = roles %}
+{% else %}
+    {% assign _items = include.people %}
+    {% assign _roles = include.roles %}
+{% endif %}
+{%- assign gallery=include.gallery -%}
+{%- assign content_length = _items | map: "content" | join: "" | strip_html | strip | size -%}
+{%- if content_length == 0 -%}
+    {%- assign gallery=true -%}
+{%- endif -%}
+{% assign ranks_string = "President;Vice President;Secretary;Treasurer;Member At-Large;Executive Director;Program Director;Program Manager;Maintainer;Organizer;Advisor;Developer;default;Trails Stewardship Initiative Program Manager" %}
+{% assign _ranks = ranks_string | split:";" %}
+<div class="item-list people-list {% if gallery %}gallery{% endif %}">
+    {% for rank in _ranks %}
+        {% for item in _items %}
+            {% assign role = _roles | slice: forloop.index0 | first %}
+            {% assign without_rank=ranks_string | remove: role.title %}
+            {% if role.title==rank or without_rank==ranks_string and rank=="default" %}
+                <div class="item-listing">
+                    <div class="listing-front">
+                        <a href="{{item.url | absolute_url}}"><div class="thumbnail-image avatar" role="img" {% if item.image %}style="background-image: url('{{item.image | absolute_url}}'), url('{{site.url}}{{site.baseurl}}/assets/avatar.jpg');"{% endif %}></div></a>
+                    </div>
+                    <div class="listing-body">
+                        <h3><a href="{{item.url | absolute_url}}">{{item.title}}</a></h3>
+                        {% if role and role.title %}
+                            <p class="meta subtitle">{{role.title}}</p>
+                        {% endif %}
+                        {% unless gallery %}
+                            <p class="excerpt">
+                                {{ item.content | markdownify }}
+                            </p>
+                        {% endunless %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>

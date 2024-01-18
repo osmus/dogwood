@@ -1,0 +1,19 @@
+{%- assign people="" | split: ',' -%}
+{%- assign roles="" | split: ',' -%}
+{%- if include.at -%}
+  {%- for person in site.people -%}
+    {%- for role in person.roles -%}
+      {%- if role.at == include.at and role.to == nil -%}
+        {%- assign roles=roles | push: role -%}
+        {%- assign people=people | push: person -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+{%- elsif include.names -%}
+  {%- for name in include.names -%}
+    {%- assign person_with_name = site.people | find: "title", name -%}
+    {%- if person_with_name -%}
+      {%- assign people=people | push: person_with_name -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

@@ -1,0 +1,24 @@
+{% for name in include.names %}
+    <span class='author'>
+        {%- if include.names.size > 1 and name == include.names.last %}
+        and
+        {% endif -%}
+        {% assign _item=site.people | find: "title", name %}
+        {%- unless _item -%}
+            {%- assign _item=site.pages | find: "title", name -%}
+        {%- endunless -%}
+        {%- if _item.url -%}
+            <a href="{{_item.url | absolute_url}}">
+                {%- if _item.collection=="people" and include.avatar!=false -%}
+                    {%- include inline_avatar.html item=_item -%}
+                {%- endif -%}
+                {{- name -}}
+            </a>
+        {%- else -%}
+            {{name}}
+        {%- endif -%}
+        {%- if include.names.last and include.names.size > 2 and name != include.names.last -%}
+        ,
+        {% endif -%}
+    </span>
+{% endfor %}

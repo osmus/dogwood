@@ -1,0 +1,98 @@
+---
+layout: default
+---
+<article>
+  <div class="cover themed {% if page.image %}with-hero-image{% endif %}">
+    <div class="extra-1"></div>
+    <div class="extra-2"></div>
+    <div class="container">
+      {% include breadcrumbs.html %}
+      <div class="logo-area">
+        {% if page.logo %}
+          <div class="logo-wrap">
+            <a href="{{page.url | absolute_url}}"><img class="logo" src="{{page.logo | absolute_url}}"/></a>
+          </div>
+        {% endif %}
+        <div class="right">
+          {% include pagenav.html %}
+          {% if page.tagline or page.temp_tagline %}
+            <p class="tagline">{{ page.temp_tagline | default: page.tagline }}</p>
+          {% endif %}
+          {% if page.temp_blurb or page.blurb %}
+            <div class="blurb">
+              {{ page.temp_blurb | default: page.blurb | markdownify }}
+            </div>
+          {% endif %}
+          {%- if page.buttons or page.website -%}
+            <div class="buttons">
+              <div class="text-buttons">
+                {%- for button in page.buttons -%}
+                  <a class="button large bordered {% if button==page.buttons.first %}prominent{% else %}white{% endif %}" href="{{button.link | absolute_url}}">{{button.label}}</a>
+                {%- endfor -%}
+                {%- unless page.buttons -%}
+                  <a class="button large bordered prominent" href="{{page.website | absolute_url}}">Visit Website</a>
+                {%- endunless -%}
+              </div>
+              <ul class="icon-buttons">
+                {%- if page.website and page.buttons  -%}
+                  <li><a href="{{page.website | absolute_url}}" title="{{page.website}}"><svg class="iconsvg"><use xlink:href="#globe"></use></svg></a></li>
+                {%- endif -%}
+                {%- if page.github -%}
+                  <li><a href="https://github.com/{{page.github}}" title="https://github.com/{{page.github}}" target="_blank"><svg class="iconsvg"><use xlink:href="#github"></use></svg></a></li>
+                {%- endif -%}
+                {%- if page.instagram -%}
+                  <li><a href="https://instagram.com/{{page.instagram}}" title="@{{page.instagram}} on Instagram" target="_blank"><svg class="iconsvg"><use xlink:href="#instagram"></use></svg></a></li>
+                {%- endif -%}
+                {%- if page.mastodon -%}
+                  <li><a href="{{page.mastodon}}" title="{{page.title}} on Mastodon" target="_blank"><svg class="iconsvg"><use xlink:href="#mastodon"></use></svg></a></li>
+                {%- endif -%}
+                {%- if page.twitter -%}
+                  <li><a href="https://twitter.com/{{page.twitter}}" title="@{{page.twitter}} on Twitter" target="_blank"><svg class="iconsvg"><use xlink:href="#twitter"></use></svg></a></li>
+                {%- endif -%}
+                {%- if page.facebook -%}
+                  <li><a href="https://facebook.com/{{page.facebook}}" title="{{page.title}} on Facebook" target="_blank"><svg class="iconsvg"><use xlink:href="#facebook"></use></svg></a></li>
+                {%- endif -%}
+                {%- if page.reddit -%}
+                  <li><a href="https://reddit.com/{{page.reddit}}" title="{{page.reddit}} on Reddit" target="_blank"><svg class="iconsvg"><use xlink:href="#reddit"></use></svg></a></li>
+                {%- endif -%}
+                {%- if page.meetup -%}
+                  <li><a href="https://meetup.com/{{page.meetup}}" title="https://meetup.com/{{page.meetup}}" target="_blank"><svg class="iconsvg"><use xlink:href="#meetup"></use></svg></a></li>
+                {%- endif -%}
+                {%- if page.youtube_page -%}
+                  <li><a href="https://youtube.com/{{page.youtube_page}}" title="{{page.title}} on YouTube" target="_blank"><svg class="iconsvg"><use xlink:href="#youtube"></use></svg></a></li>
+                {%- endif -%}
+                {%- if page.slack_channel -%}
+                  <li><a href="https://{{site.slack}}.slack.com/archives/{{page.slack_channel}}" title="#{{page.slack_channel}} channel on Slack" target="_blank"><svg class="iconsvg"><use xlink:href="#slack"></use></svg></a></li>
+                {%- endif -%}
+                {%- if page.email_list -%}
+                  <li><a href="{{page.email_list}}" title="Get email updates" target="_blank"><svg class="iconsvg"><use xlink:href="#inbox"></use></svg></a></li>
+                {%- endif -%}
+                {%- if page.donate -%}
+                  <li><a href="{{page.donate | absolute_url}}" title="Donate to {{page.title}}" target="_blank"><svg class="iconsvg"><use xlink:href="#hand-holding-heart"></use></svg></a></li>
+                {%- endif -%}
+              </ul>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- if page.image -%}
+    <div class='container'>
+      <img class="hero-image" src="{{page.image | absolute_url}}"/>
+    </div>
+  {%- endif -%}
+  <div class="content">
+    <div class="container">
+      {%- assign content = page.content | strip_newlines -%}
+      {%- if content != '' -%}
+        <div class="section">
+          <div class="prose">
+            {{- content -}}
+          </div>
+        </div>
+      {%- endif -%}
+      {%- include posts_section.html tag=page.title max_posts=page.max_posts -%}
+    </div>
+  </div>
+</article>

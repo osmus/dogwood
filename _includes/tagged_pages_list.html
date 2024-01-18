@@ -1,0 +1,15 @@
+{%- assign linked_pages="" | split: ',' -%}
+{%- for tag in page.tags -%}
+  {%- assign linked_page=site.pages | find: "title", tag -%}
+  {%- if linked_page -%}
+    {%- assign linked_pages=linked_pages | push: linked_page -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if linked_pages.size > 0 -%}
+  <div class="section">
+    <div class="section-header">
+      <h2>More info</h2>
+    </div>
+    {% include item_list.html items=linked_pages %}
+  </div>
+{%- endif -%}

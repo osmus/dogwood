@@ -1,0 +1,4 @@
+{% include load_event item=include.item %}
+{%- if include.item.register and event_is_future -%}
+    <p><a href="{{include.item.register | absolute_url}}" target="_blank" class="button wide bordered prominent external">Register</a></p>
+{% endif %}

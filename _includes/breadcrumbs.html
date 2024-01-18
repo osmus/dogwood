@@ -1,0 +1,36 @@
+<div class="breadcrumbs">
+  {%- if page.categories.first == "News" -%}
+    {%- assign url = "/news/" -%}
+  {%- elsif page.categories.first == "Newsletters" -%}
+    {%- assign url = "/news/newsletter/" -%}
+  {%- elsif page.categories.first == "Mappy Hours" -%}
+    {%- assign url = "/events/mappy-hours/" -%}
+  {%- elsif page.categories.first == "Out & About" -%}
+    {%- assign url = "/news/appearances/" -%}
+  {%- else -%}
+    {%- assign path_parts = page.url | remove: "index" | split: "/" -%}
+    {%- if path_parts.size > 2 -%}
+      {% assign prior_index = path_parts.size | minus: 2 %}
+      {% assign prior_parts_size = path_parts.size | minus: 1 %}
+      {% assign part = path_parts | slice: prior_index, prior_index | first %}
+      {% assign url = path_parts | slice: 0, prior_parts_size | join: "/" | append: "/" %}
+    {%- endif -%}
+  {%- endif -%}
+  {%- if url -%}
+    <a href="{{url | absolute_url}}">
+      <svg class="iconsvg"><use xlink:href="#arrow-left"></use></svg>
+      {% assign part_page=site.documents | find: "url", url -%}
+      {%- if part_page.title -%}
+        {{part_page.title}}
+      {%- else -%}
+        {% assign derived_label=part | replace: "-", " " | url_decode %}
+        {% assign derived_label_as_num=derived_label | plus: 0 %}
+        {% if derived_label.size==2 and derived_label_as_num<=12  %}
+          {{ page.date | date: "%B" }}
+        {%- else -%}
+          {{derived_label}}
+        {%- endif -%}
+      {%- endif -%}
+    </a>
+  {%- endif -%}
+</div>

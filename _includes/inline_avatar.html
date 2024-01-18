@@ -1,0 +1,11 @@
+{%- assign img = include.item.image -%}
+{%- if img -%}
+    {%- assign first = img | slice: 0, 12 -%}
+    {%- if first == '/img/people/' -%}
+        {%- assign body = img | slice: 12, 1000 -%}
+        {%- assign index = body | size | minus: 4 -%}
+        {%- assign body = body | slice: 0, index -%}
+        {%- assign img = "/img-thumbnails/people/" | append: body | append: "-48x48.webp" -%}
+    {%- endif -%}
+{%- endif -%}
+<span class="avatar inline-avatar" role="img" {%- if img -%}style="background-image: url({{img | absolute_url}}), url({{'/assets/avatar.jpg' | absolute_url}})"{%- endif -%}></span>

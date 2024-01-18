@@ -1,0 +1,39 @@
+<table class="schedule">
+    <tr>
+        <th colspan="2" class="day-long" time="{{include.items[0].date | date: '%s'}}">{{include.items[0].date | date: '%A, %B %e'}}</th>
+    </tr>
+    <tr>
+        <th>Time</th>
+        <th>Session</th>
+    </tr>
+    {%- for item in include.items -%}
+        <tr start="{{item.date | date: '%s'}}" end="{{include.items[forloop.index].date | date: '%s'}}" {% unless item.url %}class="interstitial"{% endunless %}>
+            {%- assign names=item.author | default: item.speaker -%}
+            {%- assign title=item.title -%}
+            <td>{%- include item_time.html item=item -%}</td>
+            <td>
+                {%- if title and title.size > 0 -%}
+                    <p class="title">
+                        {%- if item.url -%}
+                            <a href="{{item.url | absolute_url}}">{{title}} {% if item.youtube or item.podbean or item.video_src %}<svg class="iconsvg"><use xlink:href="#play-circle"></use></svg>{% endif %}</a>
+                        {%- else -%}
+                            {{title}}
+                        {%- endif -%}
+                    </p>
+                {%- endif -%}
+                <p class="meta">
+                    {% if names %}
+                        {% include names_list.html names=names %}
+                    {% endif %}
+                </p>
+                <p class="excerpt">
+                    {% if item.blurb %}
+                        {{ item.blurb | markdownify }}
+                    {% else %}
+                        {{ item.content | strip_html | markdownify | strip_html | truncatewords: 64 }}
+                    {% endif %}
+                </p>
+            </td>
+        </tr>
+    {%- endfor -%}
+</table>

@@ -1,0 +1,24 @@
+{%- assign max_posts=include.max_posts | default: 5 -%}
+{%- assign tagged_posts = site.posts | where: "tags", include.tag -%}
+{%- if tagged_posts.size > 0 and max_posts > 0 -%}
+  <div class="section">
+    <div class="section-header">
+      {%- assign label=include.label -%}
+      {%- if label==nil -%}
+        {%- assign label="News and talks" -%}
+        {%- assign news_count=tagged_posts | where: "category", "News" | size -%}
+        {%- if news_count==tagged_posts.size -%}
+          {%- assign label="News" -%}
+        {%- elsif news_count==0 -%}
+          {%- assign label="Talks" -%}
+        {%- endif -%}
+      {%- endif -%}
+      <h2>{{label}}</h2>
+      {%- if tagged_posts.size > max_posts -%}
+        <a class="section-button" href="{{site.url}}{{site.baseurl}}/tags/{{ page.title | slugify }}">See all posts <svg class="iconsvg"><use xlink:href="#arrow-right"></use></svg></a>
+      {%- endif -%}
+    </div>
+    {%- assign filtered_tagged_posts=tagged_posts | slice: 0, max_posts -%}
+    {%- include item_list.html items=filtered_tagged_posts -%}
+  </div>
+{%- endif -%}

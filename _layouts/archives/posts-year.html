@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<div class='container content'>
+  <h1>Posts published in {{ page.date | date: "%Y" }}</h1>
+  {% assign posts=page.posts | reverse %}
+  {% assign lowerindex=0 %}
+  {% assign upperindex=0 %}
+  {% for i in (1..12) %}
+    {% for post in posts %}
+      {% assign post_month = post.date | date: "%m" | minus: 0 %}
+      {% if post_month > i %}
+        {% assign upperindex=forloop.index0 %}
+        {% break %}
+      {% elsif post==posts.last  %}
+        {% assign upperindex=forloop.index0 | plus: 1 %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    {% if lowerindex < upperindex %}
+      {% assign post_count=upperindex | minus: lowerindex %}
+      {% assign month_posts=posts | slice: lowerindex, post_count %}
+      <div class="section">
+        <div class="section-header">
+          <a href="#{{ month_posts.first.date | date: '%m' }}"><h2 id="{{ month_posts.first.date | date: '%m' }}">{{ month_posts.first.date | date: "%B" }}</h2></a>
+        </div>
+        {% include item_list.html items=month_posts %}
+      </div>
+    {% endif %}
+    {% assign lowerindex=upperindex %}
+  {% endfor %}
+</div>

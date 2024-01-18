@@ -1,0 +1,11 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+{%- assign redirect_base_len=page.url.size | minus: 3 -%}
+{%- assign redirect_base=page.url|slice: 0, redirect_base_len -%}
+<meta http-equiv="refresh" content="0;url={{redirect_base}}#{{page.date | date: '%m'}}" />
+</head>
+</html>

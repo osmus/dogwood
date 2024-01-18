@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article class="content">
+  {% include cover.html %}
+  <div class="container">
+    <div class='post-header'>
+      {% include breadcrumbs.html %}
+      {% include pagenav.html %}
+    </div>
+    <div class='post-body prose centered'>
+      <div class="neatline"></div>
+      {{content}}
+    </div>
+    {%- include tagged_pages_list.html -%}
+  </div>
+</article>

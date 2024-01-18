@@ -1,0 +1,12 @@
+{%- assign max_people=include.max_people | default: 15 -%}
+{%- include load_people at=page.title -%}
+{%- assign people=people | slice: 0, max_people -%}
+{%- assign roles=roles | slice: 0, max_people -%}
+{%- if max_people > 0 and roles.size > 0 -%}
+  <div class="section">
+    <div class="section-header">
+      <h2>Meet the {{page.team_name | default: "team"}}</h2>
+    </div>
+    {%- include people_list.html people=people roles=roles gallery=true -%}
+  </div>
+{%- endif -%}

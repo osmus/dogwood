@@ -1,0 +1,27 @@
+
+{% assign sessions = site.posts | where_exp: "item", "item.url contains '/events/'" %}
+{% assign past_sessions="" | split: ',' -%}
+{% assign future_sessions="" | split: ',' -%}
+{% if include.category %}
+    {% assign sessions = sessions | where: "category", include.category %}
+{% endif %}
+{% assign curDate = site.time | date: '%s' | minus: 86400 %}
+{% for session in sessions %}
+    {% assign page_date = session.date | date: '%s' | minus: 0 %}
+    {% if page_date < curDate %}
+        {% unless session.image==nil and session.youtube==nil %}
+            {% assign past_sessions = past_sessions | push: session %}
+        {% endunless %}
+    {% else %}
+        {% assign future_sessions = future_sessions | push: session %}
+    {% endif %}
+{% endfor %}
+{% assign future_sessions = future_sessions | reverse %}
+{% if future_sessions.size > 0 %}
+    <div class="section">
+        <div class="section-header">
+            <h2>Upcoming event{% if future_sessions.size!=1 %}s{% endif %}</h2>
+        </div>
+        {% include item_list.html items=future_sessions %}
+    </div>
+{% endif %}

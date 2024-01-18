@@ -1,0 +1,69 @@
+---
+layout: default
+---
+<article>
+  {% include cover.html %}
+  <div class="content">
+    <div class="container">
+      {% include breadcrumbs.html %}
+      {% include pagenav.html %}
+    </div>
+    <div class="container">
+      <div class='prose'>
+        {{content}}
+        {%- include register_button.html item=page -%}
+        {%- include load_event item=page -%}
+        {%- if event_is_past and page.youtube == nil and page.podbean==nil and page.video_src==nil -%}
+          <p><em>No recording is available from this session.</em></p>
+        {%- endif -%}
+        {%- if page.slides -%}
+            <p><a href="{{page.slides | absolute_url}}" target="_blank" class="button wide bordered prominent external">View Slides</a></p>
+        {% endif %}
+      </div>
+      {% include load_people names=page.speaker %}
+      {%- if people.size > 0 -%}
+        <div class="section">
+          <div class="section-header">
+            <h2>Speaker{%- if people.size != 1 -%}s{%- endif -%}</h2>
+          </div>
+          {% include people_list.html people=people %}
+        </div>
+      {%- endif -%}
+
+      {%- include tagged_pages_list.html -%}
+
+      {%- assign talks=site.categories[page.categories.first] | where_exp: "item", "item != page" -%}
+      {%- if page.youtube or page.video_src or page.podbean -%}
+        {%- assign talks=talks | where_exp: "item", "item.youtube or item.video_src or item.podbean" -%}
+      {%- endif -%}
+      {%- assign newer_item=talks | reverse | find_exp: "item", "item.date > page.date" -%}
+      {%- assign older_item=talks | find_exp: "item", "item.date < page.date" -%}
+      
+      {%- unless older_item -%}
+        {%- assign older_item=talks | first -%}
+      {%- endunless -%}
+
+      {%- unless newer_item -%}
+        {%- assign newer_item=talks | last -%}
+      {%- endunless -%}
+
+      {%- if page.categories.first == "State of the Map US" or page.categories.first == "Mapping USA" -%}
+        {%- assign up_next_item=newer_item -%}
+        {%- assign prior_item=older_item -%}
+      {%- else -%}
+        {%- assign up_next_item=older_item -%}
+        {%- assign prior_item=newer_item -%}
+      {%- endif -%}
+      <div class="section">
+        <div class="section-header">
+          <h2>Next up in {{page.categories.first}}</h2>
+          <a class="section-button" href="{{prior_item.url | absolute_url}}" title="{{prior_item.title}}">Previous talk <svg class="iconsvg" style="margin-top:-4px;"><use xlink:href="#arrow-up"></use></svg></a>
+        </div>
+        {% assign as_array="" | split: "," | push: up_next_item %}
+        {% include item_list.html items=as_array %}
+      </div>
+      <!--<p>Previous: <a href="{{prior_item.url | absolute_url}}">{{prior_item.title}}</a></p>-->
+    </div>
+  </div>
+  <div class="themed banner-footer"></div>
+</article>

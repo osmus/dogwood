@@ -1,0 +1,128 @@
+---
+layout: default
+---
+{% assign content = page.content | strip_newlines %}
+{% assign talks = site.posts | where: "speaker", page.title %}
+{% assign authored_posts = site.posts | where: "author", page.title %}
+{% assign tagged_posts = site.posts | where: "tags", page.title %}
+{% if page.cover %}
+  {% include cover.html %}
+{% else %}
+  <div class='cover'></div>
+{% endif %}
+  <div class='content sections'>
+    <div class="section">
+      <div>
+        <div class="avatar hero-avatar" role="img" {%- if page.image -%}style="background-image: url('{{page.image | absolute_url}}'), url('{{site.url}}{{site.baseurl}}/assets/avatar.jpg')"{%- endif -%}></div>
+      </div>
+      <div>
+        <div class="section-body name-header">
+          <h1>{{page.title}}</h1>
+          {%- if page.osm -%}
+            <a href="https://www.openstreetmap.org/user/{{page.osm}}">@{{page.osm}}</a>
+          {%- endif -%}
+        </div>
+        {%- if content != '' -%}
+          <div class="section-body prose">
+            {{content}}
+          </div>
+        {%- endif -%}
+        {%- if page.roles -%}
+          <div class="section-body">
+            <ul>
+            {%- for role in page.roles -%}
+              {%- if role.at -%}
+                <li class="role-listing">
+                  {%- if role.title -%}
+                    <span class="role-title">{{role.title}}</span>, 
+                  {% endif -%}
+                  {% assign at_page=site.pages | find: "title", role.at -%}
+                  {%- assign at = role.at -%}
+                  {%- if at == "OpenStreetMap US Staff" -%}
+                    {%- assign at = "OpenStreetMap US" -%}
+                  {%- endif -%}
+                  <span class="role-at">
+                    {%- if at_page -%}
+                      <a href="{{at_page.url | absolute_url}}">{{at}}</a>
+                    {%- else -%}
+                      {{at}}
+                    {%- endif -%}
+                  </span>
+                  {%- if role.from %} ({{role.from | date: "%Y" }}–{%- if role.to -%}{{role.to | date: "%Y" }}{%- else -%}present{%- endif -%}){%- endif -%}
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+        {%- if page.website or page.wikipedia or page.mastodon or page.twitter or page.github or page.linkedin or page.medium -%}
+          <div class="section-body connect-links">
+            {%- if page.website -%}
+              <a href="{{page.website | absolute_url}}"><svg class="iconsvg pre-text"><use xlink:href="#globe"></use></svg> Website</a>
+            {%- endif -%}
+            {%- if page.wikipedia -%}
+              <a href="https://en.wikipedia.org/wiki/User:{{page.wikipedia}}"><svg class="iconsvg pre-text"><use xlink:href="#wikipedia-w"></use></svg> Wikipedia</a>
+            {%- endif -%}
+            {%- if page.mastodon -%}
+              <a href="{{page.mastodon}}"><svg class="iconsvg pre-text"><use xlink:href="#mastodon"></use></svg> Mastodon</a>
+            {%- endif -%}
+            {%- if page.twitter -%}
+              <a href="https://twitter.com/{{page.twitter}}"><svg class="iconsvg pre-text"><use xlink:href="#twitter"></use></svg> Twitter</a>
+            {%- endif -%}
+            {%- if page.github -%}
+              <a href="https://github.com/{{page.github}}"><svg class="iconsvg pre-text"><use xlink:href="#github"></use></svg> GitHub</a>
+            {%- endif -%}
+            {%- if page.linkedin -%}
+              <a href="https://www.linkedin.com/in/{{page.linkedin}}"><svg class="iconsvg pre-text"><use xlink:href="#linkedin"></use></svg> LinkedIn</a>
+            {%- endif -%}
+            {%- if page.medium -%}
+              <a href="https://medium.com/@{{page.medium}}"><svg class="iconsvg pre-text"><use xlink:href="#medium"></use></svg> Medium</a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+    {%- if talks.size > 0 -%}
+      <div class="section">
+        <h3>Talks</h3>
+        <div class="section-body condensed">
+          {%- include item_list.html items=talks type="simple" ignore_name=page.title -%}
+        </div>
+      </div>
+    {%- endif -%}
+    {%- if authored_posts.size > 0 -%}
+      <div class="section">
+        <h3>Authored posts</h3>
+        <div class="section-body condensed">
+          {%- include item_list.html items=authored_posts type="simple" ignore_name=page.title -%}
+        </div>
+      </div>
+    {%- endif -%}
+    {%- if tagged_posts.size > 0 -%}
+      <div class="section">
+        <h3>Mentions</h3>
+        <div class="section-body condensed">
+          {%- include item_list.html items=tagged_posts type="simple" -%}
+        </div>
+      </div>
+    {%- endif -%}
+    <div class="section">
+      <h3></h3>
+      <div class="section-body prose">
+        {%- assign isExternal=true -%}
+        {%- for role in page.roles -%}
+          {%- if role.at == "OpenStreetMap US Board" or role.at == "OpenStreetMap US Staff" -%}
+            {%- assign isExternal=false -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if isExternal -%}
+          <p><em>This is a compilation of publicly-available info about someone who has participated with OpenStreetMap US and is not an endorsement.</em></p>
+          <p><em>Is this your page? <a href="{{site.url}}{{site.baseurl}}/contact">Contact us</a> to edit your info.</em></p>
+        {%- endif -%}
+        {%- if page.updated -%}
+          <p><em>Last updated {{page.updated | date: "%B %Y" }}.</em></p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
