@@ -14,6 +14,9 @@ facebook: openstreetmap.us
 instagram: openstreetmapus
 linkedin: company/openstreetmap-us
 links:
+  - link: /plants/
+  - link: /people/
+  - link: /blog/
   - link: https://github.com/osmus/dogwood
     label: Use Me!
     class: no-cond
@@ -35,3 +38,43 @@ jekyll-archives:
     month: '/:year/:month/'
     year: '/:year/'
 date_format: "%b %e, %Y"
+collections:
+  feeds:
+    output: true
+  pages:
+    output: true
+  people:
+    output: true
+  posts:
+    output: true
+  redirects:
+    output: true
+defaults:
+  -
+    scope:
+      path: "_pages"
+      type: "pages"
+    values:
+      permalink: /:path/
+      layout: "page"
+  -
+    scope:
+      path: "_redirects"
+      type: "redirects"
+    values:
+      permalink: /:path/
+      layout: "redirect"
+  -
+    scope:
+      path: "_people"
+      type: "people"
+    values:
+      layout: "person"
+  -
+    scope:
+      path: "_posts/blog"
+      type: "posts"
+    values:
+      permalink: /blog/:year/:month/:title/
+      category: "Blog"
+      layout: "post"

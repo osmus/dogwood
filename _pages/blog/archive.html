@@ -1,0 +1,9 @@
+---
+title: Blog Archive
+short_title: Archive
+---
+<div class='section'>
+  {% assign items=site.posts | where: "category", "Blog" %}
+  {% include item_list.html items=items type="simple" %}
+</div>
+

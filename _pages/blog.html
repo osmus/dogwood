@@ -1,0 +1,13 @@
+---
+title: Blog
+links:
+  - link: /blog/archive/
+dropdown_links:
+  - link: /blog/
+    label: Latest
+  - link: /blog/archive/
+---
+{% assign items=site.posts | where: "category", "Blog" | slice: 0, 20 %}
+<div class="section">
+  {% include item_list.html items=items %}
+</div>
