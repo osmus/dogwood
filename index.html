@@ -315,9 +315,14 @@ fetch("https://osmus.github.io/dogwood/assets/icons/fa-brands.svg")
   });
 
   document.querySelectorAll('.timezone').forEach(function(el) {
+    var targetTimeZone = el.getAttribute('totimezone') || undefined;
     var sourceTime = el.getAttribute('time') && parseInt(el.getAttribute('time') + '000');
     var date = (sourceTime && new Date(sourceTime)) || new Date();
-    el.textContent = date.toLocaleDateString(undefined, {day:'2-digit',timeZoneName: 'long' }).substring(4);
+    el.textContent = date.toLocaleDateString(undefined, {
+      day:'2-digit',
+      timeZoneName: 'long',
+      timeZone: targetTimeZone,
+    }).substring(4);
   });
 
   function parseTime(t) {
