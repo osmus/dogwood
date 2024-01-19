@@ -45,7 +45,7 @@
   {% assign starttime = next_session.date | date: '%s' %}
   {% assign endtime = starttime | plus: 3600 %}
   {% if next_session.event %}
-    {% assign all_in_series = future_sessions | where: 'event', next_session.event %}
+    {% assign all_in_series = site.posts | where: 'event', next_session.event | sort: 'date' %}
     {% assign first_in_series = all_in_series | first %}
     {% assign last_in_series = all_in_series | last %}
     {% assign starttime = first_in_series.date | date: '%s' %}
