@@ -45,7 +45,10 @@
   {% assign starttime = next_session.date | date: '%s' %}
   {% assign endtime = starttime | plus: 3600 %}
   {% if next_session.event %}
-    {% assign last_in_series = future_sessions | where: 'event', next_session.event | last %}
+    {% assign all_in_series = future_sessions | where: 'event', next_session.event %}
+    {% assign first_in_series = all_in_series | first %}
+    {% assign last_in_series = all_in_series | last %}
+    {% assign starttime = first_in_series.date | date: '%s' %}
     {% assign endtime = last_in_series.date | date: '%s' | plus: 3600 %}
     {% assign next_session = site.pages | find_exp: "item", "item.title==next_session.event or item.temp_title==next_session.event" %}
   {% endif %}
