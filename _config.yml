@@ -3,7 +3,8 @@ copyright: OpenStreetMap US
 permalink: /:title/
 # Include "future" posts so that upcoming events will display. Posts cannot be scheduled to automatically
 # publish at a certain time with Jekyll alone.
-logo: /dogwoods.svg
+logo: /img/logo.svg
+logo_mono: /img/logo-mono.svg
 future: true
 timezone: America/New_York
 github: osmus
