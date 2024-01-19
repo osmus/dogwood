@@ -5,7 +5,7 @@
 <meta name="og:title" content="">
 <meta property="og:url" content="https://osmus.github.io/dogwood/">
 
-<meta name="og:description" content="">
+<meta name="og:description" content="DogwoodDogwood is the theme for the Jekyll static site generator powering openstreetmap.us. While the content for the OpenStreetMap US website is kept internal to the organization, we’ve decided to open sour...">
 
 <meta name="twitter:site" content="@openstreetmapus">
 <meta name="twitter:creator" content="@openstreetmapus">
@@ -60,7 +60,7 @@
 <link href="https://osmus.github.io/dogwood/assets/style.css" rel="stylesheet" />
 
 </head>
-<body class="layout-default
+<body class="layout-page
 
 
 
@@ -85,12 +85,102 @@ ispage-">
                     <a class='button-label ' href="https://osmus.github.io/dogwood/blog/" >Latest</a>
                   </li><li class="">
                     <a class='button-label ' href="https://osmus.github.io/dogwood/blog/archive/" >Archive</a>
-                  </li></ul></li><li class="no-cond">
-            <a class='button-label button bordered' href="https://github.com/osmus/dogwood">Use Me!</a></li></ul>
+                  </li></ul></li><li class="">
+            <a class='button-label button bordered' href="https://github.com/osmus/dogwood">Use This Theme!</a></li></ul>
   </div>
 </div>
   <div class="layout-body">
-    
+    <article>
+  <div class="content">
+    <div class="container"><div class="breadcrumbs"></div></div>
+    <div class="section"></div>
+    <div class="container">
+      <div class='prose'>
+        <img src="img/logo.svg" style="border:none;width:100px;" />
+<h1 id="dogwood">Dogwood</h1>
+
+<p>Dogwood is the <a href="https://jekyllrb.com/docs/themes/">theme</a> for the <a href="https://jekyllrb.com">Jekyll</a> static site generator powering <a href="https://openstreetmap.us">openstreetmap.us</a>. While the content for the OpenStreetMap US website is kept internal to the organization, we’ve decided to open source the site’s theme for the benefit of the community.</p>
+
+<p>Dogwood pushes the envelope of what’s possible with static site generators. It supports complex sites with thousands of interconnected, customizable pages, each with their own requirements. For example, you can make a page for a person that links to and from posts they’ve written, event they’ve spoken at, and projects they’re a part of.</p>
+
+<p>Dogwood is under active development and is not currently versioned. Breaking changes may occur without notice, so we recommend targeting a specific commit of the project of simply forking it.</p>
+
+<p>The Dogwood theme is named for Virginia’s state flower, since the OpenStreetMap US <a href="https://openstreetmap.us/news/2023/06/website-redesign/">website redesign</a> was announced onstage at <a href="https://openstreetmap.us/state-of-the-map-us/2023">State of the Map US 2023</a> in Richmond, Virginia.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Dogwood is not distributed as a Ruby gem at this time. However, can still use Dogwood as a theme for your Jekyll site.</p>
+
+<p>Open your terminal and <code class="language-plaintext highlighter-rouge">cd</code> into the repo’s directory. Add Dogwood as a submodule:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git submodule add https://github.com/osmus/dogwood.git
+</code></pre></div></div>
+
+<p>This will clone the theme repo into a <code class="language-plaintext highlighter-rouge">dogwood</code> folder and also add a .gitmodules file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[submodule "dogwood"]
+	path = dogwood
+	url = https://github.com/osmus/dogwood.git
+</code></pre></div></div>
+
+<p>Next, add these lines to your Jekyll site’s <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># theme</span>
+<span class="n">gem</span> <span class="s2">"osmus-dogwood"</span><span class="p">,</span> <span class="ss">path: </span><span class="s2">"dogwood"</span>
+
+<span class="c1"># theme plugins</span>
+<span class="n">gem</span> <span class="s2">"absolute-urls"</span><span class="p">,</span> <span class="ss">path: </span><span class="s2">"./dogwood/_plugins/absolute-urls"</span>
+<span class="n">gem</span> <span class="s2">"post-aliases"</span><span class="p">,</span> <span class="ss">path: </span><span class="s2">"./dogwood/_plugins/post-aliases"</span>
+<span class="n">gem</span> <span class="s2">"unwrap-img"</span><span class="p">,</span> <span class="ss">path: </span><span class="s2">"./dogwood/_plugins/unwrap-img"</span>
+</code></pre></div></div>
+
+<p>Add this line to your Jekyll site’s <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">theme</span><span class="pi">:</span> <span class="s">osmus-dogwood</span>
+</code></pre></div></div>
+
+<p>And then execute:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install
+</code></pre></div></div>
+
+<p>If you’re already running your dev server you’ll need to manually restart it for the config changes to take effect</p>
+
+<h2 id="get-involved">Get involved</h2>
+
+<h3 id="code-of-conduct">Code of Conduct</h3>
+<p>Participation is subject to the <a href="https://wiki.openstreetmap.org/wiki/Foundation/Local_Chapters/United_States/Code_of_Conduct_Committee/OSM_US_Code_of_Conduct">OpenStreetMap US Code of Conduct</a>. Please take a moment to review the CoC prior to contributing, and remember to be nice :)</p>
+
+<h3 id="contributing">Contributing</h3>
+
+<p>You can open an <a href="https://github.com/osmus/dogwood/issues">issue</a> in this repository if you have a question, comment, or idea. Please search existing issues first in case someone else had the same thought. <a href="https://github.com/osmus/dogwood/pulls">Pull request</a> are public, but we recommend opening or commenting on an issue before writing any code so that we can make sure your work is aligned with the goals of the project.</p>
+
+<h3 id="development-setup">Development setup</h3>
+<ol>
+  <li><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">Clone the repository</a></li>
+  <li>Open your terminal and <code class="language-plaintext highlighter-rouge">cd</code> into the repo’s directory</li>
+  <li>Run <code class="language-plaintext highlighter-rouge">bundle install</code> to install the Ruby gems</li>
+  <li>Run <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> (or simply <code class="language-plaintext highlighter-rouge">jekyll serve</code>) to start the development server</li>
+  <li>Visit <a href="http://localhost:4000">http://localhost:4000</a> in your browser</li>
+</ol>
+
+<h2 id="license">License</h2>
+
+<p>The theme is available as open source under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<ul>
+  <li>Dogwood was originally designed and developed by <a href="https://github.com/quincylvania">Quincy Morgan</a> under contract to OpenStreetMap US</li>
+  <li>Most icons by <a href="https://fontawesome.com">FontAwesome</a></li>
+  <li>Thank you to the Jekyll team and to everyone who believes in open software and knowledge</li>
+</ul>
+
+      </div></div>
+  </div>
+  <div class="themed banner-footer"></div>
+</article>
+
   </div>
   <div class="footer dark">
   <div class="container">
@@ -136,7 +226,7 @@ ispage-">
           </a>
         </li>
         <li>
-          <a href="https://github.com/osmus" target="_blank" title="GitHub">
+          <a href="https://github.com/osmus/dogwood" target="_blank" title="GitHub">
             <svg class="iconsvg"><use xlink:href="#github"></use></svg>
           </a>
         <li>
@@ -165,7 +255,7 @@ ispage-">
           <a class='button-label' href="https://osmus.github.io/dogwood/blog/archive/" >Archive</a>
         </li></ul><ul>
       <li>
-        <a class='button-label' href="https://github.com/osmus/dogwood">Use Me!</a>
+        <a class='button-label' href="https://github.com/osmus/dogwood">Use This Theme!</a>
       </li></ul></div><hr/>
     <div class="smallprint">
       <p>© 2024 OpenStreetMap US</p>

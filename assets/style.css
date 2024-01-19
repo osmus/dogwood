@@ -194,7 +194,7 @@ code,
 pre {
   padding: 5px 4px;
   font-family: Menlo, Bitstream Vera Sans Mono, Monaco, Consolas, monospace;
-  font-size: 0.675em;
+  font-size: 12px;
   border-radius: 3px;
 }
 
@@ -1264,7 +1264,7 @@ article .post-body {
   max-width: 700px;
   margin-bottom: 24px;
 }
-.prose > img, .prose > figure, .prose > .img-container, .prose blockquote img, .prose blockquote figure, .prose blockquote .img-container {
+.prose > img, .prose > figure, .prose > .img-container, .prose > div, .prose blockquote img, .prose blockquote figure, .prose blockquote .img-container, .prose blockquote div {
   margin-bottom: 24px;
 }
 .prose > hr, .prose blockquote hr {
