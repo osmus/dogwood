@@ -115,7 +115,7 @@ code,
 pre {
   padding: 5px 4px;
   font-family: Menlo, Bitstream Vera Sans Mono, Monaco, Consolas, monospace;
-  font-size: 0.675em;
+  font-size: 12px;
   border-radius: 3px;
 }
 code {
@@ -1302,7 +1302,7 @@ article {
       max-width: $text-width;
       margin-bottom: $sp;
     }
-    img, figure, .img-container {
+    img, figure, .img-container, div {
       margin-bottom: $sp;
     }
     hr {

@@ -7,7 +7,7 @@ logo: /img/logo.svg
 logo_mono: /img/logo-mono.svg
 future: true
 timezone: America/New_York
-github: osmus
+github: osmus/dogwood
 mastodon: https://en.osm.town/@OpenStreetMapUS
 twitter: openstreetmapus
 youtube_page: channel/UCQpS2iHNVR-_6nAxt87nwCw
@@ -19,8 +19,7 @@ links:
   - link: /people/
   - link: /blog/
   - link: https://github.com/osmus/dogwood
-    label: Use Me!
-    class: no-cond
+    label: Use This Theme!
     a_class: button bordered
 plugins:
   - jekyll-archives

@@ -1,3 +1,4 @@
+{%- if page.title or pate.temp_title -%}
 <div class="pagenav">
   <div>
     <a class="selflink" href="{{page.url | absolute_url}}">
@@ -43,3 +44,4 @@
     {% endif %}
   </ul>
 </div>
+{%- endif -%}
