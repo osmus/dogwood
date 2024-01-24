@@ -1,13 +1,14 @@
+{% assign sessions = include.items | sort: 'date' -%}
 <table class="schedule">
     <tr>
-        <th colspan="2" class="day-long" time="{{include.items[0].date | date: '%s'}}">{{include.items[0].date | date: '%A, %B %e'}}</th>
+        <th colspan="2" class="day-long" time="{{sessions[0].date | date: '%s'}}">{{sessions[0].date | date: '%A, %B %e'}}</th>
     </tr>
     <tr>
         <th>Time</th>
         <th>Session</th>
     </tr>
-    {%- for item in include.items -%}
-        <tr start="{{item.date | date: '%s'}}" end="{{include.items[forloop.index].date | date: '%s'}}" {% unless item.url %}class="interstitial"{% endunless %}>
+    {%- for item in sessions -%}
+        <tr start="{{item.date | date: '%s'}}" end="{{sessions[forloop.index].date | date: '%s'}}" {% unless item.url %}class="interstitial"{% endunless %}>
             {%- assign names=item.author | default: item.speaker -%}
             {%- assign title=item.title -%}
             <td>{%- include item_time.html item=item -%}</td>
