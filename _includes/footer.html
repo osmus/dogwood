@@ -11,40 +11,55 @@
             <svg class="iconsvg"><use xlink:href="#slack"></use></svg>
           </a>
         </li>
-        <li>
-          <a href="https://youtube.com/{{site.youtube_page}}" target="_blank" title="YouTube">
-            <svg class="iconsvg"><use xlink:href="#youtube"></use></svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://instagram.com/{{site.instagram}}" target="_blank" title="Instagram">
-            <svg class="iconsvg"><use xlink:href="#instagram"></use></svg>
+        {%- if site.youtube_page -%}
+          <li>
+            <a href="https://youtube.com/{{site.youtube_page}}" target="_blank" title="YouTube">
+              <svg class="iconsvg"><use xlink:href="#youtube"></use></svg>
+            </a>
           </li>
-        </a>
-        <li>
-          <a href="{{site.mastodon}}" target="_blank" title="Mastodon">
-            <svg class="iconsvg"><use xlink:href="#mastodon"></use></svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://twitter.com/{{site.twitter}}" target="_blank" title="Twitter">
-            <svg class="iconsvg"><use xlink:href="#twitter"></use></svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.facebook.com/{{site.facebook}}" target="_blank" title="Facebook">
-            <svg class="iconsvg"><use xlink:href="#facebook"></use></svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/{{site.linkedin}}" target="_blank" title="LinkedIn">
-            <svg class="iconsvg"><use xlink:href="#linkedin"></use></svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/{{site.github}}" target="_blank" title="GitHub">
-            <svg class="iconsvg"><use xlink:href="#github"></use></svg>
-          </a>
+        {%- endif -%}
+        {%- if site.instagram -%}
+          <li>
+            <a href="https://instagram.com/{{site.instagram}}" target="_blank" title="Instagram">
+              <svg class="iconsvg"><use xlink:href="#instagram"></use></svg>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if site.mastodon -%}
+          <li>
+            <a href="{{site.mastodon}}" target="_blank" title="Mastodon">
+              <svg class="iconsvg"><use xlink:href="#mastodon"></use></svg>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if site.twitter -%}
+          <li>
+            <a href="https://twitter.com/{{site.twitter}}" target="_blank" title="Twitter">
+              <svg class="iconsvg"><use xlink:href="#twitter"></use></svg>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if site.facebook -%}
+          <li>
+            <a href="https://www.facebook.com/{{site.facebook}}" target="_blank" title="Facebook">
+              <svg class="iconsvg"><use xlink:href="#facebook"></use></svg>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if site.linkedin -%}
+          <li>
+            <a href="https://www.linkedin.com/{{site.linkedin}}" target="_blank" title="LinkedIn">
+              <svg class="iconsvg"><use xlink:href="#linkedin"></use></svg>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if site.github -%}
+          <li>
+            <a href="https://github.com/{{site.github}}" target="_blank" title="GitHub">
+              <svg class="iconsvg"><use xlink:href="#github"></use></svg>
+            </a>
+          </li>
+        {%- endif -%}
         <li>
           <a href="{{'/contact' | absolute_url}}" title="Email">
             <svg class="iconsvg"><use xlink:href="#envelope"></use></svg>
