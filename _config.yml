@@ -14,6 +14,11 @@ youtube_page: channel/UCQpS2iHNVR-_6nAxt87nwCw
 facebook: openstreetmap.us
 instagram: openstreetmapus
 linkedin: company/openstreetmap-us
+unaffiliated_disclaimer: |
+  This is a compilation of publicly-available info about someone who has participated with OpenStreetMap US and is not an endorsement.
+affiliate_orgs:
+  - "OpenStreetMap US Board"
+  - "OpenStreetMap US Staff"
 links:
   - link: /plants/
   - link: /people/
