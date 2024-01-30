@@ -1393,6 +1393,10 @@ article .post-body {
 .footer .sitemap a {
   color: inherit;
 }
+.footer .smallprint {
+  display: flex;
+  justify-content: space-between;
+}
 
 .status-bubble {
   color: white;
