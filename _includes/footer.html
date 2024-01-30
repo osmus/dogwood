@@ -6,11 +6,13 @@
         <span class="text">{{ site.title }}</span>
       </a>
       <ul class="icon-buttons">
-        <li>
-          <a href="{{'/slack' | absolute_url}}" title="Slack">
-            <svg class="iconsvg"><use xlink:href="#slack"></use></svg>
-          </a>
-        </li>
+        {%- if site.slack_page -%}
+          <li>
+            <a href="{{ site.slack_page | absolute_url}}" title="Slack">
+              <svg class="iconsvg"><use xlink:href="#slack"></use></svg>
+            </a>
+          </li>
+        {%- endif -%}
         {%- if site.youtube_page -%}
           <li>
             <a href="https://youtube.com/{{site.youtube_page}}" target="_blank" title="YouTube">
@@ -60,11 +62,13 @@
             </a>
           </li>
         {%- endif -%}
-        <li>
-          <a href="{{'/contact' | absolute_url}}" title="Email">
-            <svg class="iconsvg"><use xlink:href="#envelope"></use></svg>
-          </a>
-        </li>
+        {%- if site.email -%}
+          <li>
+            <a href="{{ site.email | absolute_url }}" title="Email">
+              <svg class="iconsvg"><use xlink:href="#envelope"></use></svg>
+            </a>
+          </li>
+        {%- endif -%}
       </ul>
     </div>
     <br/>
