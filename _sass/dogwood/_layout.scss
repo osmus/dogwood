@@ -1437,6 +1437,11 @@ article {
       color: inherit;
     } 
   }
+
+  .smallprint {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .status-bubble {
