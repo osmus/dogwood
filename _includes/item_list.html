@@ -55,6 +55,11 @@
                             {%- assign image_style_class = 'contained-image' -%}
                         {%- elsif item.image -%}
                             {%- assign imageurl = item.image -%}
+                            {%- assign first = imageurl | slice: 0, 11 -%}
+                            {%- if first == '/img/posts/' -%}
+                                {%- assign body = imageurl | slice: 11, 1000 -%}
+                                {%- assign imageurl = "/img-thumbnails/posts/" | append: body | append: ".webp" -%}
+                            {%- endif -%}
                         {%- elsif item.youtube -%}
                             {%- assign imageurl = 'https://i3.ytimg.com/vi/' | append: item.youtube | append: '/hqdefault.jpg' -%}
                         {%- endif -%}
