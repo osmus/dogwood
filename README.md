@@ -12,7 +12,7 @@ Dogwood pushes the envelope of what's possible with static site generators. It s
 
 Dogwood is under active development and is not currently versioned. Breaking changes may occur without notice, so we recommend targeting a specific commit of the project of simply forking it.
 
-The Dogwood theme is named for Virginia's state flower, since the OpenStreetMap US [website redesign](https://openstreetmap.us/news/2023/06/website-redesign/) was announced onstage at [State of the Map US 2023](https://openstreetmap.us/state-of-the-map-us/2023) in Richmond, Virginia.
+The Dogwood theme is named for Virginia's state flower, since the OpenStreetMap US [website redesign](https://openstreetmap.us/news/2023/06/website-redesign/) was announced onstage at [State of the Map US 2023](https://openstreetmap.us/events/state-of-the-map-us/2023) in Richmond, Virginia.
 
 ## Installation
 
