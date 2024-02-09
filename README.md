@@ -2,9 +2,9 @@
 layout: page
 permalink: /
 ---
-<img src="img/logo.svg" style="border:none;width:100px;"/>
+<a href="https://github.com/osmus/dogwood"><img src="img/logo.svg" style="border:none;width:100px;"/></a>
 
-# Dogwood
+# [Dogwood](https://github.com/osmus/dogwood)
 
 Dogwood is the [theme](https://jekyllrb.com/docs/themes/) for the [Jekyll](https://jekyllrb.com) static site generator powering [openstreetmap.us](https://openstreetmap.us). While the content for the OpenStreetMap US website is kept internal to the organization, we've decided to open source the site's theme for the benefit of the community.
 
