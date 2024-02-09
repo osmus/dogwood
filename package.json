@@ -2,6 +2,7 @@
     "name": "@osmus/dogwood",
     "version": "1.0.0",
     "scripts": {
+        "cache:embedded": "node ./_tools/embedded-page-cacher/index.js --srcdir=.",
         "cache:images": "node ./_tools/image-cacher/index.js --srcdir=.",
         "cache": "npm-run-all -p cache:*",
         "thumbnails": "node ./_tools/thumbnail-generator/index.js --srcdir=.",
