@@ -1,0 +1,18 @@
+{
+    "title": "Redirect",
+    "type": "object",
+    "properties": {
+      "permalink": {
+        "type": "string"
+      },
+      "redirect": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "redirect"
+    ]
+  }

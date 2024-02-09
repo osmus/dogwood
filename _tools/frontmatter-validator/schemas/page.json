@@ -1,0 +1,281 @@
+{
+    "title": "Page",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "temp_title": {
+        "type": "string"
+      },
+      "short_title": {
+        "type": "string"
+      },
+      "tagline": {
+        "type": "string"
+      },
+      "temp_tagline": {
+        "type": "string"
+      },
+      "blurb": {
+        "type": "string"
+      },
+      "temp_blurb": {
+        "type": "string"
+      },
+      "layout": {
+        "type": "string"
+      },
+      "event": {
+        "type": "string"
+      },
+      "event_series": {
+        "type": "string"
+      },
+      "caption": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      },
+      "image": {
+        "type": "string"
+      },
+      "sign": {
+        "type": "string"
+      },
+      "logo": {
+        "type": "string"
+      },
+      "wordmark": {
+        "type": "string"
+      },
+      "icon": {
+        "type": "string"
+      },
+      "website": {
+        "type": "string"
+      },
+      "twitter": {
+        "type": "string"
+      },
+      "youtube_page": {
+        "type": "string",
+        "description": "Path to a page on youtube.com. Different from `youtube` since that parameter is a video ID which is used differently."
+      },
+      "facebook": {
+        "type": "string"
+      },
+      "slack_channel": {
+        "type": "string"
+      },
+      "instagram": {
+        "type": "string"
+      },
+      "email_list": {
+        "type": "string"
+      },
+      "meetup": {
+        "type": "string"
+      },
+      "reddit": {
+        "type": "string"
+      },
+      "mastodon": {
+        "type": "string"
+      },
+      "donate": {
+        "type": "string"
+      },
+      "links": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "swag_items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "swag_sections": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "dropdown_links": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "app_links": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "footer_links": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "buttons": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "sessions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "blurb": {
+              "type": "string"
+            },
+            "date": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "string",
+                  "pattern": "\\d{4}-[01]\\d-[0-3]\\d [0-2]\\d:[0-5]\\d(:[0-5]\\d)? ([+-][0-2]\\d[0-5]\\d)"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "section_tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "team_name": {
+        "type": "string"
+      },
+      "max_posts": {
+        "type": "integer"
+      },
+      "updated": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "timezone": {
+        "type": "string"
+      },
+      "filter_start": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "filter_end": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "start": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "end": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "map": {
+        "type": "object",
+        "properties": {
+          "points": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "required": [
+      "title"
+    ]
+  }

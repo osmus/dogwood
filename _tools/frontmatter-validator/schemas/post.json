@@ -1,0 +1,110 @@
+{
+    "title": "session",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "link": {
+        "type": "string"
+      },
+      "permalink": {
+        "type": "string"
+      },
+      "event": {
+        "type": "string"
+      },
+      "blurb": {
+        "type": "string"
+      },
+      "date": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "type": "string",
+            "pattern": "\\d{4}-[01]\\d-[0-3]\\d [0-2]\\d:[0-5]\\d(:[0-5]\\d)? ([+-][0-2]\\d[0-5]\\d)"
+          }
+        ]
+      },
+      "image": {
+        "type": "string"
+      },
+      "image_remote": {
+        "type": "string"
+      },
+      "caption": {
+        "type": "string"
+      },
+      "youtube": {
+        "type": ["string", "null"]
+      },
+      "video_src": {
+        "type": "string"
+      },
+      "podbean": {
+        "type": "string"
+      },
+      "register": {
+        "type": "string"
+      },
+      "slides": {
+        "type": "string"
+      },
+      "author": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "speaker": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "block": {
+        "type": "string"
+      },
+      "time": {
+        "type": "string"
+      },
+      "day": {
+        "type": "string"
+      },
+      "room": {
+        "type": "string"
+      },
+      "length": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "title"
+    ]
+  }
