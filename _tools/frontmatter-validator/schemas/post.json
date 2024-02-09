@@ -5,7 +5,10 @@
       "title": {
         "type": "string"
       },
-      "link": {
+      "embedded": {
+        "type": "string"
+      },
+      "embedded_remote": {
         "type": "string"
       },
       "permalink": {

@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = (obj.contentWindow.document.documentElement.scrollHeight) + 'px';
+  }
+</script>
+<article class="content">
+  <div class="container">
+    {%- include breadcrumbs.html -%}
+    {%- include pagenav.html -%}
+  </div>
+  <div class="container">
+    {%- assign embedsrc = page.embedded | default: page.embedded_remote -%}
+    <iframe class="embedded-page-viewer" src="{{ embedsrc | absolute_url }}" onload="resizeIframe(this);" frameborder="0" scrolling="no" sandbox="allow-same-origin allow-top-navigation allow-popups allow-popups-to-escape-sandbox"></iframe>
+    <br/>
+    <br/>
+    <div class="prose">
+      {{ content }}
+    </div>
+  </div>
+</article>
