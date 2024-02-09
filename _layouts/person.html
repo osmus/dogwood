@@ -109,17 +109,7 @@ layout: default
     <div class="section">
       <h3></h3>
       <div class="section-body prose">
-        {%- assign isExternal=true -%}
-        {%- for role in page.roles -%}
-          {%- if role.at == "OpenStreetMap US Board" or role.at == "OpenStreetMap US Staff" -%}
-            {%- assign isExternal=false -%}
-            {%- break -%}
-          {%- endif -%}
-        {%- endfor -%}
-        {%- if isExternal -%}
-          <p><em>This is a compilation of publicly-available info about someone who has participated with OpenStreetMap US and is not an endorsement.</em></p>
-          <p><em>Is this your page? <a href="{{site.url}}{{site.baseurl}}/contact">Contact us</a> to edit your info.</em></p>
-        {%- endif -%}
+        {%- include person_footer.html -%}
         {%- if page.updated -%}
           <p><em>Last updated {{page.updated | date: "%B %Y" }}.</em></p>
         {% endif %}
