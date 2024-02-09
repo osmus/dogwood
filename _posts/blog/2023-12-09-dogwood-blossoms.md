@@ -1,7 +1,7 @@
 ---
 title: Dogwood Blossoms
 author: Walter Woodman
-image: /img/white-dogwoods.jpg
+image: /img/posts/white-dogwoods.jpg
 tags:
   - Dogwoods
   - Azaleas

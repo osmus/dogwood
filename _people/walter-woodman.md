@@ -1,6 +1,6 @@
 ---
 title: Walter Woodman
-image: /img/Renoir.jpg
+image: /img/people/Renoir.jpg
 roles:
   - title: Team Lead
     at: Azaleas

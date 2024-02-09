@@ -1,6 +1,6 @@
 ---
 title: Darla Dogson
-image: /img/Morisot.jpg
+image: /img/people/Morisot.jpg
 roles:
   - title: Team Lead
     at: Dogwoods

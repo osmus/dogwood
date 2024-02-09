@@ -1,6 +1,6 @@
 ---
 title: Azaleas
-image: /img/azalea.jpg
+image: /img/posts/azalea.jpg
 blurb: Azaleas are flowering shrubs.
 ---
 {::nomarkdown}

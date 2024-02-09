@@ -1,6 +1,6 @@
 ---
 title: Dogwoods
-image: /img/dogwood.jpg
+image: /img/posts/dogwood.jpg
 blurb: Dogwoods flowers are usually pink or white.
 ---
 {::nomarkdown}
