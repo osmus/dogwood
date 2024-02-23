@@ -5,7 +5,8 @@
 // This isn't strictly necessary but it enables linking people with the
 // various content they're associated with.
 //
-// Use the --fix=true option to automatically create missing files.
+// Use the `--fix=true` option to automatically create missing files.
+// Use the `--strict=false` option to output warnings instead of errors.
 //
 // Note that the name is the only unique identifier for a person. This
 // means you can only reference one person for each unique name,
@@ -23,6 +24,12 @@ let hasUnfixedIssue = false;
 
 let sourcePath = process.env.npm_config_srcdir || argv.srcdir || '.';
 if (sourcePath.endsWith('/')) sourcePath.slice(0, -1);
+
+let isStrict = true;
+if (("npm_config_strict" in process.env && !process.env.npm_config_strict) ||
+    process.argv.includes("--strict=false")) {
+    isStrict = false;
+}
 
 let expectedPeople = {};
 
@@ -93,7 +100,7 @@ function validatePeopleBasedOnPosts() {
 processFiles(sourcePath + '/_posts');
 validatePeopleBasedOnPosts();
 
-if (hasUnfixedIssue) {
+if (hasUnfixedIssue && isStrict) {
     // nonzero exit for GitHub Actions 
     process.exit(1);
 }
