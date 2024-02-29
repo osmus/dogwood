@@ -6,4 +6,4 @@
         {%- assign img = "/img-thumbnails/people/" | append: body | append: ".webp" -%}
     {%- endif -%}
 {%- endif -%}
-<span class="avatar inline-avatar" role="img" {%- if img -%}style="background-image: url({{img | absolute_url}}), url({{'/assets/avatar.jpg' | absolute_url}})"{%- endif -%}></span>
+<span class="avatar inline-avatar" role="img" {%- if img %} style="background-image: url({{img | absolute_url}}), url({{'/assets/avatar.jpg' | absolute_url}})"{%- endif -%}></span>
