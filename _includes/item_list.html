@@ -93,13 +93,13 @@
                         {%- endunless -%}
                     {%- endif -%}
                     {%- unless include.gallery -%}
-                        <p class="excerpt">
+                        <div class="excerpt">
                             {% if item.blurb %}
                                 {{ item.blurb | markdownify }}
                             {% else %}
                                 {{ item.content | strip_html | markdownify | strip_html | truncatewords: 32 }}
                             {% endif %}
-                        </p>
+                        </div>
                         {%- include register_button.html item=item -%}
                     {%- endunless -%}
                 </div>
