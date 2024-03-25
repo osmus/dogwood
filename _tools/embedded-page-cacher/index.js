@@ -12,11 +12,11 @@
 // fixes cross-origin issues with iframes. For instance, we want
 // clicked links to open in the browser window and not within the iframe.
 
-
 import fs from 'fs';
 import followRedirects from 'follow-redirects';
 const https = followRedirects.https;
 import graymatter from 'gray-matter';
+import filenamifyUrl from 'filenamify-url';
 
 import process from 'process';
 import minimist from 'minimist';
@@ -47,7 +47,7 @@ function cacheRemoteLinks(path) {
           if (Object.keys(frontmatter.data).length > 0) {
             let remoteUrl = frontmatter.data.embedded_remote;
             if (remoteUrl) {
-                let slug = encodeURIComponent(remoteUrl);
+                let slug = filenamifyUrl(remoteUrl);
                 let outPath = outDir + '/' + slug + '/';
                 if (!fs.existsSync(outPath)) {
                     fs.mkdirSync(outPath);
@@ -131,7 +131,7 @@ function cacheRemoteImages(html, toPath) {
     const matches = html.matchAll(imgRegex);
     for (const match of matches) {
         let imgUrl = match[1];
-        let slug = encodeURIComponent(imgUrl);
+        let slug = filenamifyUrl(imgUrl);
         html = html.replaceAll(imgUrl, "img/" + slug);
         cacheRemoteImage(imgUrl, toPath + "img/" + slug);
     }
