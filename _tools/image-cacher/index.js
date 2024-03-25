@@ -11,12 +11,14 @@
 // 
 // Remember to re-run the thumbnail-generator tool after cacheing images.
 
-const fs = require('fs');
-const https = require('follow-redirects').https;
-const graymatter = require('gray-matter');
-const process = require('process')
+import fs from 'fs';
+import followRedirects from 'follow-redirects';
+const https = followRedirects.https;
+import graymatter from 'gray-matter';
 
-const argv = require('minimist')(process.argv.slice(2));
+import process from 'process';
+import minimist from 'minimist';
+const argv = minimist(process.argv.slice(2));
 let sourcePath = process.env.npm_config_srcdir || argv.srcdir || '.';
 if (sourcePath.endsWith('/')) sourcePath.slice(0, -1);
 

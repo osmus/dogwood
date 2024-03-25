@@ -9,16 +9,18 @@
 // typos like `authors` instead of `author`. Use the
 // `--strict=false` option to turn off this behavior.
 
-const matter = require('gray-matter');
-const fs = require('fs');
-const process = require('process')
+import fs from 'fs';
+import graymatter from 'gray-matter';
+import path from 'path';
+import {fileURLToPath} from 'url';
 
-const argv = require('minimist')(process.argv.slice(2));
-
+import process from 'process';
+import minimist from 'minimist';
+const argv = minimist(process.argv.slice(2));
 let sourcePath = process.env.npm_config_srcdir || argv.srcdir || '.';
 if (sourcePath.endsWith('/')) sourcePath.slice(0, -1);
 
-const ZSchema = require("z-schema");
+import ZSchema from 'z-schema';
 
 let zSchemaOptions = {};
 
@@ -66,7 +68,7 @@ function validateFrontmatter(path, schemaPath) {
       const subpath = path + '/' + dirent.name;
       if (dirent.isFile()) {
           const filedata = fs.readFileSync(subpath);
-          const info = matter(filedata);
+          const info = graymatter(filedata);
   
           // ignore files not in Jekyll format
           if (Object.keys(info.data).length > 0) {
@@ -81,7 +83,8 @@ function validateFrontmatter(path, schemaPath) {
     dir.closeSync();
 }
 
-var schemasDir = __dirname + '/schemas';
+const directory = path.dirname(fileURLToPath(import.meta.url));
+var schemasDir = path.join(directory, '/schemas');
 
 validateFrontmatter(sourcePath + '/_posts', schemasDir + '/post.json');
 validateFrontmatter(sourcePath + '/_people', schemasDir + '/person.json');

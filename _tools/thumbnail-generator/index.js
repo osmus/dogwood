@@ -17,11 +17,12 @@
 // but do not run this script before building your site then
 // your images will 404.
 
-const fs = require('fs');
-const sharp = require('sharp');
-const process = require('process');
+import fs from 'fs';
+import sharp from 'sharp';
 
-const argv = require('minimist')(process.argv.slice(2));
+import process from 'process';
+import minimist from 'minimist';
+const argv = minimist(process.argv.slice(2));
 let sourcePath = process.env.npm_config_srcdir || argv.srcdir || '.';
 if (sourcePath.endsWith('/')) sourcePath.slice(0, -1);
 

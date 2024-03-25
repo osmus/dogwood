@@ -1,6 +1,7 @@
 {
     "name": "@osmus/dogwood",
     "version": "1.0.0",
+    "type": "module",
     "scripts": {
         "cache:embedded": "node ./_tools/embedded-page-cacher/index.js --srcdir=.",
         "cache:images": "node ./_tools/image-cacher/index.js --srcdir=.",

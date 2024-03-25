@@ -12,12 +12,15 @@
 // fixes cross-origin issues with iframes. For instance, we want
 // clicked links to open in the browser window and not within the iframe.
 
-const fs = require('fs');
-const https = require('follow-redirects').https;
-const graymatter = require('gray-matter');
-const process = require('process')
 
-const argv = require('minimist')(process.argv.slice(2));
+import fs from 'fs';
+import followRedirects from 'follow-redirects';
+const https = followRedirects.https;
+import graymatter from 'gray-matter';
+
+import process from 'process';
+import minimist from 'minimist';
+const argv = minimist(process.argv.slice(2));
 let sourcePath = process.env.npm_config_srcdir || argv.srcdir || '.';
 if (sourcePath.endsWith('/')) sourcePath.slice(0, -1);
 

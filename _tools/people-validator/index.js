@@ -13,12 +13,12 @@
 // and that different version of the name (Jim vs. Jimmy) will be
 // treated as different people.
 
-const matter = require('gray-matter');
-const fs = require('fs');
-const process = require('process');
+import fs from 'fs';
+import graymatter from 'gray-matter';
 
-const argv = require('minimist')(process.argv.slice(2));
-
+import process from 'process';
+import minimist from 'minimist';
+const argv = minimist(process.argv.slice(2));
 let shouldFix = process.env.npm_config_fix || argv.fix;
 let hasUnfixedIssue = false;
 
@@ -56,7 +56,7 @@ function processFiles(path) {
     const subpath = path + '/' + dirent.name;
     if (dirent.isFile()) {
         const filedata = fs.readFileSync(subpath);
-        const info = matter(filedata);
+        const info = graymatter(filedata);
 
         // ignore files not in Jekyll format
         if (Object.keys(info.data).length > 0) {
@@ -87,7 +87,7 @@ function validatePeopleBasedOnPosts() {
                 }
             }
         } else {
-            let personData = matter(fs.readFileSync(path)).data;
+            let personData = graymatter(fs.readFileSync(path)).data;
             // the document title needs to match the name listed in the post meta or else Jekyll can't link them 
             if (personData.title !== name) {
                 console.error(`Unexpected name "${personData.title}" for ${name} at ${path}`);
