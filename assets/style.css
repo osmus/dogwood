@@ -1433,32 +1433,49 @@ article .post-body {
   z-index: 9999;
 }
 
+.mono-logos img {
+  filter: brightness(0) invert(1);
+}
+
 ul.org-members {
   padding-left: 36px;
+  display: flex;
+  flex-wrap: wrap;
 }
 ul.org-members li {
+  max-width: 100%;
   list-style: none;
   margin-left: 0;
-}
-ul.org-members li:not(:last-child) {
   margin-bottom: 24px;
 }
+ul.org-members li:not(:last-child) {
+  margin-right: 48px;
+}
 ul.org-members li img {
-  max-height: 60px;
+  width: auto;
+  height: 100%;
   max-width: 100%;
+  object-fit: contain;
 }
 
-ul.org-members.level-5 li img {
-  max-height: 40px;
+ul.org-members.level-5 li {
+  height: 70px;
 }
 
-ul.org-members.level-2 li img {
-  max-height: 120px;
-  max-width: 400px;
+ul.org-members.level-4 li {
+  height: 80px;
 }
 
-ul.org-members.level-1 li img {
-  max-height: 180px;
+ul.org-members.level-3 li {
+  height: 90px;
+}
+
+ul.org-members.level-2 li {
+  height: 100px;
+}
+
+ul.org-members.level-1 li {
+  height: 108px;
 }
 
 .directory {
