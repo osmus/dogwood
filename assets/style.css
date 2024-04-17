@@ -965,8 +965,17 @@ table.schedule tr.ongoing .title {
 .layout-person .section:last-child > *:last-child {
   border-bottom: 0;
 }
-.layout-person .section .name-header {
+.layout-person .section .name-section {
   padding-top: 0;
+}
+.layout-person .section .name-header {
+  display: flex;
+  align-items: baseline;
+}
+.layout-person .section .pronouns {
+  margin-left: 8px;
+  font-weight: 600;
+  color: #777;
 }
 .layout-person .connect-links a:not(:last-child) {
   margin-right: 24px;
@@ -983,8 +992,11 @@ table.schedule tr.ongoing .title {
     top: 1px;
     bottom: initial;
   }
-  .layout-person .name-header {
+  .layout-person .name-section {
     text-align: center;
+  }
+  .layout-person .name-header {
+    justify-content: center;
   }
   .layout-person .sections {
     padding-left: 18px;
