@@ -950,8 +950,17 @@ table.schedule {
       border-bottom: 0;
     }
 
-    .name-header {
+    .name-section {
       padding-top: 0;
+    }
+    .name-header {
+      display: flex;
+      align-items: baseline;
+    }
+    .pronouns {
+      margin-left: 8px;
+      font-weight: 600;
+      color: #777;
     }
   }
   .connect-links a:not(:last-child) {
@@ -970,8 +979,11 @@ table.schedule {
       top: 1px;
       bottom: initial;
     }
-    .name-header {
+    .name-section {
       text-align: center;
+    }
+    .name-header {
+      justify-content: center;
     }
     .sections {
       padding-left: $sp*0.75;

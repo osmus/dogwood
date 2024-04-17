@@ -16,8 +16,8 @@ layout: default
         <div class="avatar hero-avatar" role="img" {%- if page.image -%}style="background-image: url('{{page.image | absolute_url}}'), url('{{site.url}}{{site.baseurl}}/assets/avatar.jpg')"{%- endif -%}></div>
       </div>
       <div>
-        <div class="section-body name-header">
-          <h1>{{page.title}}</h1>
+        <div class="section-body name-section">
+          <div class="name-header"><h1>{{page.title}}</h1>{%- if page.pronouns -%} <span class="pronouns">{{ page.pronouns }}</span>{%- endif -%}</div>
           {%- if page.osm -%}
             <a href="https://www.openstreetmap.org/user/{{page.osm}}">@{{page.osm}}</a>
           {%- endif -%}

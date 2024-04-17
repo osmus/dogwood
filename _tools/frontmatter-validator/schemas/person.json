@@ -5,6 +5,9 @@
       "title": {
         "type": "string"
       },
+      "pronouns": {
+        "type": "string"
+      },
       "updated": {
         "type": "string",
         "format": "date-time"
