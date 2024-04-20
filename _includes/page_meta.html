@@ -6,7 +6,10 @@
   {%- assign description=page.temp_blurb | default: page.blurb | strip_html | markdownify | strip_html -%}
 {% endif %}
 <meta name="og:description" content="{{description}}">
-{% assign image=page.sign -%}
+{% assign image=page.social_banner -%}
+{%- unless image -%}
+  {% assign image=page.sign -%}
+{%- endunless -%}
 {%- unless image -%}
   {% assign image=page.image -%}
 {%- endunless -%}

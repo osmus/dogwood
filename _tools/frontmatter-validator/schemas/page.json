@@ -47,7 +47,13 @@
       "sign": {
         "type": "string"
       },
+      "social_banner": {
+        "type": "string"
+      },
       "logo": {
+        "type": "string"
+      },
+      "logo_alt": {
         "type": "string"
       },
       "wordmark": {
