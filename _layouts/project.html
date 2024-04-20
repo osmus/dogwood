@@ -11,7 +11,7 @@ layout: default
       <div class="logo-area">
         {% if page.logo %}
           <div class="logo-wrap">
-            <a href="{{page.url | absolute_url}}"><img class="logo" src="{{page.logo | absolute_url}}"/></a>
+            <a href="{{page.url | absolute_url}}"><img class="logo" src="{{page.logo | absolute_url}}" alt="{{page.logo_alt}}"/></a>
           </div>
         {% endif %}
         <div class="right">
