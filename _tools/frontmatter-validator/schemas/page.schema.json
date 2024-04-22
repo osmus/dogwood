@@ -1,9 +1,56 @@
 {
-    "title": "Page",
+    "title": "page",
+    "$id": "dogwood/page.schema.json",
+    "description": "A generic information page not tied to a datetime.",
     "type": "object",
+    "$defs": {
+      "labeledLink": {
+        "title": "labeled link",
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          }
+        }
+      },
+      "labeledLinks": {
+        "title": "labeled links",
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/labeledLink"
+        }
+      },
+      "swagItem": {
+        "type": "object",
+        "title": "swag item",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          }
+        }
+      },
+      "swagItems": {
+        "title": "swag items",
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/swagItem"
+        }
+      }
+    },
     "properties": {
       "title": {
-        "type": "string"
+        "type": "string",
+        "title": "title",
+        "examples": ["My Great Page"]
       },
       "temp_title": {
         "type": "string"
@@ -99,124 +146,36 @@
       "donate": {
         "type": "string"
       },
-      "links": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "label": {
-              "type": "string"
-            },
-            "link": {
-              "type": "string"
-            }
-          }
-        }
-      },
       "swag_items": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "title": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string"
-            },
-            "image": {
-              "type": "string"
-            }
-          }
-        }
+        "$ref": "#/$defs/swagItems"
       },
       "swag_sections": {
+        "title": "swag sections",
         "type": "array",
         "items": {
-          "type": "object",
-          "properties": {
-            "title": {
-              "type": "string"
-            },
-            "items": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "title": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string"
-                  },
-                  "image": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
+          "$ref": "#/$defs/swagItems"
         }
+      },
+      "links": {
+        "$ref": "#/$defs/labeledLinks"
       },
       "dropdown_links": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "label": {
-              "type": "string"
-            },
-            "link": {
-              "type": "string"
-            }
-          }
-        }
+        "$ref": "#/$defs/labeledLinks"
       },
       "app_links": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "label": {
-              "type": "string"
-            },
-            "link": {
-              "type": "string"
-            }
-          }
-        }
+        "$ref": "#/$defs/labeledLinks"
       },
       "footer_links": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "label": {
-              "type": "string"
-            },
-            "link": {
-              "type": "string"
-            }
-          }
-        }
+        "$ref": "#/$defs/labeledLinks"
       },
       "buttons": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "label": {
-              "type": "string"
-            },
-            "link": {
-              "type": "string"
-            }
-          }
-        }
+        "$ref": "#/$defs/labeledLinks"
       },
       "sessions": {
         "type": "array",
+        "title": "sessions",
         "items": {
+          "title": "session",
           "type": "object",
           "properties": {
             "title": {
@@ -242,6 +201,7 @@
       },
       "section_tags": {
         "type": "array",
+        "title": "section tags",
         "items": {
           "type": "string"
         }
@@ -276,6 +236,7 @@
         "format": "date-time"
       },
       "map": {
+        "title": "map",
         "type": "object",
         "properties": {
           "points": {

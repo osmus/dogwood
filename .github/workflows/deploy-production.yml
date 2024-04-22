@@ -19,7 +19,9 @@ jobs:
         run: npm install
       - name: Validate the source files 🔬
         run: npm run validate
-      - name: Generate thumbnail images 🖨️
+      - name: Generate docs 🖨️
+        run: npm run docs
+      - name: Generate thumbnail images 🗜️
         run: npm run thumbnails
 
       - name: Install and Build 🔧

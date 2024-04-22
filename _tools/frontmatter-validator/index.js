@@ -39,7 +39,7 @@ if (isStrict) {
         forceProperties: true,
         noEmptyArrays: true,
         noEmptyStrings: true,
-        noExtraKeywords: true,
+        //noExtraKeywords: true,
         noTypeless: true,
     };
     Object.assign(zSchemaOptions, strictOptions);
@@ -86,10 +86,10 @@ function validateFrontmatter(path, schemaPath) {
 const directory = path.dirname(fileURLToPath(import.meta.url));
 var schemasDir = path.join(directory, '/schemas');
 
-validateFrontmatter(sourcePath + '/_posts', schemasDir + '/post.json');
-validateFrontmatter(sourcePath + '/_people', schemasDir + '/person.json');
-validateFrontmatter(sourcePath + '/_pages', schemasDir + '/page.json');
-validateFrontmatter(sourcePath + '/_redirects', schemasDir + '/redirect.json');
+validateFrontmatter(sourcePath + '/_posts', schemasDir + '/post.schema.json');
+validateFrontmatter(sourcePath + '/_people', schemasDir + '/person.schema.json');
+validateFrontmatter(sourcePath + '/_pages', schemasDir + '/page.schema.json');
+validateFrontmatter(sourcePath + '/_redirects', schemasDir + '/redirect.schema.json');
 
 if (hasInvalid) {
     // nonzero exit for GitHub Actions 

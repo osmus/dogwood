@@ -11,9 +11,11 @@
         "validate:people": "node ./_tools/people-validator/index.js --srcdir=.",
         "validate": "npm-run-all -p validate:*",
         "fix:people": "node ./_tools/people-validator/index.js --fix=true --srcdir=.",
-        "fix": "npm-run-all -p fix:*"
+        "fix": "npm-run-all -p fix:*",
+        "docs": "mkdir -p ./docs && jsonschema2md -h=0 -f yaml -o ./docs -x ./docs -d ./_tools/frontmatter-validator/schemas"
     },
     "devDependencies": {
+        "@adobe/jsonschema2md": "^8.0.2",
         "filenamify-url": "^3.1.0",
         "follow-redirects": "^1.15.3",
         "gray-matter": "^4.0.3",

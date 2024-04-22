@@ -1,5 +1,7 @@
 {
-    "title": "Person",
+    "title": "person",
+    "$id": "dogwood/person.schema.json",
+    "description": "A page describing a person, who may be a speaker or author of posts.",
     "type": "object",
     "properties": {
       "title": {
@@ -14,7 +16,9 @@
       },
       "roles": {
         "type": "array",
+        "title": "roles",
         "items": {
+          "title": "role",
           "type": "object",
           "properties": {
             "title": {

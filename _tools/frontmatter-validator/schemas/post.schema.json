@@ -1,6 +1,26 @@
 {
-    "title": "session",
+    "title": "post",
+    "$id": "dogwood/post.schema.json",
+    "description": "A post or session tied to a specific datetime and which has an author or speaker.",
     "type": "object",
+    "$defs": {
+      "nameOrNames": {
+        "oneOf": [
+          {
+            "title": "name",
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "title": "names",
+            "items": {
+              "title": "name",
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "properties": {
       "title": {
         "type": "string"
@@ -57,33 +77,14 @@
         "type": "string"
       },
       "author": {
-        "oneOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        ]
+        "$ref": "#/$defs/nameOrNames"
       },
       "speaker": {
-        "oneOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        ]
+        "$ref": "#/$defs/nameOrNames"
       },
       "tags": {
         "type": "array",
+        "title": "tags",
         "items": {
           "type": "string"
         }

@@ -1,5 +1,7 @@
 {
-    "title": "Redirect",
+    "title": "redirect",
+    "$id": "dogwood/redirect.schema.json",
+    "description": "A page that only redirects to an internal or external page.",
     "type": "object",
     "properties": {
       "permalink": {
