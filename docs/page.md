@@ -666,7 +666,7 @@ Path to a page on youtube.com. Different from `youtube` since that parameter is 
 
 * is optional
 
-* Type: `object[][]` ([swag item](page-defs-swag-item.md))
+* Type: `object[]` ([swag section](page-properties-swag-sections-swag-section.md))
 
 * cannot be null
 
@@ -674,7 +674,7 @@ Path to a page on youtube.com. Different from `youtube` since that parameter is 
 
 ### swag\_sections Type
 
-`object[][]` ([swag item](page-defs-swag-item.md))
+`object[]` ([swag section](page-properties-swag-sections-swag-section.md))
 
 ## links
 

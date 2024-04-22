@@ -24,6 +24,8 @@
 
 * [swag item](./page-defs-swag-item.md) – `dogwood/page.schema.json#/$defs/swagItem`
 
+* [swag section](./page-properties-swag-sections-swag-section.md) – `dogwood/page.schema.json#/properties/swag_sections/items`
+
 ### Arrays
 
 * [labeled links](./page-defs-labeled-links.md) – `dogwood/page.schema.json#/$defs/labeledLinks`
