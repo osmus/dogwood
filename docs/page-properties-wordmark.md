@@ -1,0 +1,3 @@
+## wordmark Type
+
+`string`

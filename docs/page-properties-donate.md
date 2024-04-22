@@ -1,0 +1,3 @@
+## donate Type
+
+`string`

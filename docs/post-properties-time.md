@@ -1,0 +1,3 @@
+## time Type
+
+`string`

@@ -1,0 +1,3 @@
+## instagram Type
+
+`string`

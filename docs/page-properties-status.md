@@ -1,0 +1,3 @@
+## status Type
+
+`string`

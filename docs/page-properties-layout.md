@@ -1,0 +1,3 @@
+## layout Type
+
+`string`

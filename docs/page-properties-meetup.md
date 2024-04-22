@@ -1,0 +1,3 @@
+## meetup Type
+
+`string`

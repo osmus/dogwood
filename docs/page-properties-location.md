@@ -1,0 +1,3 @@
+## location Type
+
+`string`

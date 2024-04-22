@@ -1,0 +1,3 @@
+## medium Type
+
+`string`

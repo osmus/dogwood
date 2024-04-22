@@ -1,0 +1,3 @@
+## podbean Type
+
+`string`

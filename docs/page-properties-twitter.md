@@ -1,0 +1,3 @@
+## twitter Type
+
+`string`

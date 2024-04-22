@@ -1,0 +1,3 @@
+## timezone Type
+
+`string`

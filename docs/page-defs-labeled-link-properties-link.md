@@ -1,0 +1,3 @@
+## link Type
+
+`string`

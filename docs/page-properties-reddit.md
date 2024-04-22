@@ -1,0 +1,3 @@
+## reddit Type
+
+`string`
