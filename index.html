@@ -145,7 +145,62 @@ ispage-">
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install
 </code></pre></div></div>
 
-<p>If you’re already running your dev server you’ll need to manually restart it for the config changes to take effect</p>
+<p>If you’re already running your dev server you’ll need to manually restart it for the config changes to take effect.</p>
+
+<h2 id="site-structure">Site structure</h2>
+
+<p>Dogwood expects your site to have four types of content, each with its own directory:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/_pages</code>: basic pages</li>
+  <li><code class="language-plaintext highlighter-rouge">/_people</code>: profile pages for people</li>
+  <li><code class="language-plaintext highlighter-rouge">/_posts</code>: pages with date and author information</li>
+  <li><code class="language-plaintext highlighter-rouge">/_redirects</code>: simple redirects to other pages</li>
+</ul>
+
+<p>Jekyll will only process directories starting with underscores if you output them like this in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">collections</span><span class="pi">:</span>
+  <span class="na">pages</span><span class="pi">:</span>
+    <span class="na">output</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">people</span><span class="pi">:</span>
+    <span class="na">output</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">posts</span><span class="pi">:</span>
+    <span class="na">output</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">redirects</span><span class="pi">:</span>
+    <span class="na">output</span><span class="pi">:</span> <span class="kc">true</span>
+</code></pre></div></div>
+
+<p>It’s helpful to set the default layout for these pages. You can set other default values here if you want, like permalinks:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">defaults</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">pages"</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">layout</span><span class="pi">:</span> <span class="s2">"</span><span class="s">page"</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">people"</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">layout</span><span class="pi">:</span> <span class="s2">"</span><span class="s">person"</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">posts"</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">layout</span><span class="pi">:</span> <span class="s2">"</span><span class="s">post"</span>
+      <span class="na">permalink</span><span class="pi">:</span> <span class="s">/blog/:year/:month/:title/</span> <span class="c1"># or whatever</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">redirects"</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">layout</span><span class="pi">:</span> <span class="s2">"</span><span class="s">redirect"</span>
+</code></pre></div></div>
+
+<p>Each type of content has its own set of Jekyll front matter values you can customize. Documentation for supported values can be found on these pages:</p>
+
+<ul>
+  <li><a href="https://github.com/osmus/dogwood/blob/gh-pages/docs/page.md">page</a></li>
+  <li><a href="https://github.com/osmus/dogwood/blob/gh-pages/docs/person.md">person</a></li>
+  <li><a href="https://github.com/osmus/dogwood/blob/gh-pages/docs/post.md">post</a></li>
+  <li><a href="https://github.com/osmus/dogwood/blob/gh-pages/docs/redirect.md">redirect</a></li>
+</ul>
 
 <h2 id="get-involved">Get involved</h2>
 
