@@ -75,6 +75,9 @@
       "facebook": {
         "type": "string"
       },
+      "linkedin": {
+        "type": "string"
+      },
       "slack_channel": {
         "type": "string"
       },
