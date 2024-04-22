@@ -56,7 +56,60 @@ And then execute:
 $ bundle install
 ```
 
-If you're already running your dev server you'll need to manually restart it for the config changes to take effect
+If you're already running your dev server you'll need to manually restart it for the config changes to take effect.
+
+## Site structure
+
+Dogwood expects your site to have four types of content, each with its own directory:
+
+- `/_pages`: basic pages
+- `/_people`: profile pages for people
+- `/_posts`: pages with date and author information
+- `/_redirects`: simple redirects to other pages
+
+Jekyll will only process directories starting with underscores if you output them like this in `_config.yml`:
+
+```yaml
+collections:
+  pages:
+    output: true
+  people:
+    output: true
+  posts:
+    output: true
+  redirects:
+    output: true
+```
+
+It's helpful to set the default layout for these pages. You can set other default values here if you want, like permalinks:
+
+```yaml
+defaults:
+  - scope:
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      type: "people"
+    values:
+      layout: "person"
+  - scope:
+      type: "posts"
+    values:
+      layout: "post"
+      permalink: /blog/:year/:month/:title/ # or whatever
+  - scope:
+      type: "redirects"
+    values:
+      layout: "redirect"
+```
+
+Each type of content has its own set of Jekyll front matter values you can customize. Documentation for supported values can be found on these pages:
+
+- [page](https://github.com/osmus/dogwood/blob/gh-pages/docs/page.md)
+- [person](https://github.com/osmus/dogwood/blob/gh-pages/docs/person.md)
+- [post](https://github.com/osmus/dogwood/blob/gh-pages/docs/post.md)
+- [redirect](https://github.com/osmus/dogwood/blob/gh-pages/docs/redirect.md)
 
 ## Get involved
 
