@@ -12,7 +12,7 @@
 
 ## permalink
 
-
+The relative URL of the referring page.
 
 `permalink`
 
@@ -28,9 +28,16 @@
 
 `string`
 
+### permalink Examples
+
+```yaml
+/schedule
+
+```
+
 ## redirect
 
-
+The relative or absolute URL of the destination page.
 
 `redirect`
 
@@ -46,9 +53,21 @@
 
 `string`
 
+### redirect Examples
+
+```yaml
+/program
+
+```
+
+```yaml
+https://example.com/program
+
+```
+
 ## title
 
-
+A title for this link for use in internal labeling (usually not needed).
 
 `title`
 
@@ -63,3 +82,10 @@
 ### title Type
 
 `string`
+
+### title Examples
+
+```yaml
+Program
+
+```

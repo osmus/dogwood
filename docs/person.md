@@ -25,7 +25,7 @@
 
 ## title
 
-
+The person's full display name or designation.
 
 `title`
 
@@ -41,9 +41,26 @@
 
 `string`
 
+### title Examples
+
+```yaml
+Darla Dogson
+
+```
+
+```yaml
+Darla
+
+```
+
+```yaml
+darla_dog_1985
+
+```
+
 ## pronouns
 
-
+The person's pronouns.
 
 `pronouns`
 
@@ -58,6 +75,23 @@
 ### pronouns Type
 
 `string`
+
+### pronouns Examples
+
+```yaml
+she/her
+
+```
+
+```yaml
+they/them
+
+```
+
+```yaml
+he/they
+
+```
 
 ## updated
 
