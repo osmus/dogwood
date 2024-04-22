@@ -1501,9 +1501,9 @@ article {
 ul.org-members {
 
   padding-left: $sp*1.5;
-
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
      
   li {
     max-width: 100%;
