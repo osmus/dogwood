@@ -39,8 +39,6 @@ jekyll-archives:
     year: '/:year/'
 date_format: "%b %e, %Y"
 collections:
-  feeds:
-    output: true
   pages:
     output: true
   people:
@@ -50,31 +48,23 @@ collections:
   redirects:
     output: true
 defaults:
-  -
-    scope:
+  - scope:
       path: "_pages"
-      type: "pages"
     values:
       permalink: /:path/
       layout: "page"
-  -
-    scope:
+  - scope:
+      path: "_people"
+    values:
+      layout: "person"
+  - scope:
+      path: "_posts/blog"
+    values:
+      permalink: /blog/:year/:month/:title/ # or whatever
+      category: "Blog"
+      layout: "post"
+  - scope:
       path: "_redirects"
-      type: "redirects"
     values:
       permalink: /:path/
       layout: "redirect"
-  -
-    scope:
-      path: "_people"
-      type: "people"
-    values:
-      layout: "person"
-  -
-    scope:
-      path: "_posts/blog"
-      type: "posts"
-    values:
-      permalink: /blog/:year/:month/:title/
-      category: "Blog"
-      layout: "post"
