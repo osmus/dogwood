@@ -9,6 +9,8 @@
 | [permalink](#permalink) | `string` | Optional | cannot be null | [redirect](redirect-properties-permalink.md "dogwood/redirect.schema.json#/properties/permalink") |
 | [redirect](#redirect)   | `string` | Required | cannot be null | [redirect](redirect-properties-redirect.md "dogwood/redirect.schema.json#/properties/redirect")   |
 | [title](#title)         | `string` | Optional | cannot be null | [redirect](redirect-properties-title.md "dogwood/redirect.schema.json#/properties/title")         |
+| [sign](#sign)           | `string` | Optional | cannot be null | [redirect](redirect-properties-sign.md "dogwood/redirect.schema.json#/properties/sign")           |
+| [tagline](#tagline)     | `string` | Optional | cannot be null | [redirect](redirect-properties-tagline.md "dogwood/redirect.schema.json#/properties/tagline")     |
 
 ## permalink
 
@@ -89,3 +91,39 @@ A title for this link for use in internal labeling (usually not needed).
 Program
 
 ```
+
+## sign
+
+
+
+`sign`
+
+* is optional
+
+* Type: `string`
+
+* cannot be null
+
+* defined in: [redirect](redirect-properties-sign.md "dogwood/redirect.schema.json#/properties/sign")
+
+### sign Type
+
+`string`
+
+## tagline
+
+
+
+`tagline`
+
+* is optional
+
+* Type: `string`
+
+* cannot be null
+
+* defined in: [redirect](redirect-properties-tagline.md "dogwood/redirect.schema.json#/properties/tagline")
+
+### tagline Type
+
+`string`
