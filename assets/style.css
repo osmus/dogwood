@@ -1453,6 +1453,7 @@ ul.org-members {
   padding-left: 36px;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
 ul.org-members li {
   max-width: 100%;
