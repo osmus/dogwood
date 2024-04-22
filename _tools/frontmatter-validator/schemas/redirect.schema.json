@@ -25,6 +25,12 @@
         "examples": [
           "Program"
         ]
+      },
+      "sign": {
+        "type": "string"
+      },
+      "tagline": {
+        "type": "string"
       }
     },
     "required": [
