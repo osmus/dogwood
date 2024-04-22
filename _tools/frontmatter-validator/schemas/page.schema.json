@@ -153,7 +153,16 @@
         "title": "swag sections",
         "type": "array",
         "items": {
-          "$ref": "#/$defs/swagItems"
+          "type": "object",
+          "title": "swag section",
+          "properties": {
+            "title": {
+              "type": "string" 
+            },
+            "items": {
+              "$ref": "#/$defs/swagItems"
+            }
+          }
         }
       },
       "links": {
