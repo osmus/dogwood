@@ -5,10 +5,22 @@
     "type": "object",
     "properties": {
       "title": {
-        "type": "string"
+        "type": "string",
+        "description": "The person's full display name or designation.",
+        "examples": [
+          "Darla Dogson",
+          "Darla",
+          "darla_dog_1985"
+        ]
       },
       "pronouns": {
-        "type": "string"
+        "type": "string",
+        "description": "The person's pronouns.",
+        "examples": [
+          "she/her",
+          "they/them",
+          "he/they"
+        ]
       },
       "updated": {
         "type": "string",
