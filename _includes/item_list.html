@@ -11,6 +11,8 @@
     {%- assign show_image=false -%}
 {%- endif -%}
 
+{%- assign date_format = include.date_format | default: site.date_format | default: "%b %e, %Y" -%}
+
 <div class="item-list {{collection}}-list {{category}}-list {% if include.gallery %}gallery{% endif %} {% if include.scroll %}scroll{% endif %} {% if include.titles=='' %}no-titles{% endif %}">
     {%- for item in _items -%}
         {%- assign names=item.author | default: item.speaker -%}
@@ -30,7 +32,7 @@
             <div class="{{include.type}}-item-listing">
                 <p>
                     <a class="title" href="{{item.url | absolute_url}}">{{title}} {% if item.youtube or item.podbean or item.video_src %}<svg class="iconsvg"><use xlink:href="#play-circle"></use></svg>{% endif %}</a>
-                    <span><span class='date cond-only'>{{item.date | date: site.date_format }}</span>
+                    <span><span class='date cond-only'>{{item.date | date: date_format }}</span>
                     {%-if names and names.size > 0 %}
                         <span class="cond-only">&middot;</span><span class="no-cond">|</span>
                         {% if include.ignore_name %}
@@ -39,7 +41,7 @@
                         {%- include names_list.html names=names avatar=false -%}
                     {%- endif -%}</span>
                 </p>
-                <p><span class='date no-cond'>{{item.date | date: site.date_format }}</span></p>
+                <p><span class='date no-cond'>{{item.date | date: date_format }}</span></p>
             </div>
         {% else %}
             <div class="item-listing {% if include.contain_image %}contained-image{% endif %}">
@@ -81,10 +83,10 @@
                     {%- endif -%}
                     {%- if include.subtitles -%}
                         <p class="meta subtitle">{{include.subtitles | slice: forloop.index0 }}</p>
-                    {%- elsif item.collection=='posts' -%}
+                    {%- elsif item.collection=='posts' or include.date_format -%}
                         {%- unless include.gallery -%}
                             <p class="meta">
-                                <span class='date'>{{item.date | date: site.date_format }}</span>
+                                <span class='date'>{{item.date | date: date_format }}</span>
                                 {% if names %}
                                     &middot;
                                     {% include names_list.html names=names %}
