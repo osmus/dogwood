@@ -56,6 +56,7 @@
 | [start](#start)                    | `string`  | Optional | cannot be null | [page](page-properties-start.md "dogwood/page.schema.json#/properties/start")                 |
 | [end](#end)                        | `string`  | Optional | cannot be null | [page](page-properties-end.md "dogwood/page.schema.json#/properties/end")                     |
 | [map](#map)                        | `object`  | Optional | cannot be null | [page](page-properties-map.md "dogwood/page.schema.json#/properties/map")                     |
+| [date](#date)                      | `string`  | Optional | cannot be null | [page](page-properties-date.md "dogwood/page.schema.json#/properties/date")                   |
 
 ## title
 
@@ -983,6 +984,28 @@ Path to a page on youtube.com. Different from `youtube` since that parameter is 
 ### map Type
 
 `object` ([map](page-properties-map.md))
+
+## date
+
+The Jekyll date of the document if we need to set it manually.
+
+`date`
+
+* is optional
+
+* Type: `string`
+
+* cannot be null
+
+* defined in: [page](page-properties-date.md "dogwood/page.schema.json#/properties/date")
+
+### date Type
+
+`string`
+
+### date Constraints
+
+**date time**: the string must be a date time string, according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339 "check the specification")
 
 # page Definitions
 
