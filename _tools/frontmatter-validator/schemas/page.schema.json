@@ -252,6 +252,11 @@
             "type": "string"
           }
         }
+      },
+      "date": {
+        "type": "string",
+        "description": "The Jekyll date of the document if we need to set it manually.",
+        "format": "date-time"
       }
     },
     "required": [
