@@ -97,6 +97,10 @@
       "social_banner": {
         "type": "string"
       },
+      "list_logo": {
+        "type": "string",
+        "description": "The logo to display in list views."
+      },
       "logo": {
         "type": "string"
       },

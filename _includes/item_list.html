@@ -52,8 +52,8 @@
                         {%- if item.sign -%}
                             {%- assign imageurl = item.sign -%}
                             {%- assign image_style_class = 'app-sign' -%}
-                        {%- elsif item.logo -%}
-                            {%- assign imageurl = item.logo -%}
+                        {%- elsif item.logo or item.list_logo -%}
+                            {%- assign imageurl = item.list_logo | default: item.logo -%}
                             {%- assign image_style_class = 'contained-image' -%}
                         {%- elsif item.image -%}
                             {%- assign imageurl = item.image -%}
