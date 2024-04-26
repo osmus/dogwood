@@ -22,6 +22,7 @@
 | [image](#image)                    | `string`  | Optional | cannot be null | [page](page-properties-image.md "dogwood/page.schema.json#/properties/image")                 |
 | [sign](#sign)                      | `string`  | Optional | cannot be null | [page](page-properties-sign.md "dogwood/page.schema.json#/properties/sign")                   |
 | [social\_banner](#social_banner)   | `string`  | Optional | cannot be null | [page](page-properties-social_banner.md "dogwood/page.schema.json#/properties/social_banner") |
+| [list\_logo](#list_logo)           | `string`  | Optional | cannot be null | [page](page-properties-list_logo.md "dogwood/page.schema.json#/properties/list_logo")         |
 | [logo](#logo)                      | `string`  | Optional | cannot be null | [page](page-properties-logo.md "dogwood/page.schema.json#/properties/logo")                   |
 | [logo\_alt](#logo_alt)             | `string`  | Optional | cannot be null | [page](page-properties-logo_alt.md "dogwood/page.schema.json#/properties/logo_alt")           |
 | [wordmark](#wordmark)              | `string`  | Optional | cannot be null | [page](page-properties-wordmark.md "dogwood/page.schema.json#/properties/wordmark")           |
@@ -350,6 +351,24 @@ My Great Page
 * defined in: [page](page-properties-social_banner.md "dogwood/page.schema.json#/properties/social_banner")
 
 ### social\_banner Type
+
+`string`
+
+## list\_logo
+
+The logo to display in list views.
+
+`list_logo`
+
+* is optional
+
+* Type: `string`
+
+* cannot be null
+
+* defined in: [page](page-properties-list_logo.md "dogwood/page.schema.json#/properties/list_logo")
+
+### list\_logo Type
 
 `string`
 
