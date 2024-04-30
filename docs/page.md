@@ -57,7 +57,7 @@
 | [start](#start)                    | `string`  | Optional | cannot be null | [page](page-properties-start.md "dogwood/page.schema.json#/properties/start")                 |
 | [end](#end)                        | `string`  | Optional | cannot be null | [page](page-properties-end.md "dogwood/page.schema.json#/properties/end")                     |
 | [map](#map)                        | `object`  | Optional | cannot be null | [page](page-properties-map.md "dogwood/page.schema.json#/properties/map")                     |
-| [date](#date)                      | `string`  | Optional | cannot be null | [page](page-properties-date.md "dogwood/page.schema.json#/properties/date")                   |
+| [date](#date)                      | Merged    | Optional | cannot be null | [page](page-properties-date.md "dogwood/page.schema.json#/properties/date")                   |
 
 ## title
 
@@ -1012,7 +1012,7 @@ The Jekyll date of the document if we need to set it manually.
 
 * is optional
 
-* Type: `string`
+* Type: merged type ([Details](page-properties-date.md))
 
 * cannot be null
 
@@ -1020,11 +1020,13 @@ The Jekyll date of the document if we need to set it manually.
 
 ### date Type
 
-`string`
+merged type ([Details](page-properties-date.md))
 
-### date Constraints
+one (and only one) of
 
-**date time**: the string must be a date time string, according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339 "check the specification")
+* [Untitled string in page](page-properties-date-oneof-0.md "check type definition")
+
+* [Untitled string in page](page-properties-date-oneof-1.md "check type definition")
 
 # page Definitions
 

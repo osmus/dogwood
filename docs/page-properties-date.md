@@ -1,7 +1,9 @@
 ## date Type
 
-`string`
+merged type ([Details](page-properties-date.md))
 
-## date Constraints
+one (and only one) of
 
-**date time**: the string must be a date time string, according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339 "check the specification")
+* [Untitled string in page](page-properties-date-oneof-0.md "check type definition")
+
+* [Untitled string in page](page-properties-date-oneof-1.md "check type definition")
