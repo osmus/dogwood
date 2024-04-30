@@ -258,9 +258,17 @@
         }
       },
       "date": {
-        "type": "string",
         "description": "The Jekyll date of the document if we need to set it manually.",
-        "format": "date-time"
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "type": "string",
+            "pattern": "\\d{4}-[01]\\d-[0-3]\\d [0-2]\\d:[0-5]\\d(:[0-5]\\d)? ([+-][0-2]\\d[0-5]\\d)"
+          }
+        ]
       }
     },
     "required": [
