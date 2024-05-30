@@ -6,7 +6,7 @@ tags:
   - Dogwoods
   - Azaleas
 ---
-Inspired today by *Dogwood Blossoms* by George Marion McClellan from *The Book of American Negro Poetry* (1922). This poem is in the public domain.
+Inspired today by *Dogwood Blossoms* by George Marion McClellan. This 1922 poem is in the public domain.
 
 To dreamy languors and the violet mist<br/>
    Of early Spring, the deep sequestered vale<br/>
