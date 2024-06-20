@@ -23,6 +23,7 @@
 | [slides](#slides)                    | `string` | Optional | cannot be null | [post](post-properties-slides.md "dogwood/post.schema.json#/properties/slides")                   |
 | [author](#author)                    | Merged   | Optional | cannot be null | [post](post-defs-nameornames.md "dogwood/post.schema.json#/properties/author")                    |
 | [speaker](#speaker)                  | Merged   | Optional | cannot be null | [post](post-defs-nameornames.md "dogwood/post.schema.json#/properties/speaker")                   |
+| [moderator](#moderator)              | Merged   | Optional | cannot be null | [post](post-defs-nameornames.md "dogwood/post.schema.json#/properties/moderator")                 |
 | [tags](#tags)                        | `array`  | Optional | cannot be null | [post](post-properties-tags.md "dogwood/post.schema.json#/properties/tags")                       |
 | [block](#block)                      | `string` | Optional | cannot be null | [post](post-properties-block.md "dogwood/post.schema.json#/properties/block")                     |
 | [time](#time)                        | `string` | Optional | cannot be null | [post](post-properties-time.md "dogwood/post.schema.json#/properties/time")                       |
@@ -346,6 +347,30 @@ one (and only one) of
 * defined in: [post](post-defs-nameornames.md "dogwood/post.schema.json#/properties/speaker")
 
 ### speaker Type
+
+merged type ([Details](post-defs-nameornames.md))
+
+one (and only one) of
+
+* [name](post-defs-nameornames-oneof-name.md "check type definition")
+
+* [names](post-defs-nameornames-oneof-names.md "check type definition")
+
+## moderator
+
+
+
+`moderator`
+
+* is optional
+
+* Type: merged type ([Details](post-defs-nameornames.md))
+
+* cannot be null
+
+* defined in: [post](post-defs-nameornames.md "dogwood/post.schema.json#/properties/moderator")
+
+### moderator Type
 
 merged type ([Details](post-defs-nameornames.md))
 
