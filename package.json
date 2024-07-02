@@ -6,6 +6,7 @@
         "cache:embedded": "node ./_tools/embedded-page-cacher/index.js --srcdir=.",
         "cache:images": "node ./_tools/image-cacher/index.js --srcdir=.",
         "cache": "npm-run-all -p cache:*",
+        "stats": "node ./_tools/stats-analyzer/index.js --srcdir=.",
         "thumbnails": "node ./_tools/thumbnail-generator/index.js --srcdir=.",
         "validate:frontmatter": "node ./_tools/frontmatter-validator/index.js --srcdir=.",
         "validate:people": "node ./_tools/people-validator/index.js --srcdir=.",
