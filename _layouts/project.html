@@ -90,10 +90,8 @@ layout: default
     <div class="container">
       {%- assign content = page.content | strip_newlines -%}
       {%- if content != '' -%}
-        <div class="section">
-          <div class="prose">
-            {{- content -}}
-          </div>
+        <div class="prose">
+          {{- content -}}
         </div>
       {%- endif -%}
       {%- include posts_section.html tag=page.title max_posts=page.max_posts -%}
