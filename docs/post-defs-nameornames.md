@@ -1,4 +1,4 @@
-## moderator Type
+## speaker Type
 
 merged type ([Details](post-defs-nameornames.md))
 
