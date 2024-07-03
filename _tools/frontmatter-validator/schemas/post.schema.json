@@ -82,9 +82,6 @@
       "speaker": {
         "$ref": "#/$defs/nameOrNames"
       },
-      "moderator": {
-        "$ref": "#/$defs/nameOrNames"
-      },
       "tags": {
         "type": "array",
         "title": "tags",
