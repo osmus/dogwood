@@ -1219,6 +1219,12 @@ table.schedule tr.ongoing .title {
   width: 100%;
 }
 
+.fullwidth {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
 article {
   position: relative;
   margin: auto;
