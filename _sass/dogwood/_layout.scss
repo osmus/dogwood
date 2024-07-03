@@ -1250,6 +1250,11 @@ table.schedule {
   padding-bottom: $sp*2;
   width: 100%;
 }
+.fullwidth {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
 
 article {
   position: relative;
