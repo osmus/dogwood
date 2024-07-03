@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'jekyll-include-cache', "~> 0.2.1"
 
   spec.add_runtime_dependency "absolute-urls"
+  spec.add_runtime_dependency "manual-markdown"
   spec.add_runtime_dependency "post-aliases"
   spec.add_runtime_dependency "unwrap-img"
 end
