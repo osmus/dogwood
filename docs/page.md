@@ -33,6 +33,7 @@
 | [facebook](#facebook)              | `string`  | Optional | cannot be null | [page](page-properties-facebook.md "dogwood/page.schema.json#/properties/facebook")           |
 | [linkedin](#linkedin)              | `string`  | Optional | cannot be null | [page](page-properties-linkedin.md "dogwood/page.schema.json#/properties/linkedin")           |
 | [slack\_channel](#slack_channel)   | `string`  | Optional | cannot be null | [page](page-properties-slack_channel.md "dogwood/page.schema.json#/properties/slack_channel") |
+| [github](#github)                  | `string`  | Optional | cannot be null | [page](page-properties-github.md "dogwood/page.schema.json#/properties/github")               |
 | [instagram](#instagram)            | `string`  | Optional | cannot be null | [page](page-properties-instagram.md "dogwood/page.schema.json#/properties/instagram")         |
 | [email\_list](#email_list)         | `string`  | Optional | cannot be null | [page](page-properties-email_list.md "dogwood/page.schema.json#/properties/email_list")       |
 | [meetup](#meetup)                  | `string`  | Optional | cannot be null | [page](page-properties-meetup.md "dogwood/page.schema.json#/properties/meetup")               |
@@ -549,6 +550,24 @@ Path to a page on youtube.com. Different from `youtube` since that parameter is 
 * defined in: [page](page-properties-slack_channel.md "dogwood/page.schema.json#/properties/slack_channel")
 
 ### slack\_channel Type
+
+`string`
+
+## github
+
+
+
+`github`
+
+* is optional
+
+* Type: `string`
+
+* cannot be null
+
+* defined in: [page](page-properties-github.md "dogwood/page.schema.json#/properties/github")
+
+### github Type
 
 `string`
 
