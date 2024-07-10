@@ -132,6 +132,9 @@
       "slack_channel": {
         "type": "string"
       },
+      "github": {
+        "type": "string"
+      },
       "instagram": {
         "type": "string"
       },
