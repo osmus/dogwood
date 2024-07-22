@@ -1,34 +1,19 @@
 <title>{% if page.title or page.temp_title %} {{page.temp_title | default: page.title}} | {% endif %} {{site.title}}</title>
 <meta name="og:title" content="{{page.temp_title | default: page.title}}">
 <meta property="og:url" content="{{page.url | absolute_url }}">
-{% assign description= page.content | strip_html | markdownify | strip_html | strip_newlines | truncate: 210 -%}
+{% assign description = page.content | strip_html | markdownify | strip_html | strip_newlines | truncate: 210 -%}
 {%- if page.temp_blurb or page.blurb -%}
   {%- assign description=page.temp_blurb | default: page.blurb | strip_html | markdownify | strip_html -%}
 {% endif %}
 <meta name="og:description" content="{{description}}">
-{% assign image=page.social_banner -%}
-{%- unless image -%}
-  {% assign image=page.sign -%}
-{%- endunless -%}
-{%- unless image -%}
-  {% assign image=page.image -%}
-{%- endunless -%}
-{%- unless image %}
-  {%- assign image=page.cover -%}
-{%- endunless -%}
-{%- unless image -%}
-  {%- assign image=page.logo -%}
-{%- endunless -%}
-{%- unless image -%}
-  {%- if page.youtube %}
-    {%- assign image = "https://i3.ytimg.com/vi/" | append: page.youtube | append: "/hqdefault.jpg" -%}
-  {% endif %}
-{%- endunless -%}
+{%- if page.youtube -%}
+    {%- assign youtube_image = "https://i3.ytimg.com/vi/" | append: page.youtube | append: "/hqdefault.jpg" -%}
+{%- endif -%}
+{%- assign image=page.social_banner | default: page.sign | default: page.image | default: page.cover | default: page.logo | default: youtube_image -%}
 {%- if image %}
   <meta name="og:image" content="{{image | absolute_url }}">
   <meta name="og:image:url" content="{{image | absolute_url }}">
 {% endif %}
-<meta name="twitter:site" content="@{{site.twitter}}">
 <meta name="twitter:creator" content="{% if page.twitter %}@{{page.twitter}}{% else %}@{{site.twitter}}{% endif %}">
 <script type="application/ld+json">
   {
