@@ -1175,6 +1175,9 @@ table.schedule tr.ongoing .title {
 .item-list.gallery:not(.pages-list):not(.people-list):not(.swag-list).scroll .thumbnail-image, .item-list.gallery:not(.pages-list):not(.people-list):not(.swag-list).scroll .listing-body {
   margin-left: 0;
 }
+.item-list.people-list h3 {
+  font-family: Helvetica, Arial, sans-serif !important;
+}
 .item-list.people-list .listing-front {
   width: 212.8px;
   height: auto;
