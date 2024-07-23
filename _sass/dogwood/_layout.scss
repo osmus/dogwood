@@ -1197,6 +1197,10 @@ table.schedule {
   }
 
   &.people-list {
+
+    h3 {
+      font-family: $sans-serif-font !important;
+    }
    
     .listing-front {
       width: $avatar-width;
