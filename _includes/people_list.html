@@ -11,7 +11,7 @@
 {%- if content_length == 0 -%}
     {%- assign gallery=true -%}
 {%- endif -%}
-{% assign ranks_string = "President;Vice President;Secretary;Treasurer;Member At-Large;Executive Director;Program Director;Program Manager;Founder;Maintainer;Organizer;Advisor;Developer;default;Trails Stewardship Initiative Program Manager" %}
+{% assign ranks_string = "President;Vice President;Secretary;Treasurer;Member At-Large;Executive Director;Program Director;Philanthropy & Engagement Coordinator;Technical Lead;Program Manager;Founder;Maintainer;Organizer;Advisor;Developer;default;Trails Stewardship Initiative Program Manager" %}
 {% assign _ranks = ranks_string | split:";" %}
 <div class="item-list people-list {% if gallery %}gallery{% endif %}">
     {% for rank in _ranks %}
