@@ -75,7 +75,13 @@
     {%- include sitemap.html -%}
     <hr/>
     <div class="smallprint">
-      <p>© {{site.time | date: "%Y"}} {{ site.copyright | default: site.title }}</p><p>Powered by <a href="https://github.com/osmus/dogwood" target="_blank">Dogwood</a></p>
+      {%- assign copystart = site.start | date: "%Y" -%}
+      {%- assign copyend = site.time | date: "%Y" -%}
+      {%- assign copydates = copyend -%}
+      {%- if copystart and copystart != copyend -%}
+        {%- assign copydates = copystart | append: '–' | append: copyend -%}
+      {%- endif -%}
+      <p>© {{copydates}} {{ site.copyright | default: site.title }}</p><p>Site powered by <a href="https://github.com/osmus/dogwood" target="_blank">Dogwood</a></p>
     </div>
   </div>
 </div>
