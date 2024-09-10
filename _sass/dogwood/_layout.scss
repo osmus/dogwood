@@ -518,10 +518,15 @@ body:not(.layout-post):not(.layout-session) {
 
 .pagenav {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   border-bottom: 1px solid $alpha-grid-color;
   margin-bottom: $sp;
+
+  .page-title-area {
+    padding-right: $sp*0.5;
+  }
 
   .meta {
     margin-bottom: $sp*0.5;
@@ -541,6 +546,7 @@ body:not(.layout-post):not(.layout-session) {
 
   @media only screen and (max-width: $sections-width) {
     flex-direction: column;
+    flex-wrap: nowrap;
   }
 }
 .layout-page.has-image {

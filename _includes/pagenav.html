@@ -1,6 +1,6 @@
 {%- if page.title or pate.temp_title -%}
 <div class="pagenav">
-  <div>
+  <div class="page-title-area">
     <a class="selflink" href="{{page.url | absolute_url}}">
       {%- if page.wordmark -%}
         <img class="wordmark" alt="{{page.temp_title | default: page.title}}" src="{{page.wordmark | absolute_url}}"/>
