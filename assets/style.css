@@ -584,10 +584,14 @@ body:not(.layout-post):not(.layout-session) .pagenav a {
 
 .pagenav {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   border-bottom: 1px solid rgba(128, 128, 128, 0.26);
   margin-bottom: 24px;
+}
+.pagenav .page-title-area {
+  padding-right: 12px;
 }
 .pagenav .meta {
   margin-bottom: 12px;
@@ -605,6 +609,7 @@ body:not(.layout-post):not(.layout-session) .pagenav a {
 @media only screen and (max-width: 720px) {
   .pagenav {
     flex-direction: column;
+    flex-wrap: nowrap;
   }
 }
 
