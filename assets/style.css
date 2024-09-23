@@ -122,7 +122,7 @@ a:visited {
 }
 
 a:hover, a:active {
-  color: #dda4bd;
+  color: rgb(220.8, 164.1, 189.3);
 }
 a:hover:not(.button), a:active:not(.button) {
   text-decoration: underline;
@@ -136,7 +136,7 @@ a:hover:not(.button), a:active:not(.button) {
   color: #FFB9D8;
 }
 .dark a:hover, .dark a:active {
-  color: #ffc7e0;
+  color: rgb(255, 199, 223.8);
 }
 .dark hr {
   background: rgba(255, 255, 255, 0.13);
