@@ -1,4 +1,4 @@
-<title>{% if page.title or page.temp_title %} {{page.temp_title | default: page.title}} | {% endif %} {{site.title}}</title>
+<title>{%- if page.title or page.temp_title -%} {{page.temp_title | default: page.title}} | {% endif -%} {{site.title}}</title>
 <meta name="og:title" content="{{page.temp_title | default: page.title}}">
 <meta property="og:url" content="{{page.url | absolute_url }}">
 {% assign description = page.content | strip_html | markdownify | strip_html | strip_newlines | truncate: 210 -%}
