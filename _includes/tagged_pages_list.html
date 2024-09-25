@@ -1,6 +1,9 @@
 {%- assign linked_pages="" | split: ',' -%}
 {%- for tag in page.tags -%}
   {%- assign linked_page=site.pages | find: "title", tag -%}
+  {%- unless linked_page -%}
+    {%- assign linked_page=site.redirects | find: "title", tag -%}
+  {%- endunless -%}
   {%- if linked_page -%}
     {%- assign linked_pages=linked_pages | push: linked_page -%}
   {%- endif -%}
