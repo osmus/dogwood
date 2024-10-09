@@ -5,71 +5,7 @@
         <img class="logo" src="{{site.logo_mono | default: site.logo | absolute_url}}"/>
         <span class="text">{{ site.title }}</span>
       </a>
-      <ul class="icon-buttons">
-        {%- if site.slack_page -%}
-          <li>
-            <a href="{{ site.slack_page | absolute_url}}" title="Slack">
-              <svg class="iconsvg"><use xlink:href="#slack"></use></svg>
-            </a>
-          </li>
-        {%- endif -%}
-        {%- if site.youtube_page -%}
-          <li>
-            <a href="https://youtube.com/{{site.youtube_page}}" target="_blank" title="YouTube">
-              <svg class="iconsvg"><use xlink:href="#youtube"></use></svg>
-            </a>
-          </li>
-        {%- endif -%}
-        {%- if site.instagram -%}
-          <li>
-            <a href="https://instagram.com/{{site.instagram}}" target="_blank" title="Instagram">
-              <svg class="iconsvg"><use xlink:href="#instagram"></use></svg>
-            </a>
-          </li>
-        {%- endif -%}
-        {%- if site.mastodon -%}
-          <li>
-            <a href="{{site.mastodon}}" target="_blank" title="Mastodon" rel="me">
-              <svg class="iconsvg"><use xlink:href="#mastodon"></use></svg>
-            </a>
-          </li>
-        {%- endif -%}
-        {%- if site.twitter -%}
-          <li>
-            <a href="https://x.com/{{site.twitter}}" target="_blank" title="Twitter">
-              <svg class="iconsvg"><use xlink:href="#twitter"></use></svg>
-            </a>
-          </li>
-        {%- endif -%}
-        {%- if site.facebook -%}
-          <li>
-            <a href="https://www.facebook.com/{{site.facebook}}" target="_blank" title="Facebook">
-              <svg class="iconsvg"><use xlink:href="#facebook"></use></svg>
-            </a>
-          </li>
-        {%- endif -%}
-        {%- if site.linkedin -%}
-          <li>
-            <a href="https://www.linkedin.com/{{site.linkedin}}" target="_blank" title="LinkedIn">
-              <svg class="iconsvg"><use xlink:href="#linkedin"></use></svg>
-            </a>
-          </li>
-        {%- endif -%}
-        {%- if site.github -%}
-          <li>
-            <a href="https://github.com/{{site.github}}" target="_blank" title="GitHub">
-              <svg class="iconsvg"><use xlink:href="#github"></use></svg>
-            </a>
-          </li>
-        {%- endif -%}
-        {%- if site.email -%}
-          <li>
-            <a href="{{ site.email | absolute_url }}" title="Email">
-              <svg class="iconsvg"><use xlink:href="#envelope"></use></svg>
-            </a>
-          </li>
-        {%- endif -%}
-      </ul>
+      {%- include_cached social_links.html item=site -%}
     </div>
     <br/>
     {%- include sitemap.html -%}

@@ -1,0 +1,48 @@
+<ul class="icon-buttons">
+  {%- assign item=include.item -%}
+  {%- if item.website -%}
+    <li><a href="{{item.website | absolute_url}}" title="{{item.website}}"><svg class="iconsvg"><use xlink:href="#globe"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.slack_page -%}
+    <li><a href="{{item.slack_page | absolute_url}}" title="Slack"><svg class="iconsvg"><use xlink:href="#slack"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.github -%}
+    <li><a href="https://github.com/{{item.github}}" target="_blank" title="{{item.title}} on GitHub"><svg class="iconsvg"><use xlink:href="#github"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.youtube_page -%}
+    <li><a href="https://youtube.com/{{item.youtube_page}}" target="_blank" title="{{item.title}} on YouTube"><svg class="iconsvg"><use xlink:href="#youtube"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.instagram -%}
+    <li><a href="https://instagram.com/{{item.instagram}}" target="_blank" title="{{item.title}} on Instagram"><svg class="iconsvg"><use xlink:href="#instagram"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.mastodon -%}
+    <li><a href="{{item.mastodon}}" target="_blank" title="{{item.title}} on Mastodon" rel="me"><svg class="iconsvg"><use xlink:href="#mastodon"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.twitter -%}
+    <li><a href="https://x.com/{{item.twitter}}" target="_blank" title="@{{item.twitter}} on Twitter"><svg class="iconsvg"><use xlink:href="#twitter"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.facebook -%}
+    <li><a href="https://www.facebook.com/{{item.facebook}}" target="_blank" title="{{item.title}} on Facebook"><svg class="iconsvg"><use xlink:href="#facebook"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.linkedin -%}
+    <li><a href="https://www.linkedin.com/{{item.linkedin}}" target="_blank" title="{{item.title}} on LinkedIn"><svg class="iconsvg"><use xlink:href="#linkedin"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.meetup -%}
+    <li><a href="https://meetup.com/{{item.meetup}}" title="https://meetup.com/{{item.meetup}}" target="_blank"><svg class="iconsvg"><use xlink:href="#meetup"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.reddit -%}
+    <li><a href="https://reddit.com/{{item.reddit}}" title="{{item.reddit}} on Reddit" target="_blank"><svg class="iconsvg"><use xlink:href="#reddit"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.email -%}
+    <li><a href="{{ item.email | absolute_url }}" title="Email"><svg class="iconsvg"><use xlink:href="#envelope"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.email_list -%}
+    <li><a href="{{item.email_list}}" title="Get email updates" target="_blank"><svg class="iconsvg"><use xlink:href="#inbox"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.slack_channel -%}
+    <li><a href="https://{{site.slack}}.slack.com/archives/{{item.slack_channel}}" title="#{{item.slack_channel}} channel on Slack" target="_blank"><svg class="iconsvg"><use xlink:href="#slack"></use></svg></a></li>
+  {%- endif -%}
+  {%- if item.donate -%}
+    <li><a href="{{item.donate | absolute_url}}" title="Donate to {{item.title}}" target="_blank"><svg class="iconsvg"><use xlink:href="#hand-holding-heart"></use></svg></a></li>
+  {%- endif -%}
+</ul>
