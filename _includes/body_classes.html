@@ -7,7 +7,7 @@
 {% if page.cover -%}
   has-cover
 {%- endif %}
-{% assign path_parts = page.url | remove_first: '/' | remove_last: '/' | split: '/' -%}
+{% assign path_parts = page.url | remove_first: '/' | split: '/' -%}
 {%- assign componenturl = '/' -%}
 {%- for part in path_parts -%}
   {%- assign componenturl = componenturl | append: part | append: '/' -%}

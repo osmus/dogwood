@@ -21,6 +21,10 @@ links:
   - link: https://github.com/osmus/dogwood
     label: Use This Theme!
     a_class: button bordered
+liquid:
+  error_mode: strict
+  strict_variables: false
+  strict_filters: true
 plugins:
   - jekyll-archives
   - jekyll-include-cache
