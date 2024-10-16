@@ -45,4 +45,7 @@
   {%- if item.donate -%}
     <li><a href="{{item.donate | absolute_url}}" title="Donate to {{item.title}}" target="_blank"><svg class="iconsvg"><use xlink:href="#hand-holding-heart"></use></svg></a></li>
   {%- endif -%}
+  {%- if item.status_page -%}
+    <li><a href="{{item.status_page | absolute_url}}" title="{{item.title}} status" target="_blank"><svg class="iconsvg"><use xlink:href="#sort"></use></svg></a></li>
+  {%- endif -%}
 </ul>
