@@ -1110,11 +1110,21 @@ table.schedule {
       background-size: contain;
       border: 0;
     }
+    .thumbnail-image.app-sign {
+      border: 0;
+    }
 
     @media only screen and (max-width: $sections-width) {
       flex-wrap: wrap;
       .listing-front {
         width: 100%;
+
+        .app-sign {
+          width: 360px;
+        }
+        .contained-image {
+          background-position-x: 0;
+        }
       }
       .listing-body {
         padding-left: 0;
@@ -1487,8 +1497,8 @@ article {
   background-position: center;
   background-size: cover;
   border-radius: 16px;
-  border: 1px solid $grid-color;
-  height: 140px;
+  outline: 1px solid $grid-color;
+  height: 160px;
 
   .status-bubble {
     top: -10px;
