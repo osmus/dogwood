@@ -321,7 +321,7 @@ thead th {
 .container {
   position: relative;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1164px;
   margin: 0 auto;
   padding-right: 18px;
   padding-left: 18px;
@@ -331,7 +331,7 @@ thead th {
   max-width: 900px;
   margin: 0 auto;
 }
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1164px) {
   .container.stretch {
     padding: 0;
   }
@@ -345,7 +345,7 @@ thead th {
   padding-top: 0;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1164px) {
   .layout-post.has-image article.content {
     padding-top: 0;
   }
@@ -703,7 +703,7 @@ figcaption.left {
 .cover .cover-image, .cover .cover-video {
   width: 100%;
   max-height: min(70vh, 50vw);
-  height: 550px;
+  height: 582px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -738,8 +738,8 @@ iframe.embedded-page-viewer {
 }
 .layout-project .cover .logo-area .logo-wrap {
   flex: 0 0 auto;
-  width: 212.8px;
-  max-height: 266px;
+  width: 225.6px;
+  max-height: 282px;
   margin-right: 36px;
   text-align: center;
 }
@@ -1099,12 +1099,15 @@ table.schedule tr.ongoing .title {
   font-style: italic;
 }
 .item-list .item-listing.contained-image .listing-front {
-  width: 212.8px;
+  width: 225.6px;
 }
 .item-list .item-listing.contained-image .thumbnail-image,
 .item-list .item-listing .thumbnail-image.contained-image {
   height: 180px;
   background-size: contain;
+  border: 0;
+}
+.item-list .item-listing .thumbnail-image.app-sign {
   border: 0;
 }
 @media only screen and (max-width: 720px) {
@@ -1113,6 +1116,12 @@ table.schedule tr.ongoing .title {
   }
   .item-list .item-listing .listing-front {
     width: 100%;
+  }
+  .item-list .item-listing .listing-front .app-sign {
+    width: 360px;
+  }
+  .item-list .item-listing .listing-front .contained-image {
+    background-position-x: 0;
   }
   .item-list .item-listing .listing-body {
     padding-left: 0;
@@ -1127,7 +1136,7 @@ table.schedule tr.ongoing .title {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 212.8px;
+  width: 225.6px;
   flex: 0 0 auto;
 }
 .item-list.gallery .item-listing .listing-front {
@@ -1142,13 +1151,13 @@ table.schedule tr.ongoing .title {
   padding: 0;
   margin-top: 12px;
 }
-@media only screen and (max-width: 461.6px) {
+@media only screen and (max-width: 487.2px) {
   .item-list.gallery:not(.scroll) {
     justify-content: center;
   }
 }
 .item-list.gallery:not(.pages-list):not(.people-list):not(.swag-list) .item-listing {
-  width: 354.312px;
+  width: 375.624px;
   align-items: baseline;
 }
 .item-list.gallery:not(.pages-list):not(.people-list):not(.swag-list) .item-listing .listing-front .thumbnail-image {
@@ -1173,7 +1182,7 @@ table.schedule tr.ongoing .title {
   border-width: 0.5px;
 }
 .item-list.gallery:not(.pages-list):not(.people-list):not(.swag-list).scroll .item-listing {
-  width: 287.28px;
+  width: 304.56px;
 }
 .item-list.gallery:not(.pages-list):not(.people-list):not(.swag-list).scroll .item-listing .listing-front .thumbnail-image {
   height: 148px;
@@ -1185,7 +1194,7 @@ table.schedule tr.ongoing .title {
   font-family: Helvetica, Arial, sans-serif !important;
 }
 .item-list.people-list .listing-front {
-  width: 212.8px;
+  width: 225.6px;
   height: auto;
 }
 .item-list.people-list .listing-front .thumbnail-image {
@@ -1404,7 +1413,7 @@ article .post-body {
   flex-wrap: wrap;
 }
 .footer .sitemap ul {
-  width: 212.8px;
+  width: 225.6px;
   margin-bottom: 24px;
 }
 .footer .sitemap ul li {
@@ -1440,8 +1449,8 @@ article .post-body {
   background-position: center;
   background-size: cover;
   border-radius: 16px;
-  border: 1px solid #dedede;
-  height: 140px;
+  outline: 1px solid #dedede;
+  height: 160px;
 }
 .app-sign .status-bubble {
   top: -10px;
