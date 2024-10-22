@@ -1076,7 +1076,7 @@ table.schedule tr.ongoing .title {
 }
 .item-list .item-listing .listing-front .rect-image {
   border-radius: 2px;
-  height: 180px;
+  aspect-ratio: 2;
 }
 .item-list .item-listing .listing-body {
   padding-left: 24px;
@@ -1176,7 +1176,6 @@ table.schedule tr.ongoing .title {
   margin: 0;
 }
 .item-list.gallery:not(.pages-list):not(.people-list):not(.swag-list).no-titles .item-listing .listing-front .thumbnail-image {
-  height: 196px;
   width: 100%;
   border-radius: 0;
   border-width: 0.5px;
