@@ -32,7 +32,7 @@ layout: default
 
       {%- include tagged_pages_list.html -%}
 
-      {%- assign talks=site.categories[page.categories.first] | where_exp: "item", "item != page" -%}
+      {%- assign talks=site.categories[page.categories.first] -%}
       {%- if page.youtube or page.video_src or page.podbean -%}
         {%- assign talks=talks | where_exp: "item", "item.youtube or item.video_src or item.podbean" -%}
       {%- endif -%}
