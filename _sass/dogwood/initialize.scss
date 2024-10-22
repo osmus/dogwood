@@ -33,8 +33,6 @@ $avatar-width: calc($content-width * 0.2);
 
 $sections-width: 720px;
 
-$list-item-image-height: 180px;
-
 // Import pre-styling-overrides hook and style-partials.
 @import
   "dogwood/custom-variables", // Hook to override predefined variables.

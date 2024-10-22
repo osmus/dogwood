@@ -1072,7 +1072,7 @@ table.schedule {
       }
       .rect-image {
         border-radius: 2px;
-        height: $list-item-image-height;
+        aspect-ratio: 2;
       }
     }
   
@@ -1106,7 +1106,7 @@ table.schedule {
     }
     &.contained-image .thumbnail-image,
     .thumbnail-image.contained-image {
-      height: $list-item-image-height;
+      height: 180px;
       background-size: contain;
       border: 0;
     }
@@ -1190,7 +1190,6 @@ table.schedule {
         .item-listing {
           margin: 0;
           .listing-front .thumbnail-image {
-            height: 196px;
             width: 100%;
             border-radius: 0;
             border-width: 0.5px;
