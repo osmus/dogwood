@@ -1450,7 +1450,7 @@ article .post-body {
   background-size: cover;
   border-radius: 16px;
   outline: 1px solid #dedede;
-  height: 160px;
+  aspect-ratio: 2.25;
 }
 .app-sign .status-bubble {
   top: -10px;
