@@ -1,13 +1,13 @@
 <div class="breadcrumbs">
   {%- assign path_parts = page.url | split: "/" -%}
   {%- if path_parts.size > 2 -%}
-    {%- assign urlsString = "" -%}
+    {%- assign urls = "" | split: "," -%}
     {%- assign composite_url = "" -%}
     {%- for part in path_parts -%}
       {%- assign composite_url = composite_url | append: part | append: "/" -%}
-      {%- assign urlsString = urlsString | append: composite_url | append: ";" -%}
+      {%- assign urls = urls | push: composite_url -%}
     {%- endfor -%}
-    {%- assign urls = urlsString | split: ";" | reverse | slice: 1, 100 -%}
+    {%- assign urls = urls | reverse | slice: 1, 100 -%}
     {%- for url in urls -%}
       {%- assign part_page = site.documents | find: "url", url -%}
       {%- unless part_page -%}
