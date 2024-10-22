@@ -1,0 +1,26 @@
+{%- assign person=include.person -%}
+{%- if person.website or person.wikipedia or person.mastodon or person.twitter or person.github or person.linkedin or person.medium -%}
+  <div class="section-body connect-links">
+    {%- if person.website -%}
+      <a href="{{person.website | absolute_url}}"><svg class="iconsvg pre-text"><use xlink:href="#globe"></use></svg> Website</a>
+    {%- endif -%}
+    {%- if person.wikipedia -%}
+      <a href="https://en.wikipedia.org/wiki/User:{{person.wikipedia}}"><svg class="iconsvg pre-text"><use xlink:href="#wikipedia-w"></use></svg> Wikipedia</a>
+    {%- endif -%}
+    {%- if person.mastodon -%}
+      <a href="{{person.mastodon}}"><svg class="iconsvg pre-text"><use xlink:href="#mastodon"></use></svg> Mastodon</a>
+    {%- endif -%}
+    {%- if person.twitter -%}
+      <a href="https://x.com/{{person.twitter}}"><svg class="iconsvg pre-text"><use xlink:href="#twitter"></use></svg> Twitter</a>
+    {%- endif -%}
+    {%- if person.github -%}
+      <a href="https://github.com/{{person.github}}"><svg class="iconsvg pre-text"><use xlink:href="#github"></use></svg> GitHub</a>
+    {%- endif -%}
+    {%- if person.linkedin -%}
+      <a href="https://www.linkedin.com/in/{{person.linkedin}}"><svg class="iconsvg pre-text"><use xlink:href="#linkedin"></use></svg> LinkedIn</a>
+    {%- endif -%}
+    {%- if person.medium -%}
+      <a href="https://medium.com/@{{person.medium}}"><svg class="iconsvg pre-text"><use xlink:href="#medium"></use></svg> Medium</a>
+    {%- endif -%}
+  </div>
+{%- endif -%}

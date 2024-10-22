@@ -1,0 +1,29 @@
+{%- assign person=include.person -%}
+{%- if person.roles -%}
+  <div class="section-body">
+    <ul>
+    {%- for role in person.roles -%}
+      {%- if role.at -%}
+        <li class="role-listing">
+          {%- if role.title -%}
+            <span class="role-title">{{role.title}}</span>, 
+          {% endif -%}
+          {% assign at_page=site.pages | find: "title", role.at -%}
+          {%- assign at = role.at -%}
+          {%- if at == "OpenStreetMap US Staff" -%}
+            {%- assign at = "OpenStreetMap US" -%}
+          {%- endif -%}
+          <span class="role-at">
+            {%- if at_page -%}
+              <a href="{{at_person.url | absolute_url}}">{{at}}</a>
+            {%- else -%}
+              {{at}}
+            {%- endif -%}
+          </span>
+          {%- if role.from %} ({{role.from | date: "%Y" }}–{%- if role.to -%}{{role.to | date: "%Y" }}{%- else -%}present{%- endif -%}){%- endif -%}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}
