@@ -1498,7 +1498,7 @@ article {
   background-size: cover;
   border-radius: 16px;
   outline: 1px solid $grid-color;
-  height: 160px;
+  aspect-ratio: 2.25;
 
   .status-bubble {
     top: -10px;
