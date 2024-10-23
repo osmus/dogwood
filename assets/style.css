@@ -899,16 +899,19 @@ table.schedule tr.ongoing .title {
 }
 .section .section-header {
   border-bottom: 1px solid rgba(128, 128, 128, 0.26);
+  padding-bottom: 12px;
   margin-bottom: 24px;
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
 }
 .section .section-header h2, .section .section-header h3 {
-  white-space: nowrap;
+  margin-bottom: 0;
 }
 .section a.section-button {
   font-weight: 600;
+  white-space: nowrap;
 }
 .section > *:not(.prose) h1, .section > *:not(.prose) h2, .section > *:not(.prose) h3, .section > *:not(.prose) h4, .section > *:not(.prose) h5, .section > *:not(.prose) h6 {
   font-family: Georgia, serif !important;
@@ -1040,7 +1043,6 @@ table.schedule tr.ongoing .title {
   margin-bottom: 24px;
 }
 .item-list .item-listing .listing-front {
-  max-width: 100%;
   width: 360px;
   position: relative;
   flex: 0 0 auto;
@@ -1118,7 +1120,7 @@ table.schedule tr.ongoing .title {
     width: 100%;
   }
   .item-list .item-listing .listing-front .app-sign {
-    width: 360px;
+    max-width: 360px;
   }
   .item-list .item-listing .listing-front .contained-image {
     background-position-x: 0;
