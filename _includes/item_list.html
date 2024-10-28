@@ -49,7 +49,7 @@
                     <div class="listing-front">
                         {%- assign imageurl = nil -%}
                         {%- assign image_style_class = 'rect-image' -%}
-                        {%- if item.sign -%}
+                        {%- if item.sign and include.gallery != true -%}
                             {%- assign imageurl = item.sign -%}
                             {%- assign image_style_class = 'app-sign' -%}
                         {%- elsif item.logo or item.list_logo -%}
