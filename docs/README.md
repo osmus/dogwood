@@ -8,8 +8,6 @@
 
 * [post](./post.md "A post or session tied to a specific datetime and which has an author or speaker") – `dogwood/post.schema.json`
 
-* [redirect](./redirect.md "A page that only redirects to an internal or external page") – `dogwood/redirect.schema.json`
-
 ## Other Schemas
 
 ### Objects

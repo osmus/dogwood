@@ -6,7 +6,7 @@
 
 | Property                           | Type      | Required | Nullable       | Defined by                                                                                    |
 | :--------------------------------- | :-------- | :------- | :------------- | :-------------------------------------------------------------------------------------------- |
-| [title](#title)                    | `string`  | Required | cannot be null | [page](page-properties-title.md "dogwood/page.schema.json#/properties/title")                 |
+| [title](#title)                    | `string`  | Optional | cannot be null | [page](page-properties-title.md "dogwood/page.schema.json#/properties/title")                 |
 | [temp\_title](#temp_title)         | `string`  | Optional | cannot be null | [page](page-properties-temp_title.md "dogwood/page.schema.json#/properties/temp_title")       |
 | [short\_title](#short_title)       | `string`  | Optional | cannot be null | [page](page-properties-short_title.md "dogwood/page.schema.json#/properties/short_title")     |
 | [tagline](#tagline)                | `string`  | Optional | cannot be null | [page](page-properties-tagline.md "dogwood/page.schema.json#/properties/tagline")             |
@@ -40,6 +40,7 @@
 | [reddit](#reddit)                  | `string`  | Optional | cannot be null | [page](page-properties-reddit.md "dogwood/page.schema.json#/properties/reddit")               |
 | [mastodon](#mastodon)              | `string`  | Optional | cannot be null | [page](page-properties-mastodon.md "dogwood/page.schema.json#/properties/mastodon")           |
 | [donate](#donate)                  | `string`  | Optional | cannot be null | [page](page-properties-donate.md "dogwood/page.schema.json#/properties/donate")               |
+| [register](#register)              | `string`  | Optional | cannot be null | [page](page-properties-register.md "dogwood/page.schema.json#/properties/register")           |
 | [swag\_items](#swag_items)         | `array`   | Optional | cannot be null | [page](page-defs-swag-items.md "dogwood/page.schema.json#/properties/swag_items")             |
 | [swag\_sections](#swag_sections)   | `array`   | Optional | cannot be null | [page](page-properties-swag-sections.md "dogwood/page.schema.json#/properties/swag_sections") |
 | [links](#links)                    | `array`   | Optional | cannot be null | [page](page-defs-labeled-links.md "dogwood/page.schema.json#/properties/links")               |
@@ -59,6 +60,8 @@
 | [end](#end)                        | `string`  | Optional | cannot be null | [page](page-properties-end.md "dogwood/page.schema.json#/properties/end")                     |
 | [map](#map)                        | `object`  | Optional | cannot be null | [page](page-properties-map.md "dogwood/page.schema.json#/properties/map")                     |
 | [date](#date)                      | Merged    | Optional | cannot be null | [page](page-properties-date.md "dogwood/page.schema.json#/properties/date")                   |
+| [redirect](#redirect)              | `string`  | Optional | cannot be null | [page](page-properties-redirect.md "dogwood/page.schema.json#/properties/redirect")           |
+| [permalink](#permalink)            | `string`  | Optional | cannot be null | [page](page-properties-permalink.md "dogwood/page.schema.json#/properties/permalink")         |
 
 ## title
 
@@ -66,7 +69,7 @@
 
 `title`
 
-* is required
+* is optional
 
 * Type: `string` ([title](page-properties-title.md))
 
@@ -679,6 +682,24 @@ Path to a page on youtube.com. Different from `youtube` since that parameter is 
 
 `string`
 
+## register
+
+A link to a page where people can sign up for the event described by this page.
+
+`register`
+
+* is optional
+
+* Type: `string`
+
+* cannot be null
+
+* defined in: [page](page-properties-register.md "dogwood/page.schema.json#/properties/register")
+
+### register Type
+
+`string`
+
 ## swag\_items
 
 
@@ -1046,6 +1067,61 @@ one (and only one) of
 * [Untitled string in page](page-properties-date-oneof-0.md "check type definition")
 
 * [Untitled string in page](page-properties-date-oneof-1.md "check type definition")
+
+## redirect
+
+The relative or absolute URL of the destination page if this page's `layout` value is `redirect`.
+
+`redirect`
+
+* is optional
+
+* Type: `string`
+
+* cannot be null
+
+* defined in: [page](page-properties-redirect.md "dogwood/page.schema.json#/properties/redirect")
+
+### redirect Type
+
+`string`
+
+### redirect Examples
+
+```yaml
+/program
+
+```
+
+```yaml
+https://example.com/program
+
+```
+
+## permalink
+
+The path to this page if we need to set it manually.
+
+`permalink`
+
+* is optional
+
+* Type: `string`
+
+* cannot be null
+
+* defined in: [page](page-properties-permalink.md "dogwood/page.schema.json#/properties/permalink")
+
+### permalink Type
+
+`string`
+
+### permalink Examples
+
+```yaml
+/schedule
+
+```
 
 # page Definitions
 

@@ -1,3 +1,0 @@
-## tagline Type
-
-`string`
