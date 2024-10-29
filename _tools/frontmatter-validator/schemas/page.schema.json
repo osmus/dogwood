@@ -153,6 +153,10 @@
       "donate": {
         "type": "string"
       },
+      "register": {
+        "type": "string",
+        "description": "A link to a page where people can sign up for the event described by this page."
+      },
       "swag_items": {
         "$ref": "#/$defs/swagItems"
       },
@@ -272,9 +276,21 @@
             "pattern": "\\d{4}-[01]\\d-[0-3]\\d [0-2]\\d:[0-5]\\d(:[0-5]\\d)? ([+-][0-2]\\d[0-5]\\d)"
           }
         ]
+      },
+      "redirect": {
+        "type": "string",
+        "description": "The relative or absolute URL of the destination page if this page's `layout` value is `redirect`.",
+        "examples": [
+          "/program",
+          "https://example.com/program"
+        ]
+      },
+      "permalink": {
+        "type": "string",
+        "description": "The path to this page if we need to set it manually.",
+        "examples": [
+          "/schedule"
+        ]
       }
-    },
-    "required": [
-      "title"
-    ]
+    }
   }

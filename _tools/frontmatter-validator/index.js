@@ -89,7 +89,7 @@ var schemasDir = path.join(directory, '/schemas');
 validateFrontmatter(sourcePath + '/_posts', schemasDir + '/post.schema.json');
 validateFrontmatter(sourcePath + '/_people', schemasDir + '/person.schema.json');
 validateFrontmatter(sourcePath + '/_pages', schemasDir + '/page.schema.json');
-validateFrontmatter(sourcePath + '/_redirects', schemasDir + '/redirect.schema.json');
+validateFrontmatter(sourcePath + '/_redirects', schemasDir + '/page.schema.json');
 
 if (hasInvalid) {
     // nonzero exit for GitHub Actions 
