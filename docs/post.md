@@ -24,6 +24,7 @@
 | [author](#author)                    | Merged   | Optional | cannot be null | [post](post-defs-nameornames.md "dogwood/post.schema.json#/properties/author")                    |
 | [speaker](#speaker)                  | Merged   | Optional | cannot be null | [post](post-defs-nameornames.md "dogwood/post.schema.json#/properties/speaker")                   |
 | [tags](#tags)                        | `array`  | Optional | cannot be null | [post](post-properties-tags.md "dogwood/post.schema.json#/properties/tags")                       |
+| [timezone](#timezone)                | `string` | Optional | cannot be null | [post](post-properties-timezone.md "dogwood/post.schema.json#/properties/timezone")               |
 | [block](#block)                      | `string` | Optional | cannot be null | [post](post-properties-block.md "dogwood/post.schema.json#/properties/block")                     |
 | [time](#time)                        | `string` | Optional | cannot be null | [post](post-properties-time.md "dogwood/post.schema.json#/properties/time")                       |
 | [day](#day)                          | `string` | Optional | cannot be null | [post](post-properties-day.md "dogwood/post.schema.json#/properties/day")                         |
@@ -372,6 +373,24 @@ one (and only one) of
 ### tags Type
 
 `string[]`
+
+## timezone
+
+
+
+`timezone`
+
+* is optional
+
+* Type: `string`
+
+* cannot be null
+
+* defined in: [post](post-properties-timezone.md "dogwood/post.schema.json#/properties/timezone")
+
+### timezone Type
+
+`string`
 
 ## block
 
