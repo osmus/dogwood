@@ -261,6 +261,9 @@
         "properties": {
           "points": {
             "type": "string"
+          },
+          "style": {
+            "type": "string"
           }
         }
       },
