@@ -38,7 +38,7 @@ if (isStrict) {
         forceMinLength: true,
         forceProperties: true,
         noEmptyArrays: true,
-        noEmptyStrings: true,
+        //noEmptyStrings: true,
         //noExtraKeywords: true,
         noTypeless: true,
     };
