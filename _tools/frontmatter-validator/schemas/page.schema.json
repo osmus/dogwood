@@ -83,7 +83,12 @@
         "type": "string"
       },
       "status": {
-        "type": "string"
+        "type": "string",
+        "examples": ["New", "Upcoming", "Beta"]
+      },
+      "status_icon": {
+        "type": "string",
+        "examples": ["★", "✦", "❤︎", "☚"]
       },
       "location": {
         "type": "string"

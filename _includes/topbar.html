@@ -22,7 +22,6 @@
               <ul class='submenu'>
                 {%- for link in sublinks -%}
                   {%- assign linked_subpage=site.pages | find: "url", link.link -%}
-                  {%- assign status=linked_subpage.status -%}
                   <li class="{{link.class}}">
                     <a class='button-label {{link.a_class}}' href="{{link.link | absolute_url}}" {% if status -%}title="{{status}}"{%- endif -%}>
                       {%- if link.label -%}
@@ -32,8 +31,8 @@
                       {%- else -%}
                         {{linked_subpage.title}}
                       {%- endif -%}
-                      {%- if status == 'Happening Now' or status == 'Upcoming' or status == 'New' or status == 'Soon' -%}
-                        &nbsp;<span class="status-symbol">★</span>
+                      {%- if linked_subpage.status_icon -%}
+                        &nbsp;<span class="status-symbol">{{ linked_subpage.status_icon }}</span>
                       {%- endif -%}
                     </a>
                   </li>
