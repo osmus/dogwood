@@ -79,7 +79,7 @@
                 {%- endif -%}
                 <div class="listing-body">
                     {%- if title and title.size > 0 -%}
-                        <h3><a href="{{item.url | absolute_url}}">{{title}}</a></h3>
+                        <b class="listing-title"><a href="{{item.url | absolute_url}}">{{title}}</a></b>
                     {%- endif -%}
                     {%- if include.subtitles -%}
                         <p class="meta subtitle">{{include.subtitles | slice: forloop.index0 }}</p>

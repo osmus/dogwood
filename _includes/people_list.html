@@ -24,7 +24,7 @@
                         <a href="{{item.url | absolute_url}}"><div class="thumbnail-image avatar" role="img" {% if item.image %}style="background-image: url('{{item.image | absolute_url}}'), url('{{site.url}}{{site.baseurl}}/assets/avatar.jpg');"{% endif %}></div></a>
                     </div>
                     <div class="listing-body">
-                        <h3><a href="{{item.url | absolute_url}}">{{item.title}}</a></h3>
+                        <b class="listing-title"><a href="{{item.url | absolute_url}}">{{item.title}}</a></b>
                         {% if role and role.title %}
                             <p class="meta subtitle">{{role.title}}</p>
                         {% endif %}
