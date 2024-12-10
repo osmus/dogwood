@@ -369,6 +369,25 @@ button, a.button, input[type=submit] {
   }
 }
 
+.countdown {
+  display: inline-flex;
+  .part {
+    width: 25%;
+    padding: 8px 0;
+    width: 80px;
+    .num {
+      font-size: 1.2em;
+      line-height: 1;
+      font-weight: 600;
+    }
+    .unit {
+      font-style: italic;
+      font-size: 0.8em;
+      font-weight: bold;
+    }
+  }
+}
+
 
 /* Header
 ------------------------------------------------------- */
