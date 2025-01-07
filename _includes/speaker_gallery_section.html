@@ -1,0 +1,19 @@
+{%- assign sessions = include.sessions | default: page.sessions -%}
+{%- assign speakers = '' | split: '' -%}
+{%- for session in include.sessions -%}
+  {%- for name in session.speaker -%}
+    {%- assign speaker = site.people | find: "title", name -%}
+    {%- if speaker -%}
+      {%- unless speakers contains speaker -%}
+        {%- assign speakers = speakers | push: speaker -%}
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- assign speakers = speakers | sort_natural: "title" -%}
+<div class="section">
+  <div class="section-header">
+    <h2>Meet our speakers</h2>
+  </div>
+  {% include people_list.html people=speakers gallery=true %}
+</div>
