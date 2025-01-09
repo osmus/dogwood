@@ -28,38 +28,43 @@
           <th>Track {{i}}</th>
         {%- endfor -%}
       {%- else -%}
-        <th colspan="{{ maxTracksAtOnce }}">Session</th>
+        <th colspan="{{ maxTracksAtOnce }}" style="width: {{ 100.0 | divided_by: maxTracksAtOnceOnDay }}%;">Session</th>
       {%- endif -%}
     </tr>
     {%- for obj2 in sessionsByMinute -%}
       {%- assign sessionsForMinute = obj2.items -%}
       <tr start="{{sessionsForMinute.first.date | date: '%s'}}" end="{{sessionsForMinute.first.date | date: '%s'}}" {% unless sessionsForMinute.first.url %}class="interstitial"{% endunless %}>
-        <td>{%- include item_time.html item=sessionsForMinute.first -%}</td>
-        {%- for item in sessionsForMinute -%}
-          {%- assign names=item.author | default: item.speaker -%}
-          {%- assign title=item.title -%}
-          <td colspan="{{ maxTracksAtOnce | plus: 1 | minus: sessionsForMinute.size }}">
-            {%- if title and title.size > 0 -%}
-                <p class="title">
-                    {%- if item.url -%}
-                        <a href="{{item.url | absolute_url}}">{{title}} {% if item.youtube or item.podbean or item.video_src %}<svg class="iconsvg"><use xlink:href="#play-circle"></use></svg>{% endif %}</a>
-                    {%- else -%}
-                        {{title}}
-                    {%- endif -%}
+        <td>{%- include item_time.html item=sessionsForMinute.first hidetimezone=true -%}</td>
+        {%- for i in (1..maxTracksAtOnceOnDay) -%}
+          <td colspan="{{ maxTracksAtOnce | plus: 1 | minus: maxTracksAtOnceOnDay }}" style="width: {{ 100.0 | divided_by: maxTracksAtOnceOnDay }}%;">
+            {%- if i <= sessionsForMinute.size -%}
+              {%- assign item=sessionsForMinute[forloop.index0] -%}
+              {%- assign names=item.author | default: item.speaker -%}
+              {%- assign title=item.title -%}
+              {%- if title and title.size > 0 -%}
+                  <p class="title">
+                      {%- if item.url -%}
+                          <a href="{{item.url | absolute_url}}">{{title}} {% if item.youtube or item.podbean or item.video_src %}<svg class="iconsvg"><use xlink:href="#play-circle"></use></svg>{% endif %}</a>
+                      {%- else -%}
+                          {{title}}
+                      {%- endif -%}
+                  </p>
+              {%- endif -%}
+              <p class="meta">
+                  {% if names %}
+                      {% include names_list.html names=names %}
+                  {% endif %}
+              </p>
+              {%- if maxTracksAtOnceOnDay <= 3 -%}
+                <p class="excerpt">
+                    {% if item.blurb %}
+                        {{ item.blurb | markdownify }}
+                    {% else %}
+                        {{ item.content | strip_html | markdownify | strip_html | truncatewords: 64 }}
+                    {% endif %}
                 </p>
+              {%- endif -%}
             {%- endif -%}
-            <p class="meta">
-                {% if names %}
-                    {% include names_list.html names=names %}
-                {% endif %}
-            </p>
-            <p class="excerpt">
-                {% if item.blurb %}
-                    {{ item.blurb | markdownify }}
-                {% else %}
-                    {{ item.content | strip_html | markdownify | strip_html | truncatewords: 64 }}
-                {% endif %}
-            </p>
           </td>
         {%- endfor -%}
       </tr>

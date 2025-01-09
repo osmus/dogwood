@@ -8,12 +8,15 @@ document.addEventListener("DOMContentLoaded", function() {
       timeZoneName: 'long',
       timeZone: targetTimeZone,
     }).substring(4);
-    var localizedTimeString = date.toLocaleString(undefined, {
+    let ops = {
       hour: 'numeric',
       minute: 'numeric',
-      timeZoneName: 'short',
       timeZone: targetTimeZone,
-    });
+    };
+    if (!el.hasAttribute('hidetz')) {
+      ops.timeZoneName = 'short';
+    }
+    var localizedTimeString = date.toLocaleString(undefined, ops);
     el.innerHTML = '<span title="' + timeZoneLabel + '">' + localizedTimeString + '</span>';
   });
 

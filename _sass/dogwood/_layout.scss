@@ -812,11 +812,12 @@ table.schedule {
     border-right: 1px solid $grid-color;
     &:first-child {
       border-left: 1px solid $grid-color;
+      width: 100px;
     }
   }
   td {
-    &:first-child {
-      width: 100px;
+    .time span {
+      white-space: nowrap;
     }
     .title {
       font-weight: 600;

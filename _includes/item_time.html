@@ -1,2 +1,2 @@
 {%- assign eventPage = site.pages | find: "title", include.item.event -%}
-<span class="time" totimezone="{{ include.item.timezone | default: eventPage.timezone }}" time="{{ include.item.date | date: '%s' }}">{{ include.item.date | date: "%l:%M %p" }} EST</span>
+<span class="time" {% if include.hidetimezone %}hidetz{% endif %} totimezone="{{ include.item.timezone | default: eventPage.timezone }}" time="{{ include.item.date | date: '%s' }}">{{ include.item.date | date: "%l:%M %p" }}{% unless include.hidetimezone %} EST{% endunless %}</span>
