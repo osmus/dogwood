@@ -1,29 +1,29 @@
 <title>{%- if page.title or page.temp_title -%} {{page.temp_title | default: page.title}} | {% endif -%} {{site.title}}</title>
-<meta name="og:title" content="{{page.temp_title | default: page.title}}">
-<meta property="og:url" content="{{page.url | absolute_url }}">
-{% assign description = page.content | strip_html | markdownify | strip_html | strip_newlines | truncate: 210 -%}
+  <meta name="title" property="og:title" content="{{page.temp_title | default: page.title}}">
+  <meta property="og:url" content="{{page.url | absolute_url }}">
+{%- assign description = page.content | strip_html | markdownify | strip_html | strip_newlines | truncate: 210 -%}
 {%- if page.temp_blurb or page.blurb -%}
-  {%- assign description=page.temp_blurb | default: page.blurb | strip_html | markdownify | strip_html -%}
+  {%- assign description=page.temp_blurb | default: page.blurb | strip_html | markdownify | strip_html | strip_newlines -%}
 {% endif %}
-<meta name="og:description" content="{{description}}">
+  <meta name="description" property="og:description" content="{{description}}">
 {%- if page.youtube -%}
     {%- assign youtube_image = "https://i3.ytimg.com/vi/" | append: page.youtube | append: "/hqdefault.jpg" -%}
 {%- endif -%}
 {%- assign image=page.social_banner | default: page.sign | default: page.image | default: page.cover | default: page.logo | default: youtube_image -%}
 {%- if image %}
-  <meta name="og:image" content="{{image | absolute_url }}">
-  <meta name="og:image:url" content="{{image | absolute_url }}">
-{% endif %}
-<meta name="twitter:creator" content="{% if page.twitter %}@{{page.twitter}}{% else %}@{{site.twitter}}{% endif %}">
-<script type="application/ld+json">
-  {
-    "@context" : "https://schema.org",
-    "@type" : "WebSite",
-    "name" : "{{site.title}}",
-    {% if site.short_title %} "alternateName" : "{{site.short_title}}", {%- endif %}
-    "url" : "{{site.url}}"
-  }
-</script>
+  <meta name="image" property="og:image" content="{{image | absolute_url }}">
+  <meta property="og:image:url" content="{{image | absolute_url }}">
+{%- endif %}
+  <meta name="twitter:creator" content="{% if page.twitter %}@{{page.twitter}}{% else %}@{{site.twitter}}{% endif %}">
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "{{site.title}}",
+      {% if site.short_title %} "alternateName" : "{{site.short_title}}", {%- endif %}
+      "url" : "{{site.url}}"
+    }
+  </script>
 
 {%- if page.image %}
   <link rel="preload" href="{{ page.image | absolute_url }}" as="image"><!-- load the most prominent image first -->
