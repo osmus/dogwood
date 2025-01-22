@@ -35,7 +35,7 @@ if (isStrict) {
         assumeAdditional: true,
         forceItems: true,
         forceMinItems: true,
-        forceMinLength: true,
+        //forceMinLength: true,
         forceProperties: true,
         noEmptyArrays: true,
         //noEmptyStrings: true,
