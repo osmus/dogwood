@@ -71,6 +71,9 @@
       "twitter": {
         "type": "string"
       },
+      "bluesky": {
+        "type": "string"
+      },
       "github": {
         "type": "string"
       },

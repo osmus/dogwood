@@ -18,6 +18,9 @@
   {%- if item.mastodon -%}
     <li><a href="{{item.mastodon}}" target="_blank" title="{{item.title}} on Mastodon" rel="me"><svg class="iconsvg"><use xlink:href="#mastodon"></use></svg></a></li>
   {%- endif -%}
+  {%- if item.bluesky -%}
+    <li><a href="https://bsky.app/profile/{{item.bluesky}}" target="_blank" title="@{{item.bluesky}} on Bluesky"><svg class="iconsvg"><use xlink:href="#bluesky"></use></svg></a></li>
+  {%- endif -%}
   {%- if item.twitter -%}
     <li><a href="https://x.com/{{item.twitter}}" target="_blank" title="@{{item.twitter}} on Twitter"><svg class="iconsvg"><use xlink:href="#twitter"></use></svg></a></li>
   {%- endif -%}

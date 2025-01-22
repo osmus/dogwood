@@ -10,6 +10,9 @@
     {%- if person.mastodon -%}
       <a href="{{person.mastodon}}"><svg class="iconsvg pre-text"><use xlink:href="#mastodon"></use></svg> Mastodon</a>
     {%- endif -%}
+    {%- if person.bluesky -%}
+      <a href="https://bsky.app/profile/{{person.bluesky}}"><svg class="iconsvg pre-text"><use xlink:href="#bluesky"></use></svg> Bluesky</a>
+    {%- endif -%}
     {%- if person.twitter -%}
       <a href="https://x.com/{{person.twitter}}"><svg class="iconsvg pre-text"><use xlink:href="#twitter"></use></svg> Twitter</a>
     {%- endif -%}

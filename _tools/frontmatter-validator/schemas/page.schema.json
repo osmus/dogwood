@@ -124,6 +124,9 @@
       "twitter": {
         "type": "string"
       },
+      "bluesky": {
+        "type": "string"
+      },
       "youtube_page": {
         "type": "string",
         "description": "Path to a page on youtube.com. Different from `youtube` since that parameter is a video ID which is used differently."
