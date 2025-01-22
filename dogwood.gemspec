@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "jekyll", "~> 4.3"
 
-  spec.add_runtime_dependency "jekyll-archives", "~> 2.2.1"
+  spec.add_runtime_dependency "jekyll-archives", "~> 2.3.0"
   spec.add_runtime_dependency 'jekyll-include-cache', "~> 0.2.1"
 
   spec.add_runtime_dependency "absolute-urls"

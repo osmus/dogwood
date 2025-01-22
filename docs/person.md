@@ -16,6 +16,7 @@
 | [caption](#caption)            | `string` | Optional | cannot be null | [person](person-properties-caption.md "dogwood/person.schema.json#/properties/caption")           |
 | [linkedin](#linkedin)          | `string` | Optional | cannot be null | [person](person-properties-linkedin.md "dogwood/person.schema.json#/properties/linkedin")         |
 | [twitter](#twitter)            | `string` | Optional | cannot be null | [person](person-properties-twitter.md "dogwood/person.schema.json#/properties/twitter")           |
+| [bluesky](#bluesky)            | `string` | Optional | cannot be null | [person](person-properties-bluesky.md "dogwood/person.schema.json#/properties/bluesky")           |
 | [github](#github)              | `string` | Optional | cannot be null | [person](person-properties-github.md "dogwood/person.schema.json#/properties/github")             |
 | [osm](#osm)                    | `string` | Optional | cannot be null | [person](person-properties-osm.md "dogwood/person.schema.json#/properties/osm")                   |
 | [website](#website)            | `string` | Optional | cannot be null | [person](person-properties-website.md "dogwood/person.schema.json#/properties/website")           |
@@ -238,6 +239,24 @@ he/they
 * defined in: [person](person-properties-twitter.md "dogwood/person.schema.json#/properties/twitter")
 
 ### twitter Type
+
+`string`
+
+## bluesky
+
+
+
+`bluesky`
+
+* is optional
+
+* Type: `string`
+
+* cannot be null
+
+* defined in: [person](person-properties-bluesky.md "dogwood/person.schema.json#/properties/bluesky")
+
+### bluesky Type
 
 `string`
 

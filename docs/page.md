@@ -18,6 +18,7 @@
 | [event\_series](#event_series)     | `string`  | Optional | cannot be null | [page](page-properties-event_series.md "dogwood/page.schema.json#/properties/event_series")   |
 | [caption](#caption)                | `string`  | Optional | cannot be null | [page](page-properties-caption.md "dogwood/page.schema.json#/properties/caption")             |
 | [status](#status)                  | `string`  | Optional | cannot be null | [page](page-properties-status.md "dogwood/page.schema.json#/properties/status")               |
+| [status\_icon](#status_icon)       | `string`  | Optional | cannot be null | [page](page-properties-status_icon.md "dogwood/page.schema.json#/properties/status_icon")     |
 | [location](#location)              | `string`  | Optional | cannot be null | [page](page-properties-location.md "dogwood/page.schema.json#/properties/location")           |
 | [image](#image)                    | `string`  | Optional | cannot be null | [page](page-properties-image.md "dogwood/page.schema.json#/properties/image")                 |
 | [sign](#sign)                      | `string`  | Optional | cannot be null | [page](page-properties-sign.md "dogwood/page.schema.json#/properties/sign")                   |
@@ -29,6 +30,7 @@
 | [icon](#icon)                      | `string`  | Optional | cannot be null | [page](page-properties-icon.md "dogwood/page.schema.json#/properties/icon")                   |
 | [website](#website)                | `string`  | Optional | cannot be null | [page](page-properties-website.md "dogwood/page.schema.json#/properties/website")             |
 | [twitter](#twitter)                | `string`  | Optional | cannot be null | [page](page-properties-twitter.md "dogwood/page.schema.json#/properties/twitter")             |
+| [bluesky](#bluesky)                | `string`  | Optional | cannot be null | [page](page-properties-bluesky.md "dogwood/page.schema.json#/properties/bluesky")             |
 | [youtube\_page](#youtube_page)     | `string`  | Optional | cannot be null | [page](page-properties-youtube_page.md "dogwood/page.schema.json#/properties/youtube_page")   |
 | [facebook](#facebook)              | `string`  | Optional | cannot be null | [page](page-properties-facebook.md "dogwood/page.schema.json#/properties/facebook")           |
 | [linkedin](#linkedin)              | `string`  | Optional | cannot be null | [page](page-properties-linkedin.md "dogwood/page.schema.json#/properties/linkedin")           |
@@ -286,6 +288,63 @@ My Great Page
 
 `string`
 
+### status Examples
+
+```yaml
+New
+
+```
+
+```yaml
+Upcoming
+
+```
+
+```yaml
+Beta
+
+```
+
+## status\_icon
+
+
+
+`status_icon`
+
+* is optional
+
+* Type: `string`
+
+* cannot be null
+
+* defined in: [page](page-properties-status_icon.md "dogwood/page.schema.json#/properties/status_icon")
+
+### status\_icon Type
+
+`string`
+
+### status\_icon Examples
+
+```yaml
+★
+
+```
+
+```yaml
+✦
+
+```
+
+```yaml
+❤︎
+
+```
+
+```yaml
+☚
+
+```
+
 ## location
 
 
@@ -481,6 +540,24 @@ The logo to display in list views.
 * defined in: [page](page-properties-twitter.md "dogwood/page.schema.json#/properties/twitter")
 
 ### twitter Type
+
+`string`
+
+## bluesky
+
+
+
+`bluesky`
+
+* is optional
+
+* Type: `string`
+
+* cannot be null
+
+* defined in: [page](page-properties-bluesky.md "dogwood/page.schema.json#/properties/bluesky")
+
+### bluesky Type
 
 `string`
 

@@ -448,6 +448,25 @@ button.external:after, a.button.external:after, input[type=submit].external:afte
   color: inherit;
 }
 
+.countdown {
+  display: inline-flex;
+}
+.countdown .part {
+  width: 25%;
+  padding: 8px 0;
+  width: 80px;
+}
+.countdown .part .num {
+  font-size: 1.2em;
+  line-height: 1;
+  font-weight: 600;
+}
+.countdown .part .unit {
+  font-style: italic;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
 /* Header
 ------------------------------------------------------- */
 .topbar {
@@ -834,9 +853,10 @@ table.schedule th, table.schedule td {
 }
 table.schedule th:first-child, table.schedule td:first-child {
   border-left: 1px solid #dedede;
-}
-table.schedule td:first-child {
   width: 100px;
+}
+table.schedule td .time span {
+  white-space: nowrap;
 }
 table.schedule td .title {
   font-weight: 600;
@@ -891,33 +911,6 @@ table.schedule tr.ongoing .title {
   vertical-align: middle;
   height: 30px;
   width: 30px;
-}
-
-.section {
-  width: 100%;
-  margin-bottom: 24px;
-}
-.section .section-header {
-  border-bottom: 1px solid rgba(128, 128, 128, 0.26);
-  padding-bottom: 12px;
-  margin-bottom: 24px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-}
-.section .section-header h2, .section .section-header h3 {
-  margin-bottom: 0;
-}
-.section a.section-button {
-  font-weight: 600;
-  white-space: nowrap;
-}
-.section > *:not(.prose) h1, .section > *:not(.prose) h2, .section > *:not(.prose) h3, .section > *:not(.prose) h4, .section > *:not(.prose) h5, .section > *:not(.prose) h6 {
-  font-family: Georgia, serif !important;
-}
-.section:empty {
-  display: none;
 }
 
 /* Person page
@@ -1080,6 +1073,10 @@ table.schedule tr.ongoing .title {
   border-radius: 2px;
   aspect-ratio: 2;
 }
+.item-list .item-listing .listing-title {
+  font-size: 22px;
+  font-weight: 600;
+}
 .item-list .item-listing .listing-body {
   padding-left: 24px;
   max-width: 700px;
@@ -1171,7 +1168,7 @@ table.schedule tr.ongoing .title {
   margin-left: auto;
   margin-right: auto;
 }
-.item-list.gallery:not(.pages-list):not(.people-list):not(.swag-list) .item-listing h3 {
+.item-list.gallery:not(.pages-list):not(.people-list):not(.swag-list) .item-listing .listing-title {
   text-align: left;
 }
 .item-list.gallery:not(.pages-list):not(.people-list):not(.swag-list).no-titles .item-listing {
@@ -1191,9 +1188,6 @@ table.schedule tr.ongoing .title {
 .item-list.gallery:not(.pages-list):not(.people-list):not(.swag-list).scroll .thumbnail-image, .item-list.gallery:not(.pages-list):not(.people-list):not(.swag-list).scroll .listing-body {
   margin-left: 0;
 }
-.item-list.people-list h3 {
-  font-family: Helvetica, Arial, sans-serif !important;
-}
 .item-list.people-list .listing-front {
   width: 225.6px;
   height: auto;
@@ -1210,8 +1204,7 @@ table.schedule tr.ongoing .title {
   flex-wrap: nowrap;
   overflow-x: auto;
 }
-.item-list.swag-list h3 {
-  font-family: Helvetica, Arial, sans-serif !important;
+.item-list.swag-list .listing-title {
   font-size: 1em;
 }
 
@@ -1337,6 +1330,33 @@ article .post-body {
   border-left: 6px solid #dedede;
   width: calc(100% - 1em);
   max-width: calc(700px - 1em);
+}
+
+.section {
+  width: 100%;
+  margin-bottom: 24px;
+}
+.section .section-header {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.26);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.section .section-header h2, .section .section-header h3 {
+  margin-bottom: 0;
+}
+.section a.section-button {
+  font-weight: 600;
+  white-space: nowrap;
+}
+.section h1, .section h2, .section h3, .section h4, .section h5, .section h6 {
+  font-family: Georgia, serif;
+}
+.section:empty {
+  display: none;
 }
 
 /* About
