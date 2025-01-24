@@ -33,7 +33,7 @@
     </tr>
     {%- for obj2 in sessionsByMinute -%}
       {%- assign sessionsForMinute = obj2.items -%}
-      <tr start="{{sessionsForMinute.first.date | date: '%s'}}" end="{{sessionsForMinute.first.date | date: '%s'}}" {% unless sessionsForMinute.first.url %}class="interstitial"{% endunless %}>
+      <tr start="{{sessionsForMinute.first.date | date: '%s'}}" end="{{sessionsByMinute[forloop.index].items.first.date | date: '%s'}}" {% unless sessionsForMinute.first.url %}class="interstitial"{% endunless %}>
         <td>{%- include item_time.html item=sessionsForMinute.first hidetimezone=true -%}</td>
         {%- for i in (1..maxTracksAtOnceOnDay) -%}
           <td colspan="{{ maxTracksAtOnce | plus: 1 | minus: maxTracksAtOnceOnDay }}" style="width: {{ 100.0 | divided_by: maxTracksAtOnceOnDay }}%;">
