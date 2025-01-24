@@ -60,7 +60,7 @@
                     {% if item.blurb %}
                         {{ item.blurb | markdownify }}
                     {% else %}
-                        {{ item.content | strip_html | markdownify | strip_html | truncatewords: 64 }}
+                        {{ item.content | markdownify | truncatewords: 64 }}
                     {% endif %}
                 </p>
               {%- endif -%}
