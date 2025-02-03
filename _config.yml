@@ -9,7 +9,7 @@ future: true
 timezone: America/New_York
 github: osmus/dogwood
 mastodon: https://en.osm.town/@OpenStreetMapUS
-twitter: openstreetmapus
+bluesky: osmus.bsky.social
 youtube_page: channel/UCQpS2iHNVR-_6nAxt87nwCw
 facebook: openstreetmap.us
 instagram: openstreetmapus
