@@ -1517,15 +1517,15 @@ ul.org-members li img {
 }
 
 ul.org-members.level-5 li {
-  height: 70px;
+  height: 64px;
 }
 
 ul.org-members.level-4 li {
-  height: 80px;
+  height: 76px;
 }
 
 ul.org-members.level-3 li {
-  height: 90px;
+  height: 88px;
 }
 
 ul.org-members.level-2 li {
@@ -1533,7 +1533,7 @@ ul.org-members.level-2 li {
 }
 
 ul.org-members.level-1 li {
-  height: 108px;
+  height: 112px;
 }
 
 .directory {
