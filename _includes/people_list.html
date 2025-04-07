@@ -30,7 +30,11 @@
                         {% endif %}
                         {% unless gallery %}
                             <p class="excerpt">
-                                {{ item.content | markdownify }}
+                                {% if item.blurb %}
+                                    {{ item.blurb | markdownify }}
+                                {% else %}
+                                    {{ item.content | markdownify | split: '</p>' | first | strip_html }}
+                                {% endif %}
                             </p>
                         {% endunless %}
                     </div>
