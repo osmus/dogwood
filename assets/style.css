@@ -287,15 +287,21 @@ th, td {
   padding: 4px 4px;
   text-align: left;
   vertical-align: top;
-  border-bottom: 1px solid #dedede;
+  border: 1px solid #dedede;
+  border-top-width: 0;
+  border-left-width: 0;
 }
 
 tr:first-child > th, tr:first-child > td {
-  border-top: 1px solid #dedede;
+  border-top-width: 1px;
+  border-left-width: 1px;
 }
 
 th {
   font-weight: bold;
+  background-color: #717171;
+  color: #fff;
+  border-color: #4f4e4e;
 }
 
 thead th {
@@ -1304,7 +1310,6 @@ article .post-body {
 }
 .prose > img, .prose > figure, .prose > .img-container, .prose > iframe, .prose > table, .prose blockquote img, .prose blockquote figure, .prose blockquote .img-container, .prose blockquote iframe, .prose blockquote table {
   max-width: 880px;
-  border: 1px solid #dedede;
   background-color: white;
   padding: 0;
 }
@@ -1315,6 +1320,9 @@ article .post-body {
   .prose > img, .prose > figure, .prose > .img-container, .prose > iframe, .prose > table, .prose blockquote img, .prose blockquote figure, .prose blockquote .img-container, .prose blockquote iframe, .prose blockquote table {
     max-width: 100%;
   }
+}
+.prose > img:not(table), .prose > figure:not(table), .prose > .img-container:not(table), .prose > iframe:not(table), .prose > table:not(table), .prose blockquote img:not(table), .prose blockquote figure:not(table), .prose blockquote .img-container:not(table), .prose blockquote iframe:not(table), .prose blockquote table:not(table) {
+  border: 1px solid #dedede;
 }
 .prose > figure, .prose > .img-container, .prose blockquote figure, .prose blockquote .img-container {
   line-height: 0;
