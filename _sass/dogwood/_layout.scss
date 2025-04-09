@@ -200,15 +200,21 @@ th, td {
   padding: 4px 4px;
   text-align: left;
   vertical-align: top;
-  border-bottom: 1px solid $grid-color;
+  border: 1px solid $grid-color;
+  border-top-width: 0;
+  border-left-width: 0;
 }
 tr:first-child {
   > th, > td {
-    border-top: 1px solid $grid-color;
+    border-top-width: 1px;
+    border-left-width: 1px;
   }
 }
 th {
-  font-weight:bold;
+  font-weight: bold;
+  background-color: #717171;
+  color: #fff;
+  border-color: #4f4e4e;
 }
 thead th {
   vertical-align:bottom;
@@ -1339,8 +1345,8 @@ article {
       position: relative;
     }
     img, figure, .img-container, iframe, table {
+
       max-width: $img-width;
-      border: 1px solid $grid-color;
       background-color: $background-color;
       padding: 0;
 
@@ -1350,6 +1356,10 @@ article {
 
       @media only screen and (max-width: calc($img-width + $container-padding*2)) {
         max-width: 100%;
+      }
+
+      &:not(table) {
+        border: 1px solid $grid-color;
       }
     }
     figure, .img-container {
