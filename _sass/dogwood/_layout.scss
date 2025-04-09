@@ -203,11 +203,13 @@ th, td {
   border: 1px solid $grid-color;
   border-top-width: 0;
   border-left-width: 0;
+  &:first-child {
+    border-left-width: 1px;
+  }
 }
 tr:first-child {
   > th, > td {
     border-top-width: 1px;
-    border-left-width: 1px;
   }
 }
 th {
