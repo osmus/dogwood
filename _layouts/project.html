@@ -49,10 +49,10 @@ layout: default
   {%- endif -%}
   <div class="content">
     <div class="container">
-      {%- assign content = page.content | strip_newlines -%}
-      {%- if content != '' -%}
+      {%- assign trimmed_content = page.content | strip_newlines -%}
+      {%- if trimmed_content != '' -%}
         <div class="prose">
-          {{- content -}}
+          {{ page.content }}
         </div>
       {%- endif -%}
       {%- include posts_section.html tag=page.title max_posts=page.max_posts -%}
