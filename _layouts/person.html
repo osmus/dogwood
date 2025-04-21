@@ -18,10 +18,10 @@ layout: default
             <a href="https://www.openstreetmap.org/user/{{page.osm}}">@{{page.osm}}</a>
           {%- endif -%}
         </div>
-        {%- assign content = page.content | strip_newlines -%}
-        {%- if content != '' -%}
+        {%- assign trimmed_content = page.content | strip_newlines -%}
+        {%- if trimmed_content != '' -%}
           <div class="section-body prose">
-            {{content}}
+            {{ page.content }}
           </div>
         {%- endif -%}
         {%- include person_roles.html person=page-%}
