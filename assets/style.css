@@ -1526,6 +1526,10 @@ ul.org-members li img {
   object-fit: contain;
 }
 
+ul.org-members.level-6 li {
+  height: 56px;
+}
+
 ul.org-members.level-5 li {
   height: 64px;
 }
@@ -1544,6 +1548,10 @@ ul.org-members.level-2 li {
 
 ul.org-members.level-1 li {
   height: 112px;
+}
+
+ul.org-members.level-0 li {
+  height: 132px;
 }
 
 .directory {
