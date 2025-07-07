@@ -306,11 +306,6 @@ th {
   border-color: #4f4e4e;
 }
 
-thead th {
-  vertical-align: bottom;
-  color: #57594D;
-}
-
 .iconsvg {
   fill: currentColor;
   display: inline-block;
