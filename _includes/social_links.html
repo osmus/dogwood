@@ -42,6 +42,9 @@
   {%- if item.email_list -%}
     <li><a href="{{item.email_list}}" title="Get email updates" target="_blank"><svg class="iconsvg"><use xlink:href="#inbox"></use></svg></a></li>
   {%- endif -%}
+  {%- if item.calendar -%}
+    <li><a href="{{ item.calendar | absolute_url }}" title="Calendar"><svg class="iconsvg"><use xlink:href="#calendar"></use></svg></a></li>
+  {%- endif -%}
   {%- if item.slack_channel -%}
     <li><a href="https://{{site.slack}}.slack.com/archives/{{item.slack_channel}}" title="#{{item.slack_channel}} channel on Slack" target="_blank"><svg class="iconsvg"><use xlink:href="#slack"></use></svg></a></li>
   {%- endif -%}
