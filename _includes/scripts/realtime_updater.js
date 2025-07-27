@@ -69,12 +69,12 @@ document.addEventListener("DOMContentLoaded", function() {
     var html = '';
 
     if (logo) {
-      html += '<img class="logo" src="' + logo + '"/>';
+      html += '<img class="logo" src="' + logo + '">';
     }
     html += '<div class="messages">';
     var status = start > now ? 'Upcoming' : 'Happening Now';
     html += '<div class="status-bubble">' + status + '</div>';
-    html += '<p><b>' + title + '</b><br/>' + tagline + '</p>'
+    html += '<p><b>' + title + '</b><br>' + tagline + '</p>'
     html += '</a>';
     
     notice.innerHTML = html;
