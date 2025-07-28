@@ -1,7 +1,3 @@
----
-layout: page
-permalink: /
----
 <a href="https://github.com/osmus/dogwood"><img src="img/logo.svg" style="border:none;width:100px;"></a>
 
 # [Dogwood](https://github.com/osmus/dogwood)
