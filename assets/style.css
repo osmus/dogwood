@@ -529,7 +529,6 @@ ul.headernav > li {
   display: flex;
   align-items: center;
   position: relative;
-  /* don't show hover menu on touch taps */
 }
 ul.headernav > li:last-child {
   margin-left: 12px;
@@ -570,6 +569,9 @@ ul.headernav > li ul.submenu a {
   color: inherit;
   font-weight: 400;
   line-height: 1em;
+}
+ul.headernav > li {
+  /* don't show hover menu on touch taps */
 }
 @media (hover: hover) {
   ul.headernav > li:hover ul.submenu {
@@ -1339,7 +1341,6 @@ article .post-body {
 
 .section {
   width: 100%;
-  margin-bottom: 24px;
 }
 .section .section-header {
   border-bottom: 1px solid rgba(128, 128, 128, 0.26);
@@ -1356,6 +1357,9 @@ article .post-body {
 .section a.section-button {
   font-weight: 600;
   white-space: nowrap;
+}
+.section {
+  margin-bottom: 24px;
 }
 .section h1, .section h2, .section h3, .section h4, .section h5, .section h6 {
   font-family: Georgia, serif;

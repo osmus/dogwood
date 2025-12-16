@@ -1,12 +1,9 @@
-<a href="https://github.com/osmus/dogwood"><img src="img/logo.svg" style="border:none;width:100px;"></a>
+# Dogwood <img src="img/logo.svg" height="35"/> 
 
-# [Dogwood](https://github.com/osmus/dogwood)
+Dogwood is a [theme](https://jekyllrb.com/docs/themes/) for the [Jekyll](https://jekyllrb.com) static site generator which was originally developed by OpenStreetMap US for the [openstreetmap.us](https://openstreetmap.us) website.
 
-Dogwood is the [theme](https://jekyllrb.com/docs/themes/) for the [Jekyll](https://jekyllrb.com) static site generator powering [openstreetmap.us](https://openstreetmap.us). While the content for the OpenStreetMap US website is kept internal to the organization, we've decided to open source the site's theme for the benefit of the community.
-
-Dogwood pushes the envelope of what's possible with static site generators. It supports complex sites with thousands of interconnected, customizable pages, each with their own requirements. For example, you can make a page for a person that links to and from posts they've written, event they've spoken at, and projects they're a part of.
-
-Dogwood is under active development and is not currently versioned. Breaking changes may occur without notice, so we recommend targeting a specific commit of the project of simply forking it.
+> [!WARNING]
+> Dogwood is no longer maintained; [see here for more details and migration instructions](https://github.com/osmus/dogwood/issues/23).
 
 The Dogwood theme is named for Virginia's state flower, since the OpenStreetMap US [website redesign](https://openstreetmap.us/news/2023/06/website-redesign/) was announced onstage at [State of the Map US 2023](https://openstreetmap.us/events/state-of-the-map-us/2023) in Richmond, Virginia.
 
