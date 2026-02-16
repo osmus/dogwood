@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+// Override predefined variables.
+// !default is necessary below to allow these overrides.
+@use "dogwood/custom-variables" as *;
+@forward "dogwood/custom-variables";
+
+$baseurl: "{{site.url}}{{site.baseurl}}";
+
+$sans-serif-font: Helvetica, Arial, sans-serif !default;
+$serif-font: Georgia, serif !default;
+
+$background-color: white !default;
+$primary-color: #d99ab6 !default;
+$primary-color-alt: #ffb9d8 !default;
+$status-color: #930041 !default;
+
+$grid-color: #dedede !default;
+/* the below should look the same as the above when on a white bg */
+/* $alpha-grid-color: rgba(0, 0, 0, 0.13); */
+$alpha-grid-color: rgba(128, 128, 128, 0.26) !default;
+$text-color: #333 !default;
+$dark-background-color: #333 !default;
+$dark-grid-color: rgba(255, 255, 255, 0.13) !default;
+
+$body-text-size: 18px !default;
+$sp: 24px !default;
+$container-width: 1164px !default;
+$container-padding: $sp * 0.75 !default;
+$content-width: calc($container-width - $container-padding * 2) !default;
+$cover-image-height: $container-width * 0.5 !default;
+$text-width: 700px !default;
+$img-width: 880px !default;
+
+$footer-min-height: 490px !default;
+
+$topbar-height: 54px !default;
+
+$avatar-width: calc($content-width * 0.2) !default;
+
+$sections-width: 720px !default;
